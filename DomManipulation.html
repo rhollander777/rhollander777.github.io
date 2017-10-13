@@ -3,59 +3,93 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>DOM Manipulation</title>
+	<style type="text/css">
+	  form {
+	  margin-left:20px; 
+	  font-family:Verdana, Geneva, sans-serif; 
+	  padding:6px;
+	  width: 550px;
+	  font-size: 12;
+	  border: 1px solid rgb(0, 90, 136); 
+	  border-radius: 4px;
+	  }
+	</style>
 </head>
 <body>
+		<div id="div1">
+			<p id="p1">Now is the time for all good men to come to the 
+						aide of their country!  Are you ready, willing, and able?</p>
+			<a id="a1" href="americaTheBeautiful.html">America the Beautiful</a>
+		</div>
 
-<div id="div1">
-<p id="p1">Now is the time for all good men to come to the 
-		   aide of their country!  Are you ready, willing, and able?</p>
-<a id="a1" href="americaTheBeautiful.html">America the Beautiful</a>
-</div>
-
-<h2>#1: Manipulating DOM: insertBefore </h2>
-    <p>Click button to see content inserted before the first paragraph.</p>
- 	<button name="button1"  type="button"  onclick="insertBefore()">Insert Before</button>
-	<br/>
-	<p>Click button to see content inserted after the anchor tag.</p>
-    <button name="button2"  type="button"  onclick="insertAfter()">Insert After</button>
-    <button name="button3"  type="button"  onclick="addAnchor()">Add Anchor</button>
+		<h2>#1: Manipulating DOM: insertBefore </h2>
+		<p id="p2">Click button to see content inserted before this button.</p>
+<!--
+		<form action="" id="form1" style="" >
+			<button name="button1"  type="button"  onclick="insertBefore()">Insert Before</button>
+		</form>
+-->
+		<p>Click button to see content inserted after this button.</p>
+		<form action="" id="form2" style="" >
+			<button name="button2" type="button"  onclick="add()">Add</button>
+		</form>
+		<br/>
+		<p>Click button to see this button removed</p>
+		<form action="" id="form3" style="" >
+			<button name="button3" type="button"  onclick="remove()">Remove</button>
+		</form>
+		<p>Click button to see content append after this button.</p>
+		<form action="" id="form4" style="" >
+			<button name="button4" type="button"  onclick="append()">Append</button>
+		</form>
 <script>
-var para = document.createElement("p");
-var node = document.createTextNode("When we are ready to stand for truth and righteousness, we will make a difference not only for ourselves but those around us.");
-para.appendChild(node);
+	var para = document.createElement("p");
+	var node = document.createTextNode("#1 Are you ready to stand up?");
+	para.appendChild(node);
+	
+	var element = document.getElementById("p1");
+	element.appendChild(para);
 </script>
 <script>
-	function insertBefore() {
-		var para = document.createElement("p");
-		var node = document.createTextNode("When we are ready to stand for truth and righteousness, we will make a difference not only for ourselves but those around us.");
-		para.appendChild(node);
+/*	function insertBefore() {
+		var hdr = document.createElement("p");
+		var node = document.createTextNode("#2 When we are ready to stand for truth and righteousness, we will make a difference not only for ourselves but those around us.");
+		hdr.appendChild(node);
 
-		var element = document.getElementById("button1");
-		var child = document.getElementById("p1");
-		element.insertBefore(para);
+		var element = document.getElementById("h2");
+		var child = document.getElementById("h2");	
+		element.insertBefore(hdr,child);
+	}
+*/
+	function add() {
+		var btn = document.createElement("p");
+		var node = document.createTextNode("#3 Now you are on the road!.");
+		btn.appendChild(node);
+
+		var element = document.getElementById("form2");
+		var child = document.getElementById("button2");
+		element.insertBefore(btn,child); //Remove the button
+	}
+	
+	function remove() {
+		var btn = document.createElement("p");
+		var node = document.createTextNode("");
+		btn.appendChild(node);
+
+		var element = document.getElementById("form3");
+		var child = document.getElementById("button3");
+		element.remove(child); //Remove the button
 	}
 
-	function insertAfter() {
-		var para = document.createElement("p");
-		var node = document.createTextNode("Now you are on the road!.");
-		para.appendChild(node);
-
-		var element = document.getElementById("button2");
-//		var child = document.getElementById("button2");
-//		element.insertAfter(para,child);
-	}
-
-	function addAnchor() {
+	function append() {
 		var anchor = document.createElement("a");
-//		var node = document.anchorcreateTextNode("<a id=""a2"" href=""nextAnchor.html"">Next Anchor</a>");
+		var node = document.createTextNode("#4 Now you are on the road!.");
 		anchor.appendChild(node);
 
-		var element = document.getElementById("a1");
-		var child = document.getElementById("button2");
-		element.insertAfter(anchor,child);
+		var element = document.getElementById("form4");
+		var child = document.getElementById("button4");
+		element.insertBefore(anchor,child);
 	}
-	var element = document.getElementById("div1");
-	var anchor = document.getElementById("a1");
 //element.remove(anchor);
 </script>
 
