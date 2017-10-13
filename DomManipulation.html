@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>DOM Manipulation</title>
+</head>
+<body>
+
+<div id="div1">
+<p id="p1">Now is the time for all good men to come to the 
+		   aide of their country!  Are you ready, willing, and able?</p>
+<a id="a1" href="americaTheBeautiful.html">America the Beautiful</a>
+</div>
+
+<h2>#1: Manipulating DOM: insertBefore </h2>
+    <p>Click button to see content inserted before the first paragraph.</p>
+ 	<button name="button1"  type="button"  onclick="insertBefore()">Insert Before</button>
+	<br/>
+	<p>Click button to see content inserted after the anchor tag.</p>
+    <button name="button2"  type="button"  onclick="insertAfter()">Insert After</button>
+    <button name="button3"  type="button"  onclick="addAnchor()">Add Anchor</button>
+<script>
+var para = document.createElement("p");
+var node = document.createTextNode("When we are ready to stand for truth and righteousness, we will make a difference not only for ourselves but those around us.");
+para.appendChild(node);
+</script>
+<script>
+	function insertBefore() {
+		var para = document.createElement("p");
+		var node = document.createTextNode("When we are ready to stand for truth and righteousness, we will make a difference not only for ourselves but those around us.");
+		para.appendChild(node);
+
+		var element = document.getElementById("button1");
+		var child = document.getElementById("p1");
+		element.insertBefore(para);
+	}
+
+	function insertAfter() {
+		var para = document.createElement("p");
+		var node = document.createTextNode("Now you are on the road!.");
+		para.appendChild(node);
+
+		var element = document.getElementById("button2");
+//		var child = document.getElementById("button2");
+//		element.insertAfter(para,child);
+	}
+
+	function addAnchor() {
+		var anchor = document.createElement("a");
+//		var node = document.anchorcreateTextNode("<a id=""a2"" href=""nextAnchor.html"">Next Anchor</a>");
+		anchor.appendChild(node);
+
+		var element = document.getElementById("a1");
+		var child = document.getElementById("button2");
+		element.insertAfter(anchor,child);
+	}
+	var element = document.getElementById("div1");
+	var anchor = document.getElementById("a1");
+//element.remove(anchor);
+</script>
+
+</body>
+</html>
