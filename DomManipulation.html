@@ -22,48 +22,36 @@
 			<a id="a1" href="americaTheBeautiful.html">America the Beautiful</a>
 		</div>
 
-		<h2>#1: Manipulating DOM: insertBefore </h2>
-		<p id="p2">Click button to see content inserted before this button.</p>
-<!--
-		<form action="" id="form1" style="" >
-			<button name="button1"  type="button"  onclick="insertBefore()">Insert Before</button>
-		</form>
--->
+		<h2>Manipulating DOM:</h2>
+
 		<p>Click button to see content inserted after this button.</p>
 		<form action="" id="form2" style="" >
 			<button name="button2" type="button"  onclick="add()">Add</button>
 		</form>
 		<br/>
+
 		<p>Click button to see this button removed</p>
 		<form action="" id="form3" style="" >
 			<button name="button3" type="button"  onclick="remove()">Remove</button>
 		</form>
+
 		<p>Click button to see content append after this button.</p>
 		<form action="" id="form4" style="" >
 			<button name="button4" type="button"  onclick="append()">Append</button>
+<!--		<button name="button5" type="button" onclick ="removeChild()">Remove Child</button>  -->
 		</form>
 <script>
 	var para = document.createElement("p");
-	var node = document.createTextNode("#1 Are you ready to stand up?");
+	var node = document.createTextNode("#1 Are you ready to stand up?  <--Inserted with appendChild after paragraph 1");
 	para.appendChild(node);
 	
 	var element = document.getElementById("p1");
 	element.appendChild(para);
 </script>
 <script>
-/*	function insertBefore() {
-		var hdr = document.createElement("p");
-		var node = document.createTextNode("#2 When we are ready to stand for truth and righteousness, we will make a difference not only for ourselves but those around us.");
-		hdr.appendChild(node);
-
-		var element = document.getElementById("h2");
-		var child = document.getElementById("h2");	
-		element.insertBefore(hdr,child);
-	}
-*/
 	function add() {
 		var btn = document.createElement("p");
-		var node = document.createTextNode("#3 Now you are on the road!.");
+		var node = document.createTextNode("Now you are on the road!. <--Used paragraph tag.");
 		btn.appendChild(node);
 
 		var element = document.getElementById("form2");
@@ -71,11 +59,7 @@
 		element.insertBefore(btn,child); //Remove the button
 	}
 	
-	function remove() {
-		var btn = document.createElement("p");
-		var node = document.createTextNode("");
-		btn.appendChild(node);
-
+	function remove() { //Removing button
 		var element = document.getElementById("form3");
 		var child = document.getElementById("button3");
 		element.remove(child); //Remove the button
@@ -83,13 +67,21 @@
 
 	function append() {
 		var anchor = document.createElement("a");
-		var node = document.createTextNode("#4 Now you are on the road!.");
+		anchor.setAttribute("id","a2");
+		anchor.innerHTML = '<input type="text">'
+		anchor.innerHTML = '<input value="value","#4 Now you are on the road!. <--Used anchor a2."';
+		var node = document.createTextNode("#4 Now you are on the road!. <--Used anchor a2.");
 		anchor.appendChild(node);
 
 		var element = document.getElementById("form4");
 		var child = document.getElementById("button4");
 		element.insertBefore(anchor,child);
 	}
+	
+//	function removeChild() { //Removing child element
+//		var element = document.getElementById("a2");
+//		document.getElementById("body").removeChild(element);
+//	}	
 //element.remove(anchor);
 </script>
 
