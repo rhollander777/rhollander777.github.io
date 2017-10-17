@@ -1,0 +1,18 @@
+{ "user" :
+[{ 
+	"id":1, 
+	"name":"Sally", 
+	"email":"sally@gmail", 
+	"age":21, 
+	"city":"New York", 
+	"color":"pink"
+},{
+	"id":2, 
+	"name":"John", 
+	"email":"john@gmail", 
+	"age":25, 
+	"city":"Washington",
+    "color":"blue"	
+}
+]
+}

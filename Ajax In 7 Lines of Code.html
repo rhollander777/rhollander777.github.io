@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Tiny AJAX</title>
+</head>
+<body>
+<section>
+	This is a MINIMAL example of AJAX.<BR>
+	Click and view the source to see how basic this example is.<BR>
+	<BR>
+	<strong>Read a small file</strong> will read a text file and replace the button with the text of the source file<BR>
+	<BR>
+	<div id="serverState"></div>
+	<div id="Textdiv">
+		<input type="button" value="Read a small file (.txt)" onclick="getFileFromServer( 'AJAX/textFile.txt', 'Textdiv', false )"/>
+<!--		<input type="button" value="Read a small file" onclick="getFileFromServer( 'textFile.txt', 'Textdiv', false )"/> -->
+		</div>
+	<BR>
+	<strong>Read a JSON file</strong> will read a JSON file and replace the button with the text of the source file<BR>
+	<BR>
+	<div id="JSONdiv">
+		<input type="button" value="Read a JSON file (.JSON)" onclick="getFileFromServer( 'AJAX/JSONFile.json', 'JSONdiv', true )"/>
+	</div>
+	<BR>
+	<div id="JSONdiv2"></div>
+	<BR>
+	<strong>Read an HTML file</strong> will read an HTML file and replace the button with the HTML of the source file<BR>
+	<BR>
+	<div id="HTMLdiv">
+		<input type="button" value="Read a HTML file (.html)" onclick="getFileFromServer( 'AJAX/HTMLFile.html', 'HTMLdiv', false )"/>
+	</div>
+	<BR>
+	<strong>Read an XML file</strong> will read an XML file and create table with XML content<BR>
+	<BR>
+	<div id="XMLdiv">
+		<input type="button" value="Get XML CD file (.xml)" onclick="loadXMLDoc()"/>
+	</div>
+	<table id="demo" border="1">
+	<tr><th>Artist</th><th>Title</th></tr>
+	</table>	
+</section>
+
+<script>
+function getFileFromServer(url, divId, isJSON)
+{
+	//	We need an object that allows us to make requests back to our server
+	var xmlhttp = new XMLHttpRequest();
+	
+	//	This object has an attribute called onreadystatechange. 
+	//	We are going to set the value of that attribute to a pointer to a function
+	//	There are a couple of ways to do that. What I am showing here is an ANONYMOUS function
+	//	Functions are usually defined as    function thisIsMyFunction () { 'put code here' }
+	//	In this case I just say function() without a function name and then provide the code for a function
+	//	You could also have a function defined someplace in your code and set onreadystatechange = thisIsMyFunction
+	//	both work
+	xmlhttp.onreadystatechange =
+			function()
+			{	//	This code is not executed immediately. It is called later when the server starts to respond.
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+					//	This method is going to serve as several kinds of requests
+					//	we are taking the 2nd and 3rd fields from the onclick request and passing them to the worked function
+					doSomethingWithTheResponse(xmlhttp.responseText, divId, isJSON);
+//				else	// this will show us what is happening before the data arrives
+//					document.getElementById( 'serverState' ).innerHTML += "Ready State: " + xmlhttp.readyState + "  Status: " + xmlhttp.status + "<BR>";
+			}
+	//	This is where we make our request to the server. We are passing along the URL for the file we want
+	//	You can see the name of the file we are requesting in the about HTML code.
+	//	Each button has a different file defined
+	xmlhttp.open("GET", url, true);
+	xmlhttp.send();
+	document.getElementById( divId ).innerHTML = xmlhttp.responseText;	
+	//	some time later the above anonymous function will be called and the file will be processed
+}
+
+//	We are going to receive our file and take what we received and do something with it on our web page
+function doSomethingWithTheResponse(response, divId, isJSON) 
+{
+	//	document.getElementById( 'serverState' ).innerHTML += "<BR>";
+	//	Look back at the HTML where the onclick action was defined for each of the different buttons 
+	//	The third field is a boolean. I am using it to flag the returning file as a JSON file (true) or text (false)
+	//	If the data coming back is JSON we need to parse it. Otherwise we are just going to take it as is
+	var responseText = (isJSON) ? JSON.parse(response) : response;
+
+	//	Now we will take the text and do something with it
+	if (isJSON) {
+		document.getElementById( divId+"2" ).innerHTML = "Just the text<BR>" + response;
+		document.getElementById( divId+"2" ).style.color = "red";		
+		document.getElementById( divId ).innerHTML = "Fields from the JSON Object [0]<BR>" + 
+		    "Id: " + responseText.user[0].id + "<BR>" +
+			"Name: " + responseText.user[0].name + "<BR>" +
+			"email: " + responseText.user[0].email + "<BR>" +
+			"City: " + responseText.user[0].city + "<BR>" +
+			"Color: " + responseText.user[0].color + "<BR>" +
+			"JSON is just Key:value pairs - " //+ responseText.thisIsTheKey[0] + "<BR>";
+		document.getElementById( divId ).style.color = responseText.user[0].color;
+	}
+	else {
+		document.getElementById( divId ).innerHTML = responseText;
+		document.getElementById( divId ).style.color = "red";
+//		console.log(document.getElementById( divId ).innerHTML = responseText);
+//		var divValue = document.getElementById( divId );
+//		var btnValue = document.getElementById( button );
+//		document.write("div = " + divValue + " button = " + btnValue);
+	}
+}
+</script>
+<script>
+function loadXMLDoc() {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+  xmlhttp.open("GET", "AJAX/cd_catalog.xml" , true);
+  xmlhttp.send();
+}
+
+function myFunction(xml) {
+  var x, i, xmlDoc, table;
+  xmlDoc = xml.responseXML;
+  table = "<tr><th>Artist</th><th>Title</th></tr>";
+  x = xmlDoc.getElementsByTagName("CD")
+  for (i = 0; i < x.length; i++) { 
+    table += "<tr><td>" + 
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
+</body>
+
+</html>
