@@ -12,14 +12,14 @@
 	<BR>
 	<div id="serverState"></div>
 	<div id="Textdiv">
-		<input type="button" value="Read a small file (.txt)" onclick="getFileFromServer( 'AJAX/textFile.txt', 'Textdiv', false )"/>
+		<input type="button" value="Read a small file (.txt)" onclick="getFileFromServer( 'textFile.txt', 'Textdiv', false )"/>
 <!--		<input type="button" value="Read a small file" onclick="getFileFromServer( 'textFile.txt', 'Textdiv', false )"/> -->
 		</div>
 	<BR>
 	<strong>Read a JSON file</strong> will read a JSON file and replace the button with the text of the source file<BR>
 	<BR>
 	<div id="JSONdiv">
-		<input type="button" value="Read a JSON file (.JSON)" onclick="getFileFromServer( 'AJAX/JSONFile.json', 'JSONdiv', true )"/>
+		<input type="button" value="Read a JSON file (.JSON)" onclick="getFileFromServer( 'JSONFile.json', 'JSONdiv', true )"/>
 	</div>
 	<BR>
 	<div id="JSONdiv2"></div>
@@ -27,7 +27,7 @@
 	<strong>Read an HTML file</strong> will read an HTML file and replace the button with the HTML of the source file<BR>
 	<BR>
 	<div id="HTMLdiv">
-		<input type="button" value="Read a HTML file (.html)" onclick="getFileFromServer( 'AJAX/HTMLFile.html', 'HTMLdiv', false )"/>
+		<input type="button" value="Read a HTML file (.html)" onclick="getFileFromServer( 'HTMLFile.html', 'HTMLdiv', false )"/>
 	</div>
 	<BR>
 	<strong>Read an XML file</strong> will read an XML file and create table with XML content<BR>
@@ -112,7 +112,7 @@ function loadXMLDoc() {
       myFunction(this);
     }
   };
-  xmlhttp.open("GET", "AJAX/cd_catalog.xml" , true);
+  xmlhttp.open("GET", "cd_catalog.xml" , true);
   xmlhttp.send();
 }
 
