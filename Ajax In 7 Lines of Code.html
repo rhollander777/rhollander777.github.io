@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Tiny AJAX</title>
+<title>Ronda's AJAX</title>
 </head>
 <body>
 <section>
-	This is a MINIMAL example of AJAX.<BR>
-	Click and view the source to see how basic this example is.<BR>
+	This sample code locates and loads various files from the server using AJAX.<BR>  
+	File formats include txt, HTML, JSON, and XML.<BR>
+	For each code sample, click the button to see the file content.<BR>
 	<BR>
-	<strong>Read a small file</strong> will read a text file and replace the button with the text of the source file<BR>
+	<strong>Read a small text file </strong> and replace the button with the contents of the source file.<BR>
 	<BR>
 	<div id="serverState"></div>
 	<div id="Textdiv">
@@ -16,7 +17,8 @@
 <!--		<input type="button" value="Read a small file" onclick="getFileFromServer( 'textFile.txt', 'Textdiv', false )"/> -->
 		</div>
 	<BR>
-	<strong>Read a JSON file</strong> will read a JSON file and replace the button with the text of the source file<BR>
+	<strong>Read a JSON file</strong> and replace the button with the source file content displayed two ways.<BR>
+	        User content fields accessed and displayed individually and a complete JSON object file.<BR>
 	<BR>
 	<div id="JSONdiv">
 		<input type="button" value="Read a JSON file (.JSON)" onclick="getFileFromServer( 'JSONFile.json', 'JSONdiv', true )"/>
@@ -24,13 +26,13 @@
 	<BR>
 	<div id="JSONdiv2"></div>
 	<BR>
-	<strong>Read an HTML file</strong> will read an HTML file and replace the button with the HTML of the source file<BR>
+	<strong>Read an HTML file</strong> and replace the button with the source file HTML.<BR>
 	<BR>
 	<div id="HTMLdiv">
 		<input type="button" value="Read a HTML file (.html)" onclick="getFileFromServer( 'HTMLFile.html', 'HTMLdiv', false )"/>
 	</div>
 	<BR>
-	<strong>Read an XML file</strong> will read an XML file and create table with XML content<BR>
+	<strong>Read an XML file</strong> and create table with XML content.<BR>
 	<BR>
 	<div id="XMLdiv">
 		<input type="button" value="Get XML CD file (.xml)" onclick="loadXMLDoc()"/>
