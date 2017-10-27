@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- github.io CSSManipulationJS.html 
+	 Defined styles in external spreadsheet to control look and feel.-->
+<html lang="en-US">
+<head>
+  <title>Ronda Hollander's HTML</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="changeStyle.js"></script>  
+  <style></style>
+</head>
+<body>
+<div id="myContainer" class="myContainer">
+	<div id="myTop" class="myTop">
+		<div id="myHeader" class="myHeader">
+			<table><tr><td>
+			<img class="logoSm" src="images/blueEagle.jpg" alt="blueEagle.jpg"/>
+			</td><td>			
+			<div style="font-family:script; color:lightblue; font-size: 36px; font-weight:heavy;">Code Blue</div>
+			</td></tr></table>
+		</div>
+		<div id="myMenu" class="myMenu">
+		<button id="mnuHome" class="mnu" onclick="<a href='CSSManipulationJS.html'/>">Home</button>
+		<button id="mnuTools" class="mnu" onclick="menuTools.html">Tools</button>
+		<button id="mnuCode" class="mnu" onclick="menuCode.html">Code</button>
+		<button id="mnuTesting" class="mnu" onclick="menuTesting.html">Testing</button>
+		<button id="mnuLogin" class="mnu" onclick="menuLogin.html">Login</button>
+		<button id="mnuLogout" class="mnu" onclick="menuLogout()">Logout</button>
+		<button id="mnuAbout" class="mnu" onclick="menuAbout.html"/>About</button>
+<!--  menu block -->	
+		</div>
+	</div>  <!-- myTop -->
+	<div id="myMiddle" class="myMiddle">
+		<div id="myLeftNav" class="myLeftNav">
+<!--  insert left navigation links -->	
+		</div>
+		<div id="myRightNav" class="myRightNav">
+<!--  insert right navigation links -->		
+		</div>
+		<div id="myContent" class="myContent">
+			<h1>CSS using external css and javascript files</h1>
+			<p>Student: Ronda Hollander</p>
+			<hr>
+			<h2>CSS Manipulation using JavaScript </h2>
+			<div id="myDiv" style="width: 500px;">Click below to Manipulate Me!</div><BR>
+			<div style="width: 450px; margin-left: 30px;">
+				<div style="float: left; width: 150px;">
+						<em>Background Color:</em><BR>
+						<select id="bgPick" onchange="chgStyleByID('myDiv', 'backgroundColor', document.getElementById('bgPick').value)">
+								<option value="#CC0000">red</option>
+								<option value="#FFCC33">yellow</option>
+								<option value="#0000CC">blue</option>
+								<option value="#339900">green</option>
+								<option value="#800080">purple</option>
+								<option value="#FF9900">orange</option>
+								<option value="#000000">black</option>
+								<option value="#FFFFFF">white</option>
+						</select><br><br>
+						
+						<em>Font Color:</em><BR>
+						<select id="fontPick" onchange="chgStyleByID('myDiv', 'color', document.getElementById('fontPick').value)">
+								<option value="#CC0000">red</option>
+								<option value="#FFCC33">yellow</option>
+								<option value="#0000CC">blue</option>
+								<option value="#800080">purple</option>
+								<option value="#FF9900">orange</option>
+								<option value="#000000">black</option>
+								<option value="#FFFFFF">white</option>
+						</select><br><br>
+				</div>
+						
+				<div style="float: left; width: 150px;">
+						
+						<em>Decoration:</em><BR>
+						<select id="decorPick" onchange="chgStyleByID('myDiv', 'textDecoration', document.getElementById('decorPick').value)">
+								<option value="none">none</option>
+								<option value="underline">underline</option>
+								<option value="overline">overline</option>
+	<!--
+								<option value="dotted">dotted</option>
+								<option value="dashed">dashed</option>
+	-->
+						</select><br><br>
+						
+						<em>Font Size:</em><BR>
+						<select id="fontSizePick" onchange="chgStyleByID('myDiv', 'fontSize', document.getElementById('fontSizePick').value)">
+								<option value="4px">4px</option>
+								<option value="8px">8px</option>
+								<option value="12px">12px</option>
+								<option value="14px">14px</option>
+								<option value="16px">16px</option>
+								<option value="20px">20px</option>
+								<option value="24px">24px</option>
+								<option value="30px">30px</option>
+						</select><br><br>
+				</div>
+				<div style="float: left; width: 150px;">
+						
+						<em>Border:</em><BR>
+						<select id="borderPick" onchange="chgStyleByID('myDiv', 'borderStyle', document.getElementById('borderPick').value)">
+								<option value="none">none</option>
+								<option value="solid">solid</option>
+								<option value="dotted">dotted</option>
+								<option value="dashed">dashed</option>
+								<!--
+								<option value="dotted">dotted</option>
+								<option value="dashed">dashed</option>
+	-->
+						</select><br><br>
+				</div>
+						
+				<br style="clear: left;" />
+			</div>
+			<div id="myDiv">
+				<table id="tblGroup"style="width: 75%;" >
+					<th>Date</th>
+					<th>Time</th>
+					<th>Location</th>
+					<th>Link</th>
+					<tr><td>10/26/17</td>
+						<td>7:00PM Arizona</td>
+						<td>hangouts.google.com</td>
+						<td><a href="https://hangouts.google.com/call/mX2FU3PXPJQ_uQ0JPlD4AAEE" alt="">Group 5 Hangout</a></td><BR>
+					</tr>
+				</table>
+			</div>
+			<table id="tblFeelings" class="myTable">
+				<th>How are you feeling?</th>
+				<tr><td><a href="images/smiley.gif" alt="smiley.gif">Happy</a></td></tr>
+				<tr><td>Sad</td></tr>
+				<tr><td>Angry</td></tr>
+				<tr><td>Silly</td></tr>
+			</table>
+
+		</div> <!-- myContent -->
+	</div>     <!-- myMiddle -->
+	<div id="myFooter"class="myFooter">
+<!--  insert contact info info or links -->	
+		<table style="margin-left: 25%; width: 58%;"><tr>
+			<td><a hred="index.html">Home</a></td>
+			<td><a hred="">Contact Us</a></td>
+			<td><a hred="">About</a></td>
+			<td><a hred="">Copyright</a></td>		
+		</div>
+</div>  <!-- myContainer -->
+	<script>
+	 
+	</script>
+</body>
+</html>
