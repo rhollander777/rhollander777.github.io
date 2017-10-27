@@ -1,0 +1,55 @@
+<!-- mike summers mystyles.css-->
+
+
+tr:nth-child(even) {background: #E0E0E0;}
+tr:nth-child(odd) {background: #FFFFFF;}
+td {
+  padding: 10px;
+}
+
+.mycoolcontainer {
+  margin: auto;
+  display: flex;
+}
+.mycoolleftdiv {
+  width: 25%;
+  float: left;
+}
+.mycoolrightdiv {
+  margin-left: 15%;
+  text-align: center;
+  font-size: 18px;
+}
+
+div.codediv {
+  border: 2px solid #666666;
+  background-color: #EFEFEF;
+  margin: 20px;
+  padding: 20px;
+}
+
+div.myjournalentry {
+  border: 1px solid #f3e17d;
+  background-color: #fff7c7;
+  margin: 10px;
+  padding: 20px;
+  font-size: 14px;
+  color: #666666;
+}
+
+div.myjournaldate {
+  color: #ed9700;
+  font-weight: bold;
+  font-size: 16px;
+  border-bottom: 1px solid #f3e17d;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+div.codehdr {
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+}

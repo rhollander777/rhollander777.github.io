@@ -1,0 +1,247 @@
+/* Ensure content starts with same canvas no matter the browser */
+html, body {
+   margin: 0px;
+   padding: 0px;
+   border: 0px;
+/*   border-style: double; */
+   border-width: thick;
+   border-color: purple;
+   color: Cornsilk;
+   height: 100%;
+   width: 100%;
+}
+ /* Using em ensures web page is accessible */
+ /* dt is for definition term and dd is for definition detail.  Used with dl for definition list */
+html, body, p, li, dd, dt {
+    font: 1em Arial, Helvetica, sans-serif,Script, Geneva;
+ 	text-align: left;
+	color: purple;  
+}
+li {
+	margin-left: 10px;
+}
+   /* Set default header settings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, Helvetica, sans-serif,Script, Geneva;
+	text-align: left;
+	color: purple;
+}
+h1 { 
+   font-size: 2em;
+}
+h2 { 
+   font-size: 1.5em;
+   text-decoration: underline; 
+}
+h3 { font-size: 1.2em; }
+h4 { font-size: 1.0em; }
+h5 { font-size: 0.9em; }
+h6 { font-size: 0.8em; }
+
+ /* Default color for common link area */
+ /* Default format for stand tags */
+ /* Set paragraph content, lists, and tables to dark blue content */
+#myContainer {
+	padding: 0px;
+	margin:  0px;
+	height: auto;
+	width: auto;
+	background-color: blue;
+}
+#myTop {
+    border-bottom: 1px solid gray;	
+/*	margin-top: 8%;*/
+}
+#myHeader {
+	padding: 3px;
+	height: auto;
+	width: auto;
+	color: cornsilk;
+	align-content: top;
+	font-size: 16px;
+}
+#myMenu {
+	margin-left: 17%;
+	height: auto;
+	width: auto;
+	padding-top: 5px;
+}
+#myMiddle {
+	height: auto;
+	width: auto;
+    border: 1px solid #009;	
+}
+#myLeftNav {
+	height: auto;	
+	width: 17%;
+/*	margin-top: 8%;
+	margin-bottom: 3%;*/
+	margin-right: 83%;
+	align-content: left;
+	color: cornsilk;
+    border-top: 1px solid gray;		
+	border-right: 1px solid gray;
+	background-color: lightblue;
+}
+#myContent {
+/*	height: 90%; */
+	height: auto;
+	width: 66%;
+	margin-left: 17%;
+	margin-right: 17%;
+	margin-bottom: 3%;
+	align-content: center;
+	border: 1px solid gray;
+	background-color: white;
+	padding-left: 10px;
+}
+#myRightNav {
+	height: auto;	
+	width: 17%;
+/*	margin-top: 8%;
+	margin-bottom: 3%;*/
+	margin-left: 83%;
+	color: cornsilk;
+	align-content: right;
+    border-top: 1px solid gray;	
+	border-left: 1px solid gray;
+}
+#myFooter {
+/*	height: 3%;*/
+	height: auto;
+	width: auto;
+    border: 1px solid gray;
+	align-content: bottom;
+}
+
+th {
+   color: #009;  
+   text-align: center;
+   font-weight: heavy; 
+   padding: 5px;
+   width: auto;
+}
+.myTable {
+	font-family: helvetica, arial,sans-serif;
+	width: 50%;
+	background-color: grey;
+	color: yellow;
+	align-content: left;
+	text-align: center;
+	padding: 10px;
+	margin-left: 100px;
+}
+#myTable.td {
+	font-family: helvetica, arial, sans-serif;
+	color: yellow;  
+	text-align: left;
+	font-size: 16px;
+	border: 1px solid CornSilk;
+	background-color: white;
+	padding: 5px;
+	width: 66%;
+	align-content: center;
+}
+
+#myTable + a {
+	color: yellow; 
+}
+
+#myTable.a:hover {
+	color: #06F; 
+}
+   /* Set Definitions to dark green */
+dt, dd {
+   color: "dark green";
+   font-family: Script;
+   font-weight: heavy;
+}
+#myDiv {
+	background-color: #ffffff;  
+	color: #009;
+	padding: 15px;
+	margin: 10px;
+	border: 2px solid #000000;
+	font-size: 18px;
+	text-align: left;
+	font-weight: bold;
+	height: auto;
+	width: auto;
+}
+/*div {
+   background-color: cornsilk;
+   }
+*/
+   /* Uppercase first letter of first paragraph within div tags */
+div + p::first-letter {
+	text-transform: uppercase;
+	text-size: 1.2em;
+	text-style: Helvetica;
+}
+
+
+   /* Set no border so box does not appear when image cannot be found */
+.column1 {
+     column-count:  3;
+     column-gap:  25px;
+     column-rule:  1px solid lightblue;
+}
+.column2 {
+     column-count:  3;
+     column-gap:  25px;
+     column-rule:  1px solid lightblue;
+}
+.column3 {
+     column-count:  3;
+     column-gap:  25px;
+     column-rule:  1px solid lightblue;
+}
+
+img {
+   border: 0px;
+   padding: 0px;
+}
+.logoSm {
+   height: 70px;
+   width: 70px;
+   border: 0px;
+   padding: 0px;
+}
+.mnu {
+	color: purple;
+	font-size: 20px;
+}
+.button.mnu:hover {
+	background-color: #009
+	color: lightblue;
+	font-size: 20px;
+}
+   /* If div used within body with <div id="page-wrap"...>, web page content will be centered */
+#page-wrap {
+     width: 800px;
+     margin: 0 auto;
+}
+   /* Sample of stitching inside rounded corner rectangle */
+.stitched {
+   padding: 20px;
+   margin: 10px;
+   background: #ff0030;
+   color: #fff;
+   font-size: 21px;
+   font-weight: bold;
+   line-height: 1.3em;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #ff0030, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   font-weight: normal;
+}
+.dotted {
+   border-style: dotted;
+   border-width: 2px;
+}
+   /* Defaut color variations of blue.  CHANGE AS DESIRED WHEN SITE COLORS DEFINED */
+a:link { color: #0000FF; } /* blue*/
+a:visited { color: #009; } /* #FF00FF=fuchsia  #009=dark blue */
+a:hover { color: #06F; } /* light blue */
+a:active { color: #0CF; } /* pale blue */
