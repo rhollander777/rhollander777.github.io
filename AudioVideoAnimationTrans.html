@@ -1,0 +1,147 @@
+<!DOCTYPE html> 
+<!-- Sample of Audio, Video, Auto Animation, Click Animation, and Transitions -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hollander-Video, Audio, CSS Animation</title>
+    <style type="text/css">
+	  form, pre {
+		  margin-left:20px; 
+		  font-family:Verdana, Geneva, sans-serif; 
+          padding:6px;
+          width: 550px;
+          font-size: 12;
+	      border: 1px solid rgb(0, 90, 136); 
+          border-radius: 4px;
+	  }
+	  table {
+		  border: 1px solid black;
+		  margin-left: 20px;
+	  }
+	  td {
+		  text-align: center;
+	  }
+	  h1{
+		  color: darkblue;
+	  }
+	  h2 {
+		  border-bottom-style: solid;
+		  color: red;
+	  }
+/* The element to apply the animation to */
+	  canvas {
+		  width: 200px;
+		  height: 200px;
+		  background-color: red;
+		  animation-name: example;
+		  animation-duration: 15s; 
+	  }
+	  
+/* The animation code */
+/* standard syntax */
+		@keyframes example {
+			0%  {background-color: black;}
+			5%  {background-color: #9400D3;}
+			10% {background-color: #4B0082;}
+			15% {background-color: #0000FF;}
+			20% {background-color: #00FF00;}
+			25% {background-color: #FFFF00;}
+			30% {background-color: #FF7F00;}
+			35% {background-color: #FF0000;}
+			40%	{background-color: white;
+				 width: 100px;
+				 height: 100px;
+				}
+			60% {background-color: radiantOrchid;}	
+			61% {background-color: violetTulip;}
+			69% {background-color: skyBlue;}
+			77% {background-color: lightGreen;
+			}	
+			85% {background-color: lemonChiffon;
+			}	
+			93% {background-color: sandyBrown;}	
+			100% {border: 15px solid black;
+				  border-radius: 10px;
+			}			
+		}
+
+
+/* Safari 4.0 - 8.0 */
+		@-webkit-keyframes example {
+			0%   {background-color: black;}
+			25%  {background-color: orange;}
+			50%  {background-color: yellow;}
+			75%  {background-color: blue;}
+			100% {background-color: green;}
+		}
+	</style>
+  </head>
+  
+<body>
+	<h1>I'm Proud to be an America where at least I know I'm free!</h1>
+	<h2>Please don't take that away from me.</h2>
+	<img src="images/usa-american-flag-gif-3.gif" alt="American Flag" style="width:auto;height:200px;" /> External Image
+	<hr>
+	<h1>Audio Example</h1>
+	<table><tr><td>Star Wars</td><td>
+		<audio controls>
+		  <source src="audio/swmarch.ogg" type="audio/ogg">
+		  <source src="audio/swmarch.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+	</td></tr></table>
+	<hr>
+
+	<h1>Video Examples </h1>
+		<table><tr><td>Pilgrim Studies embedded using<br><b><em>video tag</em></b></td><td>
+		<video width="320" height="240" controls>
+			<source src="video/pilgrims.mp4" type="video/mp4">
+			<source src="??insertfile??.ogg" type="video/ogg">
+		Your browser does not support the video tag.
+		</video>
+		</td></tr></table>
+		<table><tr><td>Pilgrim Studies embedded using<br><b><em>youtube</em></b></td><td>
+<!--  Add text or image on top of video
+	<position="realtive" -->
+		<iframe width="290" height="180" src="https://www.youtube.com/embed/Aij_id00_Kk" frameborder="0" gesture="media" allowfullscreen></iframe>
+		</td></tr></table>
+	<hr>
+	<h1>Hover over image for transition</h1>
+	
+	<hr>
+	<h1>Auto animation </h1>
+	<table><tr><td>Refresh browser to see <br><b><em>automated animation</em></b></td><td>
+		<div>
+		<canvas></canvas>
+
+<!--  Example of creating a box with inner box on the fly	
+		<canvas id="canvas1" width="300" height="150"></canvas>
+			<script>	
+				(function() {
+				var canvas = document.getElementById('canvas1');
+				if (canvas.getContext){
+				  var ctx = canvas.getContext('2d');
+				  ctx.fillStyle="#0000FF";
+				  ctx.fillRect(0,0,300,150);
+				}
+				ctx.strokeRect(75,25,150,100);
+				ctx.fillStyle="	#FFFF00"
+				ctx.fillRect(100,40,100,75);
+			  })();
+			</script>
+-->		
+		</div>
+		</td></tr></table>
+	<hr>
+	<h1>Click animation (under construction)</h1>
+	<table><tr><td>Click to see <br><b><em>animation sequence</em></b></td><td>
+		<div>
+		<canvas></canvas>
+
+		</div>
+		</td></tr></table>
+	<hr>		
+	<a href="index.html">CIT261 Home Page</a><br>	
+	<a href="DomManipulation.html">Back to Dom Manipulation</a>
+</body>
+</html>
