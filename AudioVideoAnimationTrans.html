@@ -33,47 +33,55 @@
 		  width: 200px;
 		  height: 200px;
 		  background-color: red;
+		  animation-name: rainbow;
+		  animation-duration: 10s; 
+	  }
+	  canvas2 {
+		  width: 200px;
+		  height: 200px;
+		  background-color: black;
 		  animation-name: example;
-		  animation-duration: 15s; 
+		  animation-duration: 0s; 
 	  }
 	  
 /* The animation code */
 /* standard syntax */
-		@keyframes example {
-			0%  {background-color: black;}
-			5%  {background-color: #9400D3;}
-			10% {background-color: #4B0082;}
-			15% {background-color: #0000FF;}
-			20% {background-color: #00FF00;}
-			25% {background-color: #FFFF00;}
-			30% {background-color: #FF7F00;}
-			35% {background-color: #FF0000;}
-			40%	{background-color: white;
-				 width: 100px;
-				 height: 100px;
-				}
-			60% {background-color: radiantOrchid;}	
-			61% {background-color: violetTulip;}
-			69% {background-color: skyBlue;}
-			77% {background-color: lightGreen;
-			}	
-			85% {background-color: lemonChiffon;
-			}	
-			93% {background-color: sandyBrown;}	
-			100% {border: 15px solid black;
-				  border-radius: 10px;
-			}			
-		}
+	@keyframes rainbow {
+		0%  {background-color: black;}
+		5%  {background-color: #9400D3;}
+		10% {background-color: #4B0082;}
+		15% {background-color: #0000FF;}
+		20% {background-color: #00FF00;}
+		25% {background-color: #FFFF00;}
+		30% {background-color: #FF7F00;}
+		35% {background-color: #FF0000;}
+		45%	{background-color: white;
+			 width: 100px;
+			 height: 100px;
+			}
+		48% {background-color: thistle;}
+		50% {background-color: lavendar;}	
+		58% {background-color: plum;}
+		67% {background-color: skyBlue;}
+		75% {background-color: lightGreen;}	
+		83% {background-color: lemonChiffon;
+		}	
+		90% {background-color: sandyBrown;}	
+		100% {background-color: sandyBrown;
+			  border: 15px solid black;
+			  border-radius: 10px;
+		}			
+	}
 
 
 /* Safari 4.0 - 8.0 */
-		@-webkit-keyframes example {
-			0%   {background-color: black;}
-			25%  {background-color: orange;}
-			50%  {background-color: yellow;}
-			75%  {background-color: blue;}
-			100% {background-color: green;}
-		}
+	@-webkit-keyframes rainbow {
+		0%   {background-color: black;}
+		25%  {background-color: orange;}
+		50%  {background-color: yellow;}
+		75%  {background-color: blue;}
+		100% {background-color: green;}
+	}
 	</style>
   </head>
   
@@ -105,14 +113,12 @@
 	<position="realtive" -->
 		<iframe width="290" height="180" src="https://www.youtube.com/embed/Aij_id00_Kk" frameborder="0" gesture="media" allowfullscreen></iframe>
 		</td></tr></table>
-	<hr>
-	<h1>Hover over image for transition</h1>
-	
+
 	<hr>
 	<h1>Auto animation </h1>
 	<table><tr><td>Refresh browser to see <br><b><em>automated animation</em></b></td><td>
 		<div>
-		<canvas></canvas>
+		<canvas id="canvas1" name="canvas1"></canvas>
 
 <!--  Example of creating a box with inner box on the fly	
 		<canvas id="canvas1" width="300" height="150"></canvas>
@@ -136,10 +142,13 @@
 	<h1>Click animation (under construction)</h1>
 	<table><tr><td>Click to see <br><b><em>animation sequence</em></b></td><td>
 		<div>
-		<canvas></canvas>
+		<canvas2></canvas2>
 
 		</div>
 		</td></tr></table>
+	<hr>
+	<h1>Hover over image for transition (under construction)</h1>
+	
 	<hr>		
 	<a href="index.html">CIT261 Home Page</a><br>	
 	<a href="DomManipulation.html">Back to Dom Manipulation</a>
