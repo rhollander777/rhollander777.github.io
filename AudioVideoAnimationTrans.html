@@ -20,7 +20,7 @@
 	  }
 	  table {
 		  border: 1px solid black;
-		  margin-left: 20px;
+		  margin-left: 100px;
 	  }
 	  td {
 		  text-align: center;
@@ -54,10 +54,18 @@
 			left: 50%;
 			transform: translate(-50%, -50%);
 	  }
-
+	  img { width: 75px;
+			height: 75px;
+			transition: width 2s;
+			-webkit-transistion: 2s;
+	  }
+	  img:hover {
+			width: 300px;
+			height: 300px;
+	  }
 	  span {
 			position: absolute;
-			width: 20px;
+	 		width: 20px;
 			height: 20px;
 			animation: animate 4s infinite ease-in-out;
 	  }
@@ -163,7 +171,7 @@
 		</td></tr></table>
 
 	<hr>
-	<h1>Auto animation </h1>
+	<h1>Animation - Automatic Color and Style changes </h1>
 	<table><tr><td>Refresh browser to see <br><b><em>automated animation</em></b></td><td>
 		<canvas id="rainbow" name="rainbow"></canvas>
 
@@ -185,7 +193,7 @@
 -->		
 	</td></tr></table>
 	<hr>
-	<h1>Rotation animation</h1><br><br>
+	<h1>Animation - Rotation</h1><br><br>
 	<div class="center">
 		<table style="position: fixed;"><tr><td>Rotations 180 and 360 deg <br><b><em>animation sequence</em></b></td><td>
 <!--			<canvas id="span" name="span" width="50" height="50" onclick="animate> -->
@@ -193,10 +201,10 @@
 			</canvas>
 		</td></tr></table>
 	</div>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br>
 	<hr>
 	<h1>Hover over image for transition (under construction)</h1>
-	
+		<img style="margin-left: 100px;" src="images/blueEagle.jpg" alt=="Blue Eagle" />
 	<hr>		
 	<a href="index.html">CIT261 Home Page</a><br>	
 	<a href="DomManipulation.html">Back to Dom Manipulation</a>
