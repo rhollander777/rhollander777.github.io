@@ -5,6 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Hollander-Video, Audio, CSS Animation</title>
     <style type="text/css">
+	  body {
+			margin: 0;
+			padding: 0;
+	  }
 	  form, pre {
 		  margin-left:20px; 
 		  font-family:Verdana, Geneva, sans-serif; 
@@ -36,15 +40,59 @@
 		  animation-name: rainbow;
 		  animation-duration: 10s; 
 	  }
-	  canvas2 {
-		  width: 200px;
-		  height: 200px;
-		  background-color: black;
-		  animation-name: example;
-		  animation-duration: 0s; 
+/* Styled for animation */
+	  div {
+		  width: 50%;
+		  height: 20%;
+		  background-color: white;
+		  animation-name: animate;
+		  animation-duration: 10s; 
+	  }	  
+	  .center {
+			position: relative;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
 	  }
+
+	  span {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			animation: animate 4s infinite ease-in-out;
+	  }
+	  span:nth-child(1) {
+			left: -24px;
+			top: -24px;
+			animation-delay: .2s;
+			}
+	  span:nth-child(2) {
+			left: 0;
+			top: -24px;
+			animation-delay: .4s;
+			}
+	  span:nth-child(3) {
+			left: -24px;
+			top: 0;
+			animation-delay: .8s;			
+	  }
+	  span:nth-child(4) {
+			left: 0;
+			top: 0;
+			animation-delay: .6s;
+	  }
+/* sample backgrounds that can be alternated span background: #261626;  span:nth-child background: #00deea; alt	background: #00485f; */
+/* The rotation animation code */
+	  @keyframes animate {
+		0%  {transform: rotateY(0deg);}
+		20% {transform: rotateY(360deg);}
+		40% {transform: rotateY(180deg);}
+		60% {transform: rotateY(0deg);}
+		80% {transform: rotateY(360deg);}
+		100% {transform: rotateY(180deg);}
+		}
 	  
-/* The animation code */
+/* The rainbow colors animation code */
 /* standard syntax */
 	@keyframes rainbow {
 		0%  {background-color: black;}
@@ -117,8 +165,7 @@
 	<hr>
 	<h1>Auto animation </h1>
 	<table><tr><td>Refresh browser to see <br><b><em>automated animation</em></b></td><td>
-		<div>
-		<canvas id="canvas1" name="canvas1"></canvas>
+		<canvas id="rainbow" name="rainbow"></canvas>
 
 <!--  Example of creating a box with inner box on the fly	
 		<canvas id="canvas1" width="300" height="150"></canvas>
@@ -136,16 +183,17 @@
 			  })();
 			</script>
 -->		
-		</div>
-		</td></tr></table>
+	</td></tr></table>
 	<hr>
-	<h1>Click animation (under construction)</h1>
-	<table><tr><td>Click to see <br><b><em>animation sequence</em></b></td><td>
-		<div>
-		<canvas2></canvas2>
-
-		</div>
+	<h1>Rotation animation</h1><br><br>
+	<div class="center">
+		<table style="position: fixed;"><tr><td>Rotations 180 and 360 deg <br><b><em>animation sequence</em></b></td><td>
+<!--			<canvas id="span" name="span" width="50" height="50" onclick="animate> -->
+				<img class="center" src="images/blueEagle.jpg" alt=="Blue Eagle" />
+			</canvas>
 		</td></tr></table>
+	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<hr>
 	<h1>Hover over image for transition (under construction)</h1>
 	
