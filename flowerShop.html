@@ -35,7 +35,7 @@
 //	  x = arr.getElementsByTagName("flower");
 	  for (i = 0; i < arr.flower.length; i++) { 
 		vOut += '<tr><td><img src="' + 
-		arr.flower[i].product  + 
+		arr.flower.product[i]  + 
 /*		'" alt="' + x[i].getElementsByTagName("Product")[i].childNodes[i].nodeValue + '"></td><td>' +
 		x[i].getElementsByTagName("Name")[i].childNodes[i].nodeValue +
 		"</td></tr>";
@@ -44,7 +44,7 @@
 		x[i].getElementsByTagName("Price")[i].childNodes[i].nodeValue +
 	*/
 		"</td></tr>\n"; 
-		alert(arr.flower[i].length);
+		alert(arr.flower.length);
 		console.log( vOut);
 	 }
 		alert(vOut);
