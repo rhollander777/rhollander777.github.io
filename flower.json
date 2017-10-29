@@ -1,7 +1,7 @@
 { "flower" :
 [{ 
 	"id":1, 
-	"Product":"images/shop_bloueOrchids.jpg", 
+	"Product":"images/shop_blueOrchids.jpg", 
 	"Name":"Premium Cut Blue Orchids (10 Stems with Rhinestones)", 
 	"Code":"BORCHB25000", 
 	"Price":22.99
@@ -13,8 +13,8 @@
 	"Price":39.99 
 },{
 	"id":3, 
-	"Product":"images/shop_multiRose.jpg", 
-	"Name":"ProFlowers Multi-Colored Rainbow Roses, with Vase, 24.", 
+	"Product":"images/shop_multiRoseS.jpg", 
+	"Name":"ProFlowers Multi-Colored Rainbow Roses, with Vase, 24", 
 	"Code":"BMULTIR25000", 
 	"Price":29.99 
 },{
