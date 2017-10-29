@@ -4,36 +4,36 @@
 	"Product":"images/shop_bloueOrchids.jpg", 
 	"Name":"Premium Cut Blue Orchids (10 Stems with Rhinestones)", 
 	"Code":"BORCHB25000", 
-	"Price":22.99", 
+	"Price":22.99
 },{
 	"id":2, 
 	"Product":"images/shop_colorMix25.jpg", 
 	"Name":"ProFlowers 25 Count Multi-Colored 100 blooms of Peruvian delight", 
 	"Code":"BMULTP25100", 
-	"Price":39.99", 
+	"Price":39.99 
 },{
 	"id":3, 
 	"Product":"images/shop_multiRose.jpg", 
 	"Name":"ProFlowers Multi-Colored Rainbow Roses, with Vase, 24.", 
 	"Code":"BMULTIR25000", 
-	"Price":29.99", 
+	"Price":29.99 
 },{
 	"id":4, 
 	"Product":"images/shop_pinkRosesWhite.jpg", 
 	"Name":"Benchmark Bouquets Signature Roses and Alstroemeria"", 
 	"Code":"BSIGNBAL000", 
-	"Price":39.99", 
+	"Price":39.99 
 },{
 	"id":5, 
 	"Product":"images/shop_sunshine.jpg", 
 	"Name":"Benchmark Bouquets Rays of Sunshine, with Vase", 
 	"Code":"BSUNSB01000", 
-	"Price":39.46", 
+	"Price":39.46 
 },{
 	"id":6, 
 	"Product":"images/shop_sunflowers.jpg", 
 	"Name":"Benchmark BouquetsYellow Sunflowers, with Vase", 
 	"Code":"BSUNFB10000", 
-	"Price":26.77", 
+	"Price":26.77 
 ]
 }
