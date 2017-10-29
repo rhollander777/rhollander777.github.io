@@ -65,7 +65,7 @@
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
 	function addToCart(code, qty, price) {
-		Alert("code: " + code + "<br>qty: 1<br>" + price);
+		alert("code: " + code + "<br>qty: 1<br>" + price);
 		if ( qty > 0 && price > 0) {
 		  	vCalcCost = qty * price;
 		} else if (qty < 1) {
@@ -80,7 +80,7 @@
 		cartCnt++;
 	}
 	function getCart() {
-		Alert("code: " + code + "<br>qty: 1<br>" + price);
+		alert("code: " + code + "<br>qty: 1<br>" + price);
 // Need to load table and post to sCart
 		var vCart = "Code: " +
 		localStorage.getItem('code') + 
@@ -91,7 +91,7 @@
 		document.getElementById("sCart").innerHTML = vCart;
 	}
 	function removeFromCart() {
-		Alert("code: " + code + "<br>qty: 1<br>" + price);
+		alert("code: " + code + "<br>qty: 1<br>" + price);
      		localStorage.removeItem('code');
 		localStorage.removeItem('qty');
 		localStorage.removeItem('price');
