@@ -30,6 +30,9 @@
 
 	function loadFile(arr, divId, isJson) {
 	  var x, i, vTable;
+  	  var myJSON =  JSON.stringify(arr);
+	  alert(myJSON);
+	  alert(myJSON.length);
 	  var vOut = "";
 	  vTable = "<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>\n";
 //	  x = arr.getElementsByTagName("flower");
