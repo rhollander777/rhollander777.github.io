@@ -33,9 +33,9 @@
 	  var vOut = "";
 	  vTable = "<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>\n";
 //	  x = arr.getElementsByTagName("flower");
-	  for (i = 0; i < arr.flower.length; i++) { 
+	  for (i = 0; i < arr.length; i++) { 
 		vOut += '<tr><td><img src="' + 
-		arr.flower.product[i]  + 
+		arr.flower[i].product[i]  + 
 /*		'" alt="' + x[i].getElementsByTagName("Product")[i].childNodes[i].nodeValue + '"></td><td>' +
 		x[i].getElementsByTagName("Name")[i].childNodes[i].nodeValue +
 		"</td></tr>";
@@ -44,7 +44,7 @@
 		x[i].getElementsByTagName("Price")[i].childNodes[i].nodeValue +
 	*/
 		"</td></tr>\n"; 
-		alert(arr.flower.length);
+		alert(arr.length);
 		console.log( vOut);
 	 }
 		alert(vOut);
