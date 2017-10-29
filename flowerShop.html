@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
-<body onload(getFileFromServer('url', 'catalog1', true)>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hollander Flower Shop</title>	
+</head>
+<body onload(getFileFromServer('flower.json', 'catalog1', true)>
 	<h1>Fergie's Fresh Cut Flowers</h1>
 
-	<input type="button" value="Get Flower Catalog" onclick="getFileFromServer('flower.json','catalog1', true)" />
+//	<input type="button" value="Get Flower Catalog" onclick="getFileFromServer('flower.json','catalog1', true)" />
 
 	<table id="catalog1" name="catalog1" border="1">
 	<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>
 	</table>
-
+	<input type="button" value="View Cart="getCart()" />	
+	<input type="button" value="Remove Cart="removeFromCart()" />
+	<input type="button" value="Check Out" onclick="alert("Call 888-888-8888 or check back later. <br>Fulfillment page under construction. Thank you for your business.)" /><br><br>
 	<script>
+	var cart = "";
+	var cartCnt = 0;
+	var vCalcCost = 0;
 	function getFileFromServer(url, divId, isJSON) {
 	  var xmlhttp = new XMLHttpRequest();
 	  xmlhttp.onreadystatechange = 
@@ -37,22 +46,53 @@
 //	  alert("Product index 1 = " + arr.flower[1].Product);
 //	  alert("array flower length = " + arr.flower.length);
 	  var vOut = "";
-	  vTable = "<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>\n";
+	  vTable = "<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th><th>Add</th><th>Remove</th></tr>\n";
 	  for (i = 0; i < arr.flower.length; i++) { 
 		vOut += '<tr><td><img src="' + 
 		arr.flower[i].Product  + 
 			'" alt="' + arr.flower[i].Product + 
-			'" onclick="addToCart(arr.flower[i}.code, arr.flower[i].price "/></td><td>' +
+			'" onclick="addToCart(arr.flower[i].code, 1, arr.flower[i].price "/></td><td>' +
 		arr.flower[i].Name + "</td><td>" +
 		arr.flower[i].Code + "</td><td>$" +
-		arr.flower[i].Price +  "</td></tr>\n"; 
+		arr.flower[i].Price +  "</td><td>" +
+		  	'<input type="checkbox" id="addCb[i]" oncheck="addToCart(document.getElementById(addCB[i]), 0, 0)" /></td><td>' +
+			'<input type="checkbox" id="delCB[i]" oncheck="removeFromCart(0, 0, 0)" /></td></tr>\n'; 
 //		console.log( vOut);
 	 }
 //		alert(vOut);
 
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
-
+	function addToCart(code, qty, price) {
+		Alert("code: " + code + "<br>qty: 1<br>" + price);
+		if ( qty > 0 && price > 0) {
+		  	vCalcCost = qty * price;
+		} else if (qty < 1) {
+			vCalcCost = 1 * price;
+		} else { alert("Invalid price.  Reselect item");
+		         return false;
+		       }
+     		localStorage.setItem('code', code);
+		localStorage.setItem('qty', 1);
+		localStorage.setItem('price', price);
+		localStorage.setItem('liCost', vCalcCost);
+		cartCnt++;
+	}
+	function getCart(code, qty, price) {
+		Alert("code: " + code + "<br>qty: 1<br>" + price);
+     		localStorage.getItem('code');
+		localStorage.getItem('qty');
+		localStorage.getItem('price');
+		localStorage.getItem('liCost');
+	}
+	function removeFromCart(code, qty, price) {
+		Alert("code: " + code + "<br>qty: 1<br>" + price);
+     		localStorage.removeItem('code');
+		localStorage.removeItem('qty');
+		localStorage.removeItem('price');
+		localStorage.removeItem('liCost');
+		cartNbr--;
+	}
 	</script>
 </body>
 </html>
