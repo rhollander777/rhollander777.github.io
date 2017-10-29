@@ -6,16 +6,18 @@
 </head>
 <body onload(getFileFromServer('flower.json', 'catalog1', true)>
 	<h1>Fergie's Fresh Cut Flowers</h1>
-
+	<div id="sCart" name="sCart"></div>
+	
 	<input type="button" value="Get Flower Catalog" onclick="getFileFromServer('flower.json','catalog1', true)" /> 
 
-	<table id="catalog1" name="catalog1" border="1">
-	<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>
-	</table>
-	<input type="button" value="View Cart" onclick="getCart()" />	
-	<input type="button" value="Remove Cart" onclick="removeFromCart()" />
-	<input type="button" value="Check Out" onclick="alert("Call 888-888-8888 or check back later. Fulfillment page under construction. Thank you for your business.)" /><br><br>
-	<div id="sCart" name="sCart"></div>
+	<div id="sCatalog" name="sCatalog">
+		<table id="catalog1" name="catalog1" border="1">
+		<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>
+		</table>
+		<input type="button" value="View Cart" onclick="getCart()" />	
+		<input type="button" value="Remove Cart" onclick="removeFromCart()" />
+		<input type="button" value="Check Out" onclick="alert("Call 888-888-8888 or check back later. Fulfillment page under construction. Thank you for your business.)" /><br><br>
+		</div>
 	<script>
 	var cart = "";
 	var cartCnt = 0;
@@ -77,6 +79,8 @@
 		localStorage.setItem('qty', 1);
 		localStorage.setItem('price', price);
 		localStorage.setItem('liCost', vCalcCost);
+		clearCheckbox();
+		getCart();
 		cartCnt++;
 	}
 	function getCart() {
@@ -96,8 +100,26 @@
 		localStorage.removeItem('qty');
 		localStorage.removeItem('price');
 		localStorage.removeItem('liCost');
+		clearCheckbox();
+		getCart();
 		cartCnt--;
 	}
+   	function clearCheckbox {
+		var cntAdd = document.getElementById("addCB").length;
+		var i = 0;
+		for (i, i <= cntAdd, i++) {
+			if (addCB[i] == checked) {
+				<!-- set unchecked -->
+			}
+		}
+  		var cntDel = document.getElementById("delCB").length;
+		var i = 0;
+		for (i, i <= cntDel, i++) {
+			if (delCB[i] == checked) {
+				<!-- set unchecked -->
+			}
+		}
+  	 }
 	</script>
 </body>
 </html>
