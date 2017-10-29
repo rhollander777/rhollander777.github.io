@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body onload(getFileFromServer('Flower.json', 'catalog1', true)>
+	<h1>Fergie's Fresh Cut Flowers</h1>
+
+	<p><button onclick="getFileFromServer('Flower.json')">Get CD info</button></p>
+
+	<table id="catalog1" name="catalog1" border="1">
+	<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>
+	</table>
+
+	<script>
+	function getFileFromServer(url, divId, isJSON) {
+	  var xmlhttp = new XMLHttpRequest();
+	  var url = "flower.json";
+	  xmlhttp.onreadystatechange = 
+		function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var myArr = JSON.parse(this.responseText);
+				loadFile(myArr, divId, isJSON);
+		}
+	  };
+	//	This is where we make our request to the server. We are passing along the URL for the file we want
+	//	You can see the name of the file we are requesting in the about HTML code.
+	//	Each button has a different file defined
+	  xmlhttp.open("GET", url, true);
+	  xmlhttp.send();
+	  document.getElementById( divId ).innerHTML = xmlhttp.responseText;	
+	}
+
+	function loadFile(arr) {
+	  var x, i, xmlDoc, table;
+	  var out = "";
+	  xmlDoc = xml.responseXML;
+	  table = "<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>\n";
+	  x = arr.getElementsByTagName("flower")
+	  for (i = 0; i < arr.length; i++) { 
+		out += '<tr><td><img src="' + 
+		x[i].getElementsByTagName("Product")[i].childNodes[i].nodeValue + 
+		'" alt="' + x[i].getElementsByTagName("Product")[i].childNodes[i].nodeValue + '"></td><td>' +
+		x[i].getElementsByTagName("Name")[i].childNodes[i].nodeValue +
+		"</td></tr>";
+		x[i].getElementsByTagName("Code")[i].childNodes[i].nodeValue +
+		"</td></tr>";
+		x[i].getElementsByTagName("Price")[i].childNodes[i].nodeValue +
+		"</td></tr>\n"; 
+	 }
+	  
+	  document.getElementById("catalog").innerHTML = table + out;
+	}
+	</script>
+
+</body>
+</html>
