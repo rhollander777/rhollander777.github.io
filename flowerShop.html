@@ -84,7 +84,7 @@
 		cartCnt++;
 	}
 	function getCart() {
-		alert("code: " + code + "<br>qty: 1<br>" + price);
+		alert("code: " + code + "  qty: 1  " + price);
 // Need to load table and post to sCart
 		var vCart = "Code: " +
 		localStorage.getItem('code') + 
@@ -95,7 +95,7 @@
 		document.getElementById("sCart").innerHTML = vCart;
 	}
 	function removeFromCart() {
-		alert("code: " + code + "<br>qty: 1<br>" + price);
+		alert("code: " + code + "   qty: 1   " + price);
      		localStorage.removeItem('code');
 		localStorage.removeItem('qty');
 		localStorage.removeItem('price');
