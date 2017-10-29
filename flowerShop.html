@@ -30,16 +30,15 @@
 
 	function loadFile(arr, divId, isJson) {
 	  var x, i, vTable;
+//  Debugging
 //  	  var myJSON =  JSON.stringify(arr);
 //	  alert(myJSON);
 //	  alert(myJSON.length);
-	  alert("Product index 1 = " + arr.flower[1].Product);
-	  alert("array length = " + arr.length);
-	  alert("array flower length = " + arr.flower.length);
+//	  alert("Product index 1 = " + arr.flower[1].Product);
+//	  alert("array flower length = " + arr.flower.length);
 	  var vOut = "";
 	  vTable = "<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>\n";
-//	  x = arr.getElementsByTagName("flower");
-	  for (i = 0; i < arr.length; i++) { 
+	  for (i = 0; i < arr.flower.length; i++) { 
 		vOut += '<tr><td><img src="' + 
 		arr.flower[i].Product  + 
 		'" alt="' + arr.flower[i].Product + '"></td><td>' +
