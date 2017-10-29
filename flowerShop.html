@@ -42,12 +42,12 @@
 		vOut += '<tr><td><img src="' + 
 		arr.flower[i].Product  + 
 		'" alt="' + arr.flower[i].Product + '"></td><td>' +
-		arr.flower[i].Name + "</td>" +
-		arr.flower[i].Code + "</td>" +
+		arr.flower[i].Name + "</td><td>" +
+		arr.flower[i].Code + "</td><td>" +
 		arr.flower[i].Price +  "</td></tr>\n"; 
-		console.log( vOut);
+//		console.log( vOut);
 	 }
-		alert(vOut);
+//		alert(vOut);
 
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
