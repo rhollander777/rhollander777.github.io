@@ -66,8 +66,8 @@
 		arr.flower[i].Name + "</td><td>" +
 		arr.flower[i].Code + "</td><td>$" +
 		arr.flower[i].Price +  "</td><td>" +
-		  	'<input type="checkbox" id="addCb[i]" class="addCB" oncheck="addToCart("document.getElementById(this)", "document.getElementcById("catalog1").row[i].cell.code", qty, price)" </td><td>' +
-			'<input type="checkbox" id="delCB[i]" class="delCB" oncheck="removeFromCart("document.getElementById(this)", "document.catalog1[i].code.value", qty, price)"</td></tr>'; 
+		  	'<input type="checkbox" id="addCb[i]" class="addCB" onclick="addToCart("document.getElementById(this)", "document.getElementcById("catalog1").row[i].cell.code", qty, price)" </td><td>' +
+			'<input type="checkbox" id="delCB[i]" class="delCB" onclick="removeFromCart("document.getElementById(this)", "document.catalog1[i].code.value", qty, price)"</td></tr>'; 
 //		console.log( vOut);
 	 }
 //		alert(vOut);
@@ -113,16 +113,19 @@
 	}
 	function removeFromCart(tableRow) {
 		alert("code: " + code + "   qty: 1   " + price);
-     		localStorage.removeItem('code');
-		localStorage.removeItem('qty');
-		localStorage.removeItem('price');
-		localStorage.removeItem('liCost');
-		document.getElementById(tableRow).checked = false;	
+		if (!document.getElementById(tableRow).checked) {
+			return false;
+			break;
+		} else{
+     			localStorage.removeItem('code');
+			localStorage.removeItem('qty');
+			localStorage.removeItem('price');
+			localStorage.removeItem('liCost');
+			document.getElementById(tableRow).checked = false;	
 //		clearCheckbox('delCB');
-		getCart();
-			
-			
-		sCartCnt--;
+			getCart();
+			sCartCnt--;
+		}
 	}
 	function clearCart() {
 		alert("Inside clearCart:  under construction");
