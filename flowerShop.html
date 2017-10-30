@@ -75,8 +75,8 @@
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
 	function addToCart(tableRow, code, qty, price) {
-		alert("tableRow id: " + tableRow + "  code: " + code + "<br>qty: 1<br>" + price);
-		if (!document.getElementById(tableRow).checked) {
+		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
+/*		if (!document.getElementById(tableRow).checked) {
 			return false;
 			break;
 		} else if ( qty > 0 && price > 0) {
@@ -92,6 +92,7 @@
 		localStorage.setItem('price', price);
 		localStorage.setItem('liCost', vCalcCost);
 		document.getElementById(tableRow).value = false; //clears the check box after add
+*/
 //		clearCheckbox('addCB');
 		getCart();
 		sCartCnt++;
