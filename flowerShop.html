@@ -99,7 +99,9 @@
 		alert("Inside getCart");
 // Need to load table and post to sCart
 		if (localStorage) {
-		} else { return false;
+		} else { 
+			document.getElementById("sCart").innerHTML = "No Items in Cart";
+			return false;
 		}
 		var vCart = "Code: " +
 		localStorage.getItem('code') + 
