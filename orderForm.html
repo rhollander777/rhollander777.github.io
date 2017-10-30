@@ -1,0 +1,136 @@
+<!DOCTYPE html> 
+<!-- orderForm.html (Week06 Validate Form Input with JS) -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Ronda Hollander Form Validation</title>
+	<script type="text/javascript" src="orderFormVal.js"></script>  
+    <style type="text/css">
+		form {
+			margin-left:20px; 
+			font-family:Verdana, Geneva, sans-serif; 
+			padding:6px;
+			width: 620px;
+			font-size: 12;
+			border: 1px solid rgb(0, 90, 136); 
+			border-radius: 4px;
+		}
+		pre {
+			font-size: 14px bold;
+		}
+		#t1 {
+			-moz-tab-size: 10;
+			-o-tab-size: 10;
+			tab-size: 10;
+		}
+		#t2 {
+			-moz-tab-size: 10;
+			-o-tab-size: 10;
+			tab-size: 10;
+		}
+		h2 {
+			border-bottom-style: solid;
+		}
+		span.bold {
+			font-weight: bold;
+		}
+		#shoppingCart {
+			padding: 0px;
+			margin:  0px;
+			height: auto;
+			width: auto;
+		}
+		#orderForm {
+			padding: 0px;
+			margin:  0px;
+			height: auto;
+			width: auto;
+			background-color: lemonChiffon;
+		}
+		#formTitle {
+			font-weight: bold;
+			font-size: 14px;
+			text-align: left;
+			height: auto;
+			width: 165px;
+			align-content: ;left;
+			padding-left: 10px;	 
+		}
+		#formInput {
+			height: auto;
+			width: 435px;
+			color: blue;
+			font-size: 14px;
+			text-align: left;
+			align-content: ;left;
+			padding-right: 10px;
+		}
+	</style>
+  </head>
+  
+<body>
+    <form id="form1" name="form1" action="" onsubmit="return valCol('form', 'fld', 'msg)" >
+		<!-- onsubmit="return valAge(document.form1.age.value)" -->
+		<div id="orderForm" name="orderForm" class="orderForm" >
+			<div id="formTitle" name="formTitle" class="formTitle" >
+					First Name: <br>
+					Last Name: <br>
+					Billing Address: <br><br>
+					Billing City: <br><br>
+					Billing State: <br>
+					Billing Zip Code: <br><br>
+					Credit Card Type: <br>
+					Credit Card Number: <br>
+					Credit Card Code: <br><br>
+			</div>
+		
+			<div id="formInput" name="formInput" class="formInput">
+					<!-- Name and Address -->
+					<pre id="t1">First Name: </pre><input type="text" id="fName" name="fName" size="15" value="" onblur="valCol('form1', 'fName', 'msg1')" onMouseOut="valCol('form1', 'fName', 'msg1')" onChange="valCol('form1', 'fName', 'msg1')"/>
+						<span id="msg1" name="msg1" style="color:red">*</span><br>   
+					<b>Last Name: </b><input type="text" id="lName" name "lName" size="20" value="" onMouseOut="valCol('form1', 'lName', 'msg2')" /> 
+						<span id="msg2" name="msg2" style="color:red">*</span><br>   
+					<b>Address: </b><input type="text" id="address" name="address" size="40" value="" onblur="valCol('form1', 'address', 'msg3')" />
+						<span id="msg3" name="msg3" style="color:red">*</span><br>
+						<span style="color: blue"><em>Enter Full Street Address</em></span><br>   
+					<b>City: </b><input type="text" id="city" name "city" size="20" value="Phoenix" onMouseOut="valCol('form1', 'city', 'msg4')" /> 
+						<span id="msg4" name="msg4" style="color:red">*</span><br>  
+					<b>State: </b><input type="text" id="state" name "state" size="15" value="AZ" onMouseOut="valCol('form1', 'city', 'msg4')" /> 
+						<span id="msg5" name="msg5" style="color:red">*</span><br>
+						<span style="color: blue"><em>Enter 2-digit Abbreviation</em></span><br>
+					<b>Zip Code: </b><input type="text" id="zipCode" name "zipCode" size="10" value="" onMouseOut="valCol('form1', 'city', 'msg4')" /> 
+						<span id="msg6" name="msg6" style="color:red">*</span><br><br>
+						<!-- Credit Card Information -->
+					<b>Credit Card Type: </b><input type="text" id="ccType" name="ccType" size="3" onblur="valCol('form1', 'ccType', 'msg3')" />
+						<span id="msg7" name="msg7" style="color:red">*</span><br>
+					<b>Credit Card Number: </b><input type="text" id="ccNbr" name="ccNbr" size="20" onblur="valCol('form1', 'ccNbr', 'msg3')" />
+						<span id="msg8" name="msg8" style="color:red">*</span><br>
+					<b>Security Code:: </b><input type="text" id="ccSec" name="ccSec" size="4" onblur="valCol('form1', 'ccSec', 'msg3')" />
+						<span id="msg9" name="msg9" style="color:red">*</span><br>
+						<span style="color: blue"><em>Enter 3 or 4-digit Security Code</em></span><br>
+					<span style="color: red; " /><br>
+			</div>
+      </div>
+<!--	  
+      <div>
+              <input type="submit" value="Validate Credit Card Number" size="19" onclick="valCCNbr()" />
+              <span id="msg2" name="msg2" style="color:red">Invalid credit card number</span>
+      </div>
+
+-->
+    <!-- Sixth problem: Money  
+	<h2>#6: Dollar Amount</h2>
+    <p>Please enter an amount in US dollars</p>
+    <form id="form6" name="form6" action="" onsubmit="return valDollar()" >
+      <div>
+              <input name="fdollar" size="10" value="" onblur="valDollar()"/>
+              <span id="msg1" name="msg1" style="color:red">Invalid dollar amount</span>
+      </div>
+      <div>
+              <input type="submit" value="Validate dollar amount" size="10" onclick="valDollar()" />
+              <span id="msg2" name="msg2" style="color:red">Invalid dollar amount</span>
+	  </div>
+-->
+	  </form>
+	</body>
+</html>
