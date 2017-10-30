@@ -58,19 +58,19 @@
 		arr.flower[i].Name + "</td><td>" +
 		arr.flower[i].Code + "</td><td>$" +
 		arr.flower[i].Price +  "</td><td>" +
-		  	'<input type="checkbox" id="addCb[i]" oncheck="addToCart(document.getElementById(addCB[i]), 0, 0)" /></td><td>' +
-			'<input type="checkbox" id="delCB[i]" oncheck="removeFromCart(0, 0, 0)" /></td></tr>\n'; 
+		  	'<input type="checkbox" id="addCb[i]" class="addCB" oncheck="addToCart(document.getElementById(this), code, qty, price)</td><td>' +
+			'<input type="checkbox" id="delCB[i]" class="delCB" oncheck="removeFromCart(document.getElementById(this), code, qty, price)</td></tr>'; 
 //		console.log( vOut);
 	 }
 //		alert(vOut);
 
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
-	function addToCart(code, qty, price) {
+	function addToCart(tableRow, code, qty, price) {
 		alert("code: " + code + "<br>qty: 1<br>" + price);
 		if ( qty > 0 && price > 0) {
 		  	vCalcCost = qty * price;
-		} else if (qty < 1) {
+		} else if (qty < 1 && price > 1) {
 			vCalcCost = 1 * price;
 		} else { alert("Invalid price.  Reselect item");
 		         return false;
@@ -79,7 +79,8 @@
 		localStorage.setItem('qty', 1);
 		localStorage.setItem('price', price);
 		localStorage.setItem('liCost', vCalcCost);
-		clearCheckbox();
+		document.getElementById(tableRow).checked = false;
+//		clearCheckbox('addCB');
 		getCart();
 		cartCnt++;
 	}
@@ -94,32 +95,27 @@
 		'<input type="button" id="delCart" name="delCart" onclick="removeFromCart()" />';
 		document.getElementById("sCart").innerHTML = vCart;
 	}
-	function removeFromCart() {
+	function removeFromCart(tableRow, ) {
 		alert("code: " + code + "   qty: 1   " + price);
      		localStorage.removeItem('code');
 		localStorage.removeItem('qty');
 		localStorage.removeItem('price');
 		localStorage.removeItem('liCost');
-		clearCheckbox();
+		document.getElementById(tableRow).checked = false;	
+//		clearCheckbox('delCB');
 		getCart();
 		cartCnt--;
 	}
-   	function clearCheckbox {
-		var cntAdd = document.getElementById("addCB").length;
+   	function clearCheckbox(tableRow) {
+//  Logic to clear all checked boxes if a class of checkboxes is passed (e.g. addCB, delCB) 
+		var cnt = document.getElementByClass(clearId).length;
 		var i = 0;
-		for (i, i <= cntAdd, i++) {
-			if (addCB[i] == checked) {
-				<!-- set unchecked -->
+		for (i, i <= cnt, i++) {
+			if (clearId[i] == checked) {
+				document.getElementById(tableRow[i]).checked = false;
 			}
-		}
-  		var cntDel = document.getElementById("delCB").length;
-		var i = 0;
-		for (i, i <= cntDel, i++) {
-			if (delCB[i] == checked) {
-				<!-- set unchecked -->
-			}
-		}
-  	 }
+		} 	
+	}
 	</script>
 </body>
 </html>
