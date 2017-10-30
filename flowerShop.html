@@ -25,10 +25,10 @@
 /* Creating a shopping cart object in local storage. */
 	var sCart = {};
 	var sProduct = {};
-	cart.products = [];
-	localStorage.setItem('cart, JSON.sringiy(cart));
+	sCart.sProducts = [];
+	localStorage.setItem('sCart, JSON.sringiy(sCart));
 
-	var cartCnt = 0;
+	var sCartCnt = 0;
 	var vCalcCost = 0;
 	function getFileFromServer(url, divId, isJSON) {
 	  var xmlhttp = new XMLHttpRequest();
@@ -94,7 +94,7 @@
 		document.getElementById(tableRow).value = false; //clears the check box after add
 //		clearCheckbox('addCB');
 		getCart();
-		cartCnt++;
+		sCartCnt++;
 	}
 	function getCart() {
 		alert("Inside getCart");
@@ -122,7 +122,7 @@
 		getCart();
 			
 			
-		cartCnt--;
+		sCartCnt--;
 	}
 	function clearCart() {
 		alert("Inside clearCart:  under construction");
@@ -136,7 +136,7 @@
 		clearCheckbox('addCB');
 		clearCheckbox('delCB');
 		getCart();
-		cartCnt = 0;
+		sCartCnt = 0;
 	}
    	function clearCheckbox(tableRow) {
 //  Logic to clear all checked boxes if a class of checkboxes is passed (e.g. addCB, delCB) 
