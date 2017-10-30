@@ -4,22 +4,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Hollander Flower Shop</title>	
 </head>
-<body onload(getFileFromServer('flower.json', 'catalog1', true)>
+<body onload(getFileFromServer('flower.json', 'catalog1', true);>
 	<h1>Fergie's Fresh Cut Flowers</h1>
 	<div id="sCart" name="sCart"></div>
 	
 	<input type="button" value="Get Flower Catalog" onclick="getFileFromServer('flower.json','catalog1', true)" /> 
+	<input type="button" value="View Cart" onclick="getCart()" />	
+	<input type="button" value="Clear Cart" onclick="clearCart()" />
+	<input type="button" value="Check Out" onclick="alert("Call 888-888-8888 or check back later. Fulfillment page under construction. Thank you for your business.") /><br><br>
 
 	<div id="sCatalog" name="sCatalog">
 		<table id="catalog1" name="catalog1" border="1">
 		<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>
 		</table>
 		<input type="button" value="View Cart" onclick="getCart()" />	
-		<input type="button" value="Remove Cart" onclick="removeFromCart()" />
+		<input type="button" value="Clear Cart" onclick="clearCart()" />
 		<input type="button" value="Check Out" onclick="alert("Call 888-888-8888 or check back later. Fulfillment page under construction. Thank you for your business.") /><br><br>
 		</div>
 	<script>
-	var cart = "";
+/* Creating a shopping cart object in local storage. */
+	var sCart = {};
+	var sProduct = {};
+	cart.products = [];
+	localStorage.setItem('cart, JSON.sringiy(cart));
+
 	var cartCnt = 0;
 	var vCalcCost = 0;
 	function getFileFromServer(url, divId, isJSON) {
@@ -97,9 +105,13 @@
 		"Price: " + localStorage.getItem('price') + 
 		" Cost: " + localStorage.getItem('liCost') + "<br>" +
 		'<input type="button" id="delCart" name="delCart" onclick="removeFromCart()" />';
-		document.getElementById("sCart").innerHTML = vCart;
+		if (vCart == null) {
+			document.getElementById("sCart").innerHTML = "No Items Found in Cart";
+		} else {
+			document.getElementById("sCart").innerHTML = vCart;
+		}
 	}
-	function removeFromCart(tableRow, ) {
+	function removeFromCart(tableRow) {
 		alert("code: " + code + "   qty: 1   " + price);
      		localStorage.removeItem('code');
 		localStorage.removeItem('qty');
@@ -108,7 +120,23 @@
 		document.getElementById(tableRow).checked = false;	
 //		clearCheckbox('delCB');
 		getCart();
+			
+			
 		cartCnt--;
+	}
+	function clearCart() {
+		alert("Inside clearCart:  under construction");
+		for (i=0; i < sCart.length; i++) {
+/*   Need to find sCart array and remove all line items */
+     		localStorage.removeItem('code');
+		localStorage.removeItem('qty');
+		localStorage.removeItem('price');
+		localStorage.removeItem('liCost');			
+		}
+		clearCheckbox('addCB');
+		clearCheckbox('delCB');
+		getCart();
+		cartCnt = 0;
 	}
    	function clearCheckbox(tableRow) {
 //  Logic to clear all checked boxes if a class of checkboxes is passed (e.g. addCB, delCB) 
