@@ -67,19 +67,23 @@
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
 	function addToCart(tableRow, code, qty, price) {
-		alert("code: " + code + "<br>qty: 1<br>" + price);
-		if ( qty > 0 && price > 0) {
-		  	vCalcCost = qty * price;
+		alert("tableRow id: " + tableRow + "  code: " + code + "<br>qty: 1<br>" + price);
+		if (!document.getElementById(tableRow).checked) {
+			return false;
+			break;
+		} else if ( qty > 0 && price > 0) {
+		  		vCalcCost = qty * price;
 		} else if (qty < 1 && price > 1) {
 			vCalcCost = 1 * price;
 		} else { alert("Invalid price.  Reselect item");
-		         return false;
+		        return false;
+			break;
 		       }
      		localStorage.setItem('code', code);
 		localStorage.setItem('qty', 1);
 		localStorage.setItem('price', price);
 		localStorage.setItem('liCost', vCalcCost);
-		document.getElementById(tableRow).checked = false;
+		document.getElementById(tableRow).value = false; //clears the check box after add
 //		clearCheckbox('addCB');
 		getCart();
 		cartCnt++;
