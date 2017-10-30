@@ -155,8 +155,8 @@
 	}
 	function checkOut() {
 		if (localStorage !== null ) {
-			document.getElementById("sCart").style.color = "red";
-			document.getElementById("sCart").innerHTML = "No Items in Cart. Add products to cart and Check Out";
+			document.getElementById("displayCart").style.color = "red";
+			document.getElementById("displayCart").innerHTML = "No Items in Cart. Add products to cart and Check Out";
 			return false;
 		} else {
 			window.location.href='orderForm.html';		
