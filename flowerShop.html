@@ -15,7 +15,7 @@
 
 	<div id="sCatalog" name="sCatalog">
 		<table id="catalog1" name="catalog1" border="1">
-		<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th></tr>
+		<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th><th>Add</th><th>Remove</th></tr>
 		</table>
 		<input type="button" value="View Cart" onclick="getCart()" />	
 		<input type="button" value="Clear Cart" onclick="clearCart()" />
@@ -64,7 +64,7 @@
 		arr.flower[i].Name + "</td><td>" +
 		arr.flower[i].Code + "</td><td>$" +
 		arr.flower[i].Price +  "</td><td>" +
-		  	'<input type="checkbox" id="addCB[i]" class="addCB" onclick="addToCart("addCB[i]"), "ABC123", 1, 29.99)" /> </td><td>' +
+		  	'<input type="checkbox" id="addCB[i]" class="addCB" onclick="addToCart("addCB[i]", "ABC123", 1, 29.99)" /> </td><td>' +
 			'<input type="checkbox" id="delCB[i]" class="delCB" onclick="removeFromCart("document.getElementById(this)", "document.catalog1.row[i].cell[2].innerHTML", qty, price)" /></td></tr>'; 
 			
 //		  	'<input type="checkbox" id="addCB[i]" class="addCB" onclick="addToCart("document.getElementById(this)", "document.catalog1.row[i].cell[2].innerHTML", qty, price)" /> </td><td>' +
@@ -94,7 +94,7 @@
 		sCartCnt++;
 	}
 	function getCart() {
-		alert("Inside getCart");
+//		alert("Inside getCart");
 // Need to load table and post to sCart
 		if (localStorage !== null ) {
 			document.getElementById("displayCart").style.color = "red";
@@ -130,7 +130,11 @@
 		}
 	}
 	function clearCart() {
-		alert("Inside clearCart:  under construction");
+//		alert("Inside clearCart:  under construction");
+		if (localStorage !== null ) {
+			document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
+			return false;
+		}
 		for (i=0; i < sCart.length; i++) {
 /*   Need to find sCart array and remove all line items */
      		localStorage.removeItem('code');
@@ -145,7 +149,7 @@
 	}
    	function clearCheckbox(clearClass) {
 //  Logic to clear all checked boxes if a class of checkboxes is passed (e.g. addCB, delCB)
-		alert("Inside clearCheckbox.  Under construction. clearClass: " + clearClass);
+//		alert("Inside clearCheckbox.  Under construction. clearClass: " + clearClass);
 /*		var cnt = document.getElementByClass(clearClass).length;
 		for (i = 0; i <= cnt; i++) {
 			if (clearId[i] == checked) {
