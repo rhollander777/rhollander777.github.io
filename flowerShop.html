@@ -109,8 +109,7 @@
    	function clearCheckbox(tableRow) {
 //  Logic to clear all checked boxes if a class of checkboxes is passed (e.g. addCB, delCB) 
 		var cnt = document.getElementByClass(clearId).length;
-		var i = 0;
-		for (i, i <= cnt, i++) {
+		for (i = 0; i <= cnt; i++) {
 			if (clearId[i] == checked) {
 				document.getElementById(tableRow[i]).checked = false;
 			}
