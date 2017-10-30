@@ -78,14 +78,12 @@
 		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 /*		if (!document.getElementById(tableRow).checked) {
 			return false;
-			break;
 		} else if ( qty > 0 && price > 0) {
 		  		vCalcCost = qty * price;
 		} else if (qty < 1 && price > 1) {
 			vCalcCost = 1 * price;
 		} else { alert("Invalid price.  Reselect item");
 		        return false;
-			break;
 		       }
      		localStorage.setItem('code', code);
 		localStorage.setItem('qty', 1);
@@ -102,7 +100,7 @@
 // Need to load table and post to sCart
 		if (localStorage) {
 		} else { return false;
-			 break;}
+		}
 		var vCart = "Code: " +
 		localStorage.getItem('code') + 
 		" Qty: " + localStorage.getItem('qty') + 
@@ -119,7 +117,6 @@
 		alert("code: " + code + "   qty: 1   " + price);
 		if (!document.getElementById(tableRow).checked) {
 			return false;
-			break;
 		} else{
      			localStorage.removeItem('code');
 			localStorage.removeItem('qty');
@@ -147,8 +144,8 @@
 	}
    	function clearCheckbox(clearClass) {
 //  Logic to clear all checked boxes if a class of checkboxes is passed (e.g. addCB, delCB)
-		alert("Inside clearCheckbox.  clearClass: " + tableRow);
-		var cnt = document.getElementByClass(clearId).length;
+		alert("Inside clearCheckbox.  clearClass: " + clearClass);
+		var cnt = document.getElementByClass(clearClass).length;
 		for (i = 0; i <= cnt; i++) {
 			if (clearId[i] == checked) {
 				document.getElementById(clearClass[i]).checked = false;
