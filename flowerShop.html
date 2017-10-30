@@ -66,7 +66,7 @@
 		arr.flower[i].Name + "</td><td>" +
 		arr.flower[i].Code + "</td><td>$" +
 		arr.flower[i].Price +  "</td><td>" +
-		  	'<input type="checkbox" id="addCb[i]" class="addCB" onclick="addToCart("document.getElementById(this)", "document.getElementcById("catalog1").row[i].cell.code", qty, price)" </td><td>' +
+		  	'<input type="checkbox" id="addCb[i]" class="addCB" onclick="addToCart("document.getElementById(this)", "document.getElementcById("catalog1").row[i].cell[2].innerHTML", qty, price)" </td><td>' +
 			'<input type="checkbox" id="delCB[i]" class="delCB" onclick="removeFromCart("document.getElementById(this)", "document.catalog1[i].code.value", qty, price)"</td></tr>'; 
 //		console.log( vOut);
 	 }
