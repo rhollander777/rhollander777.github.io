@@ -63,7 +63,7 @@
 	function addToCart(tableRow, code, qty, price) {
 		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		var vCalcCost = 0;
-		if (!document.getElementById(tableRow).checked) {
+		if (localStorage == null;) {
 			return false;
 		} else if ( qty > 0 && price > 0) {
 		  		vCalcCost = qty * price;
@@ -72,7 +72,6 @@
 		} else { alert("Invalid price.  Reselect item");
 		        return false;
 		       }	   
-		if (localStorage) {
 			var oldItems = JSON.parse(localStorage.getItem('sItems')) || [];
 			console.log("oldItems = " + newItem);
 			var newItem = {
