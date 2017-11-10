@@ -62,7 +62,7 @@
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
 	function addToCart(tableRow, code, qty, price) {
-/*		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
+		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		var vCalcCost = 0;
 		if (localStorage == null) {
 			return false;
@@ -75,12 +75,12 @@
 		       }	   
 		var oldItems = JSON.parse(localStorage.getItem('sItems'));
 		console.log("oldItems = " + newItem);
-		var newItem = tableRow + ', "' +
-						code + '", ' +
-						qty + '", ' +
-						price + '", ' +
-						vCalcCost;
-*/
+		var newItem = '"' + tableRow + ', "' +
+						code + '", "' +
+						qty + '", "' +
+						price + '", "' +
+						vCalcCost + '"';
+
 /*			var newItem = {
 			"i.id": 	tableRow,
 			"i.code": 	code,
