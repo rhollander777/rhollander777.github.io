@@ -55,9 +55,10 @@
 			
 		  	'<input type="button" id="addBtn" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td><td>' +
 			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /></td></tr>'; 
-//		console.log( vOut);
+
 	 }
-//		alert(vOut);
+//		console.log(vOut);
+		alert(vOut);
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
 	function addToCart(tableRow, code, qty, price) {
