@@ -50,9 +50,8 @@
 		arr.flower[i].Code + "</td><td>$" +
 		arr.flower[i].Price +  "</td><td>" +
 //		  	'<input type="checkbox" id="addCB[i]" class="addCB" onclick='addToCart("addCB??", "ABC123", "1", "29.99")' /> </td><td>' +
-//			'<input type="checkbox" id="delCB[i]" class="delCB" onclick='removeFromCart("document.getElementById(this)", "document.catalog1.row[i].cell[2].innerHTML", qty, price)' /></td></tr>'; 
-//			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart("arr.Flower[i].id", "arr.flower[i].Code", 1, "arr.flower[i].Price")" /></td></tr>'; 
-			
+//			'<input type="checkbox" id="delCB[i]" class="delCB" onclick='removeFromCart("document.getElementById(this)", "document.catalog1.row[i].cell[2].innerHTML", qty, price)' /></td></tr>' +
+//			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart("arr.Flower[i].id", "arr.flower[i].Code", 1, "arr.flower[i].Price")" /></td></tr>' + 
 		  	'<input type="button" id="addBtn" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td><td>' +
 			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /></td></tr>'; 
 
@@ -86,8 +85,8 @@
 			"i.code": 	code,
 			"i.qty": 	qty,
 			"i.price": 	price,
-			"i.cost": 	vCalcCost
-		};
+			"i.cost": 	vCalcCost;
+		}
 */
 /*
 		console.log("newItem = " + newItem);
@@ -137,7 +136,7 @@
 		if (!document.getElementById(tableRow).checked) {
 			return false;
 		} else{
-     			localStorage.removeItem('code');
+     		localStorage.removeItem('code');
 			localStorage.removeItem('qty');
 			localStorage.removeItem('price');
 			localStorage.removeItem('liCost');
