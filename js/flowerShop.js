@@ -12,7 +12,7 @@
 		function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var myArr = JSON.parse(this.responseText);
-				console.log(myArr);
+//				console.log(myArr);
 				loadFile(myArr, divId, isJSON);
 			}
 		};
@@ -34,7 +34,7 @@
 	  var vOut = "";
 	  var i = 0;
 	  var vId = arr['flower'][i]['id'][i];
-	  console.log("id = " + vId);
+//	  console.log("id = " + vId);
 /*	  
 	  var vCode = JSON.flower[i].Code[i].value;
 	  var vPrice = JSON.flower[i].Price[i].value;
@@ -55,7 +55,7 @@
 			
 		  	'<input type="button" id="addBtn" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td><td>' +
 			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /></td></tr>'; 
-		console.log( vOut);
+//		console.log( vOut);
 	 }
 //		alert(vOut);
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
@@ -85,6 +85,7 @@
 			console.log("newItem = " + newItem);
 			sCart.sItems.push(newItem);
 			localStorage.setItem('sCart', JSON.strigify(sCart));
+			return false;
 	   }
 /*			[ "' + tableRow + '", "' + code + '", "' + qty + '", "' + price + '" ]'
      	localStorage.setItem('sProd', JSON.stringify('newItem'));
@@ -147,9 +148,9 @@
 		for (i=0; i < sCart.length; i++) {
 /*   Need to find sCart array and remove all line items */
      		localStorage.removeItem('code');
-		localStorage.removeItem('qty');
-		localStorage.removeItem('price');
-		localStorage.removeItem('liCost');			
+			localStorage.removeItem('qty');
+			localStorage.removeItem('price');
+			localStorage.removeItem('liCost');			
 		}
 		clearCheckbox('addBtn');
 		clearCheckbox('delBtn');
