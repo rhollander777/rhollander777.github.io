@@ -61,7 +61,7 @@
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
 	function addToCart(tableRow, code, qty, price) {
-		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
+/*		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		var vCalcCost = 0;
 		if (localStorage == null) {
 			return false;
@@ -79,6 +79,7 @@
 						qty + '", ' +
 						price + '", ' +
 						vCalcCost;
+*/
 /*			var newItem = {
 			"i.id": 	tableRow,
 			"i.code": 	code,
@@ -87,19 +88,20 @@
 			"i.cost": 	vCalcCost
 		};
 */
+/*
 		console.log("newItem = " + newItem);
 		sCart.sItems.push(newItem);
 		localStorage.setItem('sCart', JSON.strigify(sCart));
 		return false;
-	   }
-/*			[ "' + tableRow + '", "' + code + '", "' + qty + '", "' + price + '" ]'
+	
+	}
      	localStorage.setItem('sProd', JSON.stringify('newItem'));
 
-		localStorage.setItem('id', tableRow);
-		localStorage.setItem('code', code);		
-		localStorage.setItem('qty', 1);
-		localStorage.setItem('price', price);
-		localStorage.setItem('vCalcCost', vCalcCost);
+		localStorage.setItem('id', JSON.stringify('tableRow'));
+		localStorage.setItem('code', JSON.stringify('code'));		
+		localStorage.setItem('qty', JSON.stringify('1'));
+		localStorage.setItem('price', JSON.stringify('price'));
+		localStorage.setItem('vCalcCost', JSON.stringify('vCalcCost'));
 */
 //		document.getElementById(tableRow).value = false; //clears the check box after add
 		getCart();
