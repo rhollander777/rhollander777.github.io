@@ -91,7 +91,7 @@
 		var iOut = ""; 
 		for (i = 0; i < myArray.length; i++) {
 				iOut += '"';
-				iOut += myArray[i];
+				iOut += myArray[i].value;
 				iOut += '"';
 			if (i < myArray.length - 1) {
 				iOut += ", ";
