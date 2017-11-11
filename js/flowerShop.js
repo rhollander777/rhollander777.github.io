@@ -64,7 +64,6 @@
 	var myArray;
 
 	function createArray(tableRow, name, code, qty, price){
-		var vProd = "prod" + tableRow;
 		var vName = "name" + tableRow;
 		var vCode = "code" + tableRow;
 		var vPrice = "price" + tableRow;
@@ -81,7 +80,6 @@
 		}	
 		//clear out previous text if needed
 //		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
-		myArray.push(document.getElementById('vProd').value);
 		myArray.push(document.getElementById('vName').value);
 		myArray.push(document.getElementById('vCode').value);
 		myArray.push(document.getElementById('vPrice').value);	
