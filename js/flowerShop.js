@@ -47,14 +47,14 @@
 		vOut += '<tr><td id="prod' + rCnt + '"><img src="' + 
 		arr.flower[i].Product  + 
 			'" alt="' + arr.flower[i].Product + 
-			'" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].name + ', "' + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')"/></td>' +
+			'" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Name + '", "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')"/></td>' +
 			'<td id="name' + rCnt + '">' + arr.flower[i].Name + '</td>' +
 			'<td id="code' + rCnt + '">' + arr.flower[i].Code + '</td>' +
 			'<td id="price' + rCnt + '">$' + arr.flower[i].Price +  '</td>' +
 			'<td>' +
-		  	'<input type="button" id="addBtn' + rCnt +  '" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].name + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td>' +
+		  	'<input type="button" id="addBtn' + rCnt +  '" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Name + '", "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td>' +
 			'<td>' +
-			'<input type="button" id="delBtn' + rCnt + '" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].name + ', "' + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" />' + 
+			'<input type="button" id="delBtn' + rCnt + '" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].Name + '", "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" />' + 
 			'</td></tr>'; rCnt++;
 	 }
 		console.log(vOut);
@@ -85,7 +85,7 @@
 		myArray.push(document.getElementById('vName').value);
 		myArray.push(document.getElementById('vCode').value);
 		myArray.push(document.getElementById('vPrice').value);	
-/*		myArray.push(vCalcCost);
+		myArray.push(vCalcCost);
 		newItem = [];
 		for (i = 0; i < myArray.length; i++) {
 			newItem += myArray[i];
@@ -93,7 +93,8 @@
 				newItem += ", ";
 			}	
 		}
-		console.log("newItem = " + newItem);		
+		console.log("newItem = " + newItem);	
+	}
 	}
     function pullArray(){
 /*  Under construction 
