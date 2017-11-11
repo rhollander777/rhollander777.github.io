@@ -41,21 +41,21 @@
 	  var vPrice = JSON.flower[i].Price[i].value;
 	  console.log("id = " + vId + "  Code = " + vCode + "  Price = " + vPrice);
 */
+	  var rCnt = 1;
 	  vTable = "<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th><th>Add</th><th>Remove</th></tr>\n";
 	  for (i = 0; i < arr.flower.length; i++) { 
-		vOut += '<tr><td id="prod' + i + '"><img src="' + 
+		vOut += '<tr><td id="prod' + rCnt + '"><img src="' + 
 		arr.flower[i].Product  + 
 			'" alt="' + arr.flower[i].Product + 
-			'" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Product + ', "' + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')"/></td>' +
-			'<td id="name' + i + '">' + arr.flower[i].Name + '</td>' +
-			'<td id="code' + i + '">' + arr.flower[i].Code + '</td>' +
-			'<td id="price' + i + '">$' + arr.flower[i].Price +  '</td>' +
+			'" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].name + ', "' + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')"/></td>' +
+			'<td id="name' + rCnt + '">' + arr.flower[i].Name + '</td>' +
+			'<td id="code' + rCnt + '">' + arr.flower[i].Code + '</td>' +
+			'<td id="price' + rCnt + '">$' + arr.flower[i].Price +  '</td>' +
 			'<td>' +
-		  	'<input type="button" id="addBtn" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Product + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td>' +
+		  	'<input type="button" id="addBtn' + rCnt +  '" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].name + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td>' +
 			'<td>' +
-			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].Product + ', "' + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" />' + 
-			'</td></tr>'; 
-
+			'<input type="button" id="delBtn' + rCnt + '" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].name + ', "' + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" />' + 
+			'</td></tr>'; rCnt++;
 	 }
 		console.log(vOut);
 //		alert(vOut);
@@ -63,7 +63,7 @@
 	}
 	var myArray;
 
-	function createArray(tableRow, prod, code, qty, price){
+	function createArray(tableRow, name, code, qty, price){
 		var vProd = "prod" + tableRow;
 		var vName = "name" + tableRow;
 		var vCode = "code" + tableRow;
@@ -108,9 +108,9 @@
 
 	  }
 
-	function addToCart(tableRow, prod, code, qty, price) {
+	function addToCart(tableRow, name, code, qty, price) {
 		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
-		createArray(tableRow, prod, code, qty, price);
+		createArray(tableRow, name, code, qty, price);
 		var oldItems = JSON.parse(localStorage.getItem('sItems'));
 		console.log("oldItems = " + newItem);
 //		sCart.sItems.push(newItem);
