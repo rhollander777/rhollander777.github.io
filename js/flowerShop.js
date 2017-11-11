@@ -91,13 +91,14 @@
 		var iOut = ""; 
 		for (i = 0; i < myArray.length; i++) {
 				iOut += '"';
-			if (i < myArray.length - 1) {
 				iOut += myArray[i];
-				iOut += '", ';
+				iOut += '"';
+			if (i < myArray.length - 1) {
+				iOut += ', ';
 			}
 		}
 		console.log("array iOut = " + iOut);
-		newItem.push(iOut);
+//		newItem.push(iOut);
 	}
 
     function pullArray(){
@@ -216,17 +217,18 @@
 		document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
 		sCartCnt = 0;
 	}
+/* Replaced by use of buttons instead of checkboxes
    	function clearCheckbox(clearClass) {
 //  Logic to clear all checked boxes if a class of checkboxes is passed (e.g. addCB, delCB)
 //		alert("Inside clearCheckbox.  Under construction. clearClass: " + clearClass);
-/*		var cnt = document.getElementByClass(clearClass).length;
+		var cnt = document.getElementByClass(clearClass).length;
 		for (i = 0; i <= cnt; i++) {
 			if (clearId[i] == checked) {
 				document.getElementById(clearClass[i]).checked = false;
 			}
 		} 	
-*/
 	}
+*/
 	function checkOut() {
 		if (localStorage !== null ) {
 			document.getElementById("displayCart").style.color = "red";
@@ -234,6 +236,14 @@
 			return false;
 		} else {
 			window.location.href='orderForm.html';		
+		}
+	}
+	function clearStorage() {
+		if (localStorage) {
+			localStorage.removeItem('sItem');
+		}
+		if (localStorage) {
+			localStorage.removeItem('sCart');
 		}
 	}
 	function displayError() {
