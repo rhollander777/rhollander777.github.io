@@ -88,12 +88,17 @@
 		myArray.push(document.getElementById(vPrice).value);	
 		myArray.push(vCalcCost);
 		newItem = [];
-		var iOut = '"' + tableRow += '", "';
-				name += '", "';
-				code += '", "';
-				qty += '", "';
-				price += '", "';
-				vCalcCost += '"';
+		var iOut = ""; 
+		for (i = 0; i < myArray.length; i++) {
+			if (i < myArray.length - 1) {
+				iOut = '"' + tableRow += '", "' +
+				name += '", "' +
+				code += '", "' +
+				qty += '", "' +
+				price += '", "' +
+				vCalcCost + '"';
+			}	
+		}
 		console.log("array iOut = " + iOut);
 		newItem.push(iOut);
 	}
