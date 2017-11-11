@@ -67,7 +67,7 @@
 		var vName = "name" + tableRow;
 		var vCode = "code" + tableRow;
 		var vPrice = "price" + tableRow;
-		console.log("vProd = " + vProd);
+		console.log("vProd = " + vCode);
 		myArray = [];
 // 		Calculate extended cost
 		vCalcCost = 0;
