@@ -72,7 +72,7 @@
 		myArray = [];
 // 		Calculate extended cost
 		vCalcCost = 0;
-/*		if ( qty > 0 && price > 0) {
+		if ( qty > 0 && price > 0) {
 		  	vCalcCost = qty * price;
 		} else if (qty < 1 && price > 1) {
 			vCalcCost = 1 * price;
@@ -85,7 +85,7 @@
 		myArray.push(document.getElementById('vName').value);
 		myArray.push(document.getElementById('vCode').value);
 		myArray.push(document.getElementById('vPrice').value);	
-		myArray.push(vCalcCost);
+/*		myArray.push(vCalcCost);
 		newItem = [];
 		for (i = 0; i < myArray.length; i++) {
 			newItem += myArray[i];
