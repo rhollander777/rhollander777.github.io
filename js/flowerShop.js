@@ -89,7 +89,7 @@
 		myArray.push(vCalcCost);
 		newItem = [];
 		var iOut = ""; 
-		for (i = 0; i < myArray.length; i++) {
+/*		for (i = 0; i < myArray.length; i++) {
 				iOut += '"';
 				iOut += myArray[i];
 				iOut += '"';
@@ -99,6 +99,7 @@
 		}
 		console.log("array iOut = " + iOut);
 //		newItem.push(iOut);
+*/
 	}
 
     function pullArray(){
