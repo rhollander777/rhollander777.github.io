@@ -66,6 +66,7 @@
 	function createArray(tableRow, name, code, qty, price){
 		var vName = "name" + tableRow;
 		var vCode = "code" + tableRow;
+		var vQty = "qty" + tableRow;
 		var vPrice = "price" + tableRow;
 		console.log("vCode = " + vCode);
 		myArray = [];
@@ -80,17 +81,19 @@
 		}	
 		//clear out previous text if needed
 //		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
+		myArray.push(tableRow);
 		myArray.push(document.getElementById(vName).value);
 		myArray.push(document.getElementById(vCode).value);
+		myArray.push(document.getElementById(vQty).value);
 		myArray.push(document.getElementById(vPrice).value);	
 		myArray.push(vCalcCost);
 		newItem = [];
-		var iOut = ""; 
-		for (i = 0; i < myArray.length; i++) {
-			if (i < myArray.length - 1) {
-				iOut += ", ";
-			}	
-		}
+		var iOut = '"' + tableRow += '", "';
+				name += '", "';
+				code += '", "';
+				qty += '", "';
+				price += '", "';
+				vCalcCost += '"';
 		console.log("array iOut = " + iOut);
 		newItem.push(iOut);
 	}
