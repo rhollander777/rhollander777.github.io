@@ -5,6 +5,7 @@
 	sCart.sItems = [];
 	localStorage.setItem('sCart', JSON.stringify(sCart));
 	var sCartCnt = 0;
+	var newItem = [];
 	var vCalcCost = 0;
 	function getFileFromServer(url, divId, isJSON) {
 	  var xmlhttp = new XMLHttpRequest();
@@ -42,39 +43,80 @@
 */
 	  vTable = "<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th><th>Add</th><th>Remove</th></tr>\n";
 	  for (i = 0; i < arr.flower.length; i++) { 
-		vOut += '<tr><td><img src="' + 
+		vOut += '<tr><td id="prod' + i + '"><img src="' + 
 		arr.flower[i].Product  + 
 			'" alt="' + arr.flower[i].Product + 
-			'" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')"/></td><td>' +
-		arr.flower[i].Name + "</td><td>" +
-		arr.flower[i].Code + "</td><td>$" +
-		arr.flower[i].Price +  "</td><td>" +
+			'" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Product + ', "' + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')"/></td>' +
+			'<td id="name' + i + '">' + arr.flower[i].Name + '</td>' +
+			'<td id="code' + i + '">' + arr.flower[i].Code + '</td>' +
+			'<td id="price' + i + '">$' + arr.flower[i].Price +  '</td>' +
+			'<td>' +
 //		  	'<input type="checkbox" id="addCB[i]" class="addCB" onclick='addToCart("addCB??", "ABC123", "1", "29.99")' /> </td><td>' +
 //			'<input type="checkbox" id="delCB[i]" class="delCB" onclick='removeFromCart("document.getElementById(this)", "document.catalog1.row[i].cell[2].innerHTML", qty, price)' /></td></tr>' +
 //			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart("arr.Flower[i].id", "arr.flower[i].Code", 1, "arr.flower[i].Price")" /></td></tr>' + 
-		  	'<input type="button" id="addBtn" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td><td>' +
-			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /></td></tr>'; 
+		  	'<input type="button" id="addBtn" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Product + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td><td>' +
+			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].Product + ', "' + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /></td></tr>'; 
 
 	 }
 //		console.log(vOut);
-		alert(vOut);
+//		alert(vOut);
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
-	function addToCart(tableRow, code, qty, price) {
-		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
-		var vCalcCost = 0;
-		if (localStorage == null) {
-			return false;
-		} else if ( qty > 0 && price > 0) {
-		  		vCalcCost = qty * price;
+	
+
+	var myArray;
+	function createArray(tableRow, prod, code, qty, price){
+		var vProd = "prod" + tableRow;
+		var vName = "name" + tableRow;
+		vat vCode = "code" + tableRow;
+		var vPrice = "price" + tableRow;
+		console.log("vProd = " + vProd);
+		myArray = [];
+// 		Calculate extended cost
+		vCalcCost = 0;
+		if ( qty > 0 && price > 0) {
+		  	vCalcCost = qty * price;
 		} else if (qty < 1 && price > 1) {
 			vCalcCost = 1 * price;
 		} else { alert("Invalid price.  Reselect item");
 		        return false;
-		       }	   
+		}	
+		//clear out previous text if needed
+//		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
+		myArray.push(document.getElementById('vProd').value);
+		myArray.push(document.getElementById('vName').value);
+		myArray.push(document.getElementById('vCode').value);
+		myArray.push(document.getElementById('vPrice').value);	
+		myArray.push(vCalcCost);
+		newItem = [];
+		for (i = 0; i < myArray.length; i++) {
+			newItem += myArray[i];
+			if (i < myArray.length - 1) {
+				newItem += ", ";
+			}	
+		}
+		console.log("newItem = " + newItem);		
+	}
+    function pullArray(){
+/*  Under construction 
+      var vArray = JSON.parse(localStorage.getItem('sCart.sItem'));
+	  for ( i = 0; i < vArray.length; i++) {
+			if (vArray[i]   
+	  }
+      if(arrayValue) {
+        document.getElementById('showSavedArrayDiv').innerHTML = arrayValue;
+      }
+*/
+	  }
+	function addToCart(tableRow, prod, code, qty, price) {
+		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
+		createArray(tableRow, prod, code, qty, price);
 		var oldItems = JSON.parse(localStorage.getItem('sItems'));
 		console.log("oldItems = " + newItem);
-		var newItem = '"' + tableRow + ', "' +
+//		sCart.sItems.push(newItem);
+		localStorage.setItem('sItem', JSON.strigify(newItem));
+		console.log("new stored sItem array = " + localStorage.getItem('sItem'));
+/*		var newItem = '"' + tableRow + ', "' +
 						code + '", "' +
 						qty + '", "' +
 						price + '", "' +
@@ -89,12 +131,15 @@
 		}
 */
 /*
-		console.log("newItem = " + newItem);
-		sCart.sItems.push(newItem);
-		localStorage.setItem('sCart', JSON.strigify(sCart));
+
 		return false;
 	
 	}
+	
+		localStorage.setItem('array', JSON.stringify(myArray));
+		loadArray();	
+	
+	
      	localStorage.setItem('sProd', JSON.stringify('newItem'));
 
 		localStorage.setItem('id', JSON.stringify('tableRow'));
