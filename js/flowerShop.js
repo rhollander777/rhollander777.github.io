@@ -114,8 +114,8 @@
 			console.log("oldItems = " + newItem);
 		}
 //		sCart.sItems.push(newItem);
-		localStorage.setItem('sItem', JSON.strigify(newItem));
-		console.log("new stored sItem array = " + localStorage.getItem('sItem'));
+//		localStorage.setItem('sItem', JSON.strigify(newItem));
+	//	console.log("new stored sItem array = " + localStorage.getItem('sItem'));
 /*		var newItem = '"' + tableRow + ', "' +
 						code + '", "' +
 						qty + '", "' +
@@ -147,10 +147,11 @@
 		localStorage.setItem('qty', JSON.stringify('1'));
 		localStorage.setItem('price', JSON.stringify('price'));
 		localStorage.setItem('vCalcCost', JSON.stringify('vCalcCost'));
-*/
+
 //		document.getElementById(tableRow).value = false; //clears the check box after add
 		getCart();
 		sCartCnt++;
+*/
 	} 
 	function getCart() {
 //		alert("Inside getCart");
