@@ -62,6 +62,7 @@
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
 	var myArray;
+	/*
 	function createArray(tableRow, prod, code, qty, price){
 		var vProd = "prod" + tableRow;
 		var vName = "name" + tableRow;
@@ -104,7 +105,9 @@
         document.getElementById('showSavedArrayDiv').innerHTML = arrayValue;
       }
 */
+/*
 	  }
+*/
 	function addToCart(tableRow, prod, code, qty, price) {
 		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		createArray(tableRow, prod, code, qty, price);
