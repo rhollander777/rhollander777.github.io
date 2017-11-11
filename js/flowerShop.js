@@ -80,18 +80,19 @@
 		}	
 		//clear out previous text if needed
 //		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
-		myArray.push(document.getElementById("vName").value);
-		myArray.push(document.getElementById("vCode").value);
-		myArray.push(document.getElementById("vPrice").value);	
+		myArray.push(document.getElementById(vName).value);
+		myArray.push(document.getElementById(vCode).value);
+		myArray.push(document.getElementById(vPrice).value);	
 		myArray.push(vCalcCost);
 		newItem = [];
+		var iOut = ""; 
 		for (i = 0; i < myArray.length; i++) {
-			newItem += myArray[i];
 			if (i < myArray.length - 1) {
-				newItem += ", ";
+				iOut += ", ";
 			}	
 		}
-		console.log("newItem = " + newItem);	
+		console.log("array iOut = " + iOut);
+		newItem.push(iOut);
 	}
 
     function pullArray(){
