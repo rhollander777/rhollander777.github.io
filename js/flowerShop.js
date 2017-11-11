@@ -91,12 +91,12 @@
 		var iOut = ""; 
 		for (i = 0; i < myArray.length; i++) {
 			if (i < myArray.length - 1) {
-				iOut = '"' + tableRow += '", "' +
-				name += '", "' +
-				code += '", "' +
-				qty += '", "' +
-				price += '", "' +
-				vCalcCost + '"';
+				iOut += '"' += tableRow += '", "' +=
+				name += '", "' +=
+				code += '", "' +=
+				qty += '", "' +=
+				price += '", "' +=
+				vCalcCost += '"';
 			}	
 		}
 		console.log("array iOut = " + iOut);
