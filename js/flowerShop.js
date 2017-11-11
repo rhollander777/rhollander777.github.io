@@ -62,7 +62,7 @@
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
 	var myArray;
-
+/*
 	function createArray(tableRow, name, code, qty, price){
 		var vProd = "prod" + tableRow;
 		var vName = "name" + tableRow;
@@ -95,6 +95,7 @@
 		}
 		console.log("newItem = " + newItem);	
 	}
+*/
     function pullArray(){
 /*  Under construction 
       var vArray = JSON.parse(localStorage.getItem('sCart.sItem'));
