@@ -84,7 +84,7 @@
 		myArray.push(tableRow);
 		myArray.push(document.getElementById(vName).value);
 		myArray.push(document.getElementById(vCode).value);
-		myArray.push(vQty);
+		myArray.push(qty);
 		myArray.push(document.getElementById(vPrice).value);	
 		myArray.push(vCalcCost);
 		newItem = [];
