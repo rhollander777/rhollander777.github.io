@@ -62,7 +62,7 @@
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
 	var myArray;
-/*
+
 	function createArray(tableRow, name, code, qty, price){
 		var vProd = "prod" + tableRow;
 		var vName = "name" + tableRow;
@@ -95,7 +95,7 @@
 		}
 		console.log("newItem = " + newItem);	
 	}
-*/
+
     function pullArray(){
 /*  Under construction 
       var vArray = JSON.parse(localStorage.getItem('sCart.sItem'));
@@ -110,11 +110,11 @@
 
 	function addToCart(tableRow, name, code, qty, price) {
 		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
-//		createArray(tableRow, name, code, qty, price);
+		createArray(tableRow, name, code, qty, price);
 //		var oldItems = JSON.parse(localStorage.getItem('sItems'));
 		console.log("oldItems = " + newItem);
-//		sCart.sItems.push(newItem);
-//		localStorage.setItem('sItem', JSON.strigify(newItem));
+		sCart.sItems.push(newItem);
+		localStorage.setItem('sItem', JSON.strigify(newItem));
 		console.log("new stored sItem array = " + localStorage.getItem('sItem'));
 /*		var newItem = '"' + tableRow + ', "' +
 						code + '", "' +
