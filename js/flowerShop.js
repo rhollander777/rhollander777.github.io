@@ -95,7 +95,6 @@
 		}
 		console.log("newItem = " + newItem);	
 	}
-	}
     function pullArray(){
 /*  Under construction 
       var vArray = JSON.parse(localStorage.getItem('sCart.sItem'));
