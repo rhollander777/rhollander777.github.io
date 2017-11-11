@@ -51,14 +51,13 @@
 			'<td id="code' + i + '">' + arr.flower[i].Code + '</td>' +
 			'<td id="price' + i + '">$' + arr.flower[i].Price +  '</td>' +
 			'<td>' +
-//		  	'<input type="checkbox" id="addCB[i]" class="addCB" onclick='addToCart("addCB??", "ABC123", "1", "29.99")' /> </td><td>' +
-//			'<input type="checkbox" id="delCB[i]" class="delCB" onclick='removeFromCart("document.getElementById(this)", "document.catalog1.row[i].cell[2].innerHTML", qty, price)' /></td></tr>' +
-//			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart("arr.Flower[i].id", "arr.flower[i].Code", 1, "arr.flower[i].Price")" /></td></tr>' + 
-		  	'<input type="button" id="addBtn" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Product + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td><td>' +
-			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].Product + ', "' + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /></td></tr>'; 
+		  	'<input type="button" id="addBtn" name="addBtn" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', "' + arr.flower[i].Product + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" /> </td>' +
+			'<td>' +
+			'<input type="button" id="delBtn" class="delBtn" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', "' + arr.flower[i].Product + ', "' + ', "' + arr.flower[i].Code + '", 1, ' + arr.flower[i].Price + ')" />' + 
+			'</td></tr>'; 
 
 	 }
-//		console.log(vOut);
+		console.log(vOut);
 //		alert(vOut);
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
