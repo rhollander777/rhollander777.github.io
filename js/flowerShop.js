@@ -91,8 +91,9 @@
 		var iOut = ""; 
 		for (i = 0; i < myArray.length; i++) {
 				iOut += '"';
-				iOut += myArray[i].value;
+				iOut += myArray[i];
 				iOut += '"';
+				console.log("iOut= " + iOut);
 			if (i < myArray.length - 1) {
 				iOut += ", ";
 			}
