@@ -109,11 +109,13 @@
 	}
 
 	function addToCart(tableRow, name, code, qty, price) {
-		alert("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
+		console.log("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		createArray(tableRow, name, code, qty, price);
-//		var oldItems = JSON.parse(localStorage.getItem('sItems'));
-		console.log("oldItems = " + newItem);
-		sCart.sItems.push(newItem);
+		if (localStorage) {
+			var oldItems = JSON.parse(localStorage.getItem('sItems'));
+			console.log("oldItems = " + newItem);
+		}
+//		sCart.sItems.push(newItem);
 		localStorage.setItem('sItem', JSON.strigify(newItem));
 		console.log("new stored sItem array = " + localStorage.getItem('sItem'));
 /*		var newItem = '"' + tableRow + ', "' +
