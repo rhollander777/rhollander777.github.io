@@ -90,14 +90,11 @@
 		newItem = [];
 		var iOut = ""; 
 		for (i = 0; i < myArray.length; i++) {
+				iOut += '"';
 			if (i < myArray.length - 1) {
-				iOut += '"' += tableRow += '", "' +=
-				name += '", "' +=
-				code += '", "' +=
-				qty += '", "' +=
-				price += '", "' +=
-				vCalcCost += '"';
-			}	
+				iOut += myArray[i];
+				iOut += '", ';
+			}
 		}
 		console.log("array iOut = " + iOut);
 		newItem.push(iOut);
