@@ -61,13 +61,11 @@
 //		alert(vOut);
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
-	
-
 	var myArray;
 	function createArray(tableRow, prod, code, qty, price){
 		var vProd = "prod" + tableRow;
 		var vName = "name" + tableRow;
-		vat vCode = "code" + tableRow;
+		var vCode = "code" + tableRow;
 		var vPrice = "price" + tableRow;
 		console.log("vProd = " + vProd);
 		myArray = [];
