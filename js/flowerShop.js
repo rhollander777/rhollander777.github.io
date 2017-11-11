@@ -81,8 +81,8 @@
 		//clear out previous text if needed
 //		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
 		myArray.push(document.getElementById(vName).value);
-		myArray.push(document.getElementById('vCode').value);
-		myArray.push(document.getElementById('vPrice').value);	
+		myArray.push(document.getElementById(vCode).value);
+		myArray.push(document.getElementById(vPrice).value);	
 		myArray.push(vCalcCost);
 		newItem = [];
 		for (i = 0; i < myArray.length; i++) {
