@@ -97,8 +97,8 @@
 				iOut += ", ";
 			}
 		}
-//		console.log("array iOut = " + iOut);
-//		newItem.push(iOut);
+		console.log("array iOut = " + iOut);
+		newItem.push(iOut);
 	}
 
     function pullArray(){
