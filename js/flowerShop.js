@@ -97,7 +97,7 @@
 			if (i < myArray.length - 1) {
 				iOut += ", ";
 			}
-//		console.log("array iOut = " + iOut);
+		console.log("array iOut = " + iOut);
 		newItem = iOut;
 		}
 	}
@@ -125,7 +125,7 @@
 			localStorage.setItem('sItem', JSON.stringify(sItem));
 		}
 //		sCart.sItems.push(newItem);
-		localStorage.setItem('sItem', JSON.strigify(newItem));
+		localStorage.setItem('sItem', JSON.stringify(newItem));
 	//	console.log("new stored sItem array = " + localStorage.getItem('sItem'));
 /*		var newItem = '"' + tableRow + ', "' +
 						code + '", "' +
