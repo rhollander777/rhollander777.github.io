@@ -100,6 +100,7 @@
 //		console.log("array iOut = " + iOut);
 		newItem = iOut;
 		}
+	}
 
     function pullArray(){
 /*  Under construction 
@@ -244,7 +245,6 @@
 		if (localStorage) {
 			localStorage.clear();
 		}
-
 	}
 	function displayError() {
 		alert('Call 888-888-8888 or check back later. Fulfillment page under construction. Thank you for your business.');
