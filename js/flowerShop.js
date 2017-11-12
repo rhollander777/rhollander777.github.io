@@ -33,6 +33,7 @@
 //	  alert("Product index 1 = " + arr.flower[1].Product);
 //	  alert("array flower length = " + arr.flower.length);
 	  var vOut = "";
+	  var i = 0;
 	  var vId = arr['flower'][i]['id'][i];
 //	  console.log("id = " + vId);
 /*	  
