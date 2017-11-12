@@ -64,6 +64,7 @@
 	var myArray;
 
 	function createArray(tableRow, name, code, qty, price){
+
 		var vName = "name" + tableRow;
 		var vCode = "code" + tableRow;
 		var vQty = "qty" + tableRow;
@@ -89,18 +90,20 @@
 		myArray.push(vCalcCost);
 		newItem = [];
 		var iOut = ""; 
+
 		for (i = 0; i < myArray.length; i++) {
 				iOut += '"';
 				iOut += myArray[i];
 				iOut += '"';
-				console.log("iOut= " + iOut);
+//				console.log("iOut= " + iOut);
 			if (i < myArray.length - 1) {
 				iOut += ", ";
 			}
 		}
-		console.log("array iOut = " + iOut);
+/*		console.log("array iOut = " + iOut);
 		newItem.push(iOut);
-	}
+*/
+		}
 
     function pullArray(){
 /*  Under construction 
