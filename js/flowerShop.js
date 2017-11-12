@@ -63,7 +63,7 @@
 	var myArray;
 
 	function createArray(tableRow, name, code, qty, price){
-
+/*
 		var vName = "name" + tableRow;
 		var vCode = "code" + tableRow;
 		var vQty = "qty" + tableRow;
@@ -99,6 +99,7 @@
 		console.log("array iOut = " + iOut);
 		newItem = iOut;
 		}
+*/
 	}
 
     function pullArray(){
