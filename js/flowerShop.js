@@ -126,7 +126,9 @@
 		}
 //		sCart.sItems.push(newItem);
 		localStorage.setItem('sItem', JSON.stringify(newItem));
+		sCartCnt++;
 		console.log("new stored sItem array = " + JSON.parse(localStorage.getItem('sItem')));
+		console.log("sCartCnt= " + sCartCnt);
 /*		var newItem = '"' + tableRow + ', "' +
 						code + '", "' +
 						qty + '", "' +
@@ -149,19 +151,7 @@
 	
 		localStorage.setItem('array', JSON.stringify(myArray));
 		loadArray();	
-	
-	
-     	localStorage.setItem('sProd', JSON.stringify('newItem'));
-
-		localStorage.setItem('id', JSON.stringify('tableRow'));
-		localStorage.setItem('code', JSON.stringify('code'));		
-		localStorage.setItem('qty', JSON.stringify('1'));
-		localStorage.setItem('price', JSON.stringify('price'));
-		localStorage.setItem('vCalcCost', JSON.stringify('vCalcCost'));
-
-//		document.getElementById(tableRow).value = false; //clears the check box after add
 		getCart();
-		sCartCnt++;
 */
 	} 
 	function getCart() {
@@ -172,7 +162,7 @@
 			document.getElementById("displayCart").innerHTML = "No Items in Cart";
 			return false;
 		} 
-		console.log("new stored sItem array = " + JSON.parse(localStorage.getItem('sItem')));
+		console.log("getCart sItem array = " + JSON.parse(localStorage.getItem('sItem')));
 		document.getElementById("displayCart").style.color = "red";
 		document.getElementById("displayCart").innerHTML = JSON.parse(localStorage.getItem('sItem'));
 /*		var retrieveProd = localStorage.getItem("sItem");
