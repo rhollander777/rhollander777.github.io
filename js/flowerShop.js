@@ -117,6 +117,7 @@
 	function addToCart(tableRow, name, code, qty, price) {
 		console.log("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		createArray(tableRow, name, code, qty, price);
+		console.log("newItem= " + newItem);
 		if (localStorage !== null) {
 			var oldItems = JSON.parse(localStorage.getItem('sItems'));
 			console.log("oldItems = " + oldItems);
