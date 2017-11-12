@@ -33,8 +33,7 @@
 //	  alert("Product index 1 = " + arr.flower[1].Product);
 //	  alert("array flower length = " + arr.flower.length);
 	  var vOut = "";
-	  var i = 0;
-	  var vId = arr['flower'][i]['id'][i];
+//	  var vId = arr['flower'][i]['id'][i];
 //	  console.log("id = " + vId);
 /*	  
 	  var vCode = JSON.flower[i].Code[i].value;
@@ -57,7 +56,7 @@
 			'<input type="button" id="delBtn' + rCnt + '" class="delBtn' + rCnt + '" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', ' + "'" + arr.flower[i].Name + "'" + ', ' + "'" + arr.flower[i].Code + "'" + ', 1, ' + arr.flower[i].Price + ')" />' + 
 			'</td></tr>'; rCnt++;
 	 }
-		console.log(vOut);
+//		console.log(vOut);
 //		alert(vOut);
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
