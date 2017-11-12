@@ -85,18 +85,16 @@
 		myArray.push(qty);
 		myArray.push(price);	
 		myArray.push(vCalcCost);
+		
 		newItem = "";
-		var iOut = ""; 
-
 		for (i = 0; i < myArray.length; i++) {
-				iOut += '"';
-				iOut += myArray[i];
-				iOut += '"';
+				newItem += '"';
+				newItem += myArray[i];
+				newItem += '"';
 			if (i < myArray.length - 1) {
-				iOut += ", ";
+				newItem += ", ";
 			}
-//		console.log("array iOut = " + iOut);
-		newItem = iOut;
+//		console.log("array newItem = " + newItem);
 		}
 
 	}
@@ -114,11 +112,11 @@
 	}
 
 	function addToCart(tableRow, name, code, qty, price) {
-		console.log("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
+//		console.log("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		createArray(tableRow, name, code, qty, price);
-		console.log("newItem= " + newItem);
+//		console.log("newItem= " + newItem);
 		if (localStorage !== null) {
-			var oldItems = JSON.parse(localStorage.getItem('sItems'));
+			var oldItems = JSON.parse(localStorage.getItem('sItems')); /* create empty cart */
 			console.log("oldItems = " + oldItems);
 		} else { 
 			localStorage.setItem('sCart', JSON.stringify(sCart));
@@ -183,7 +181,15 @@
 */
 	}
 	function removeFromCart(tableRow) {
-/*		if (!document.getElementById(tableRow).checked) {
+		var vItem = 
+		if (localStorage !== null) {
+			localStorage.removeItem('sItem');
+		}
+		console.log("Need to add code to find item in shopping cart and remove.  Currently working with single shopping cart item.");
+		getCart();
+		sCartCnt--;
+/*		Replaced logic with button and array instead of checkbox
+		if (!document.getElementById(tableRow).checked) {
 			return false;
 		} else{
      		localStorage.removeItem('code');
@@ -193,15 +199,13 @@
 			document.getElementById(tableRow).checked = false;	
 //		clearCheckbox('delBtn');
 */
-		console.log("Need to add code to remove from cart");
-		getCart();
-		sCartCnt--;
-	}
+		}
 	function clearCart() {
 //		alert("Inside clearCart:  under construction");
 		if (localStorage !== null ) {
 			document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
 			window.localStorage.clear();
+			sCartCnt = 0;
 			return false;
 		}
 /* Replaced by buttons 
