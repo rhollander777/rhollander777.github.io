@@ -191,7 +191,7 @@
 			document.getElementById("displayCart").innerHTML = vCart;
 		}
 */
-		}
+	}
 	function removeFromCart(tableRow) {
 /*		if (!document.getElementById(tableRow).checked) {
 			return false;
@@ -206,7 +206,6 @@
 		console.log("Need to add code to remove from cart");
 		getCart();
 		sCartCnt--;
-		}
 	}
 	function clearCart() {
 //		alert("Inside clearCart:  under construction");
