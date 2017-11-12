@@ -63,7 +63,6 @@
 	var myArray;
 
 	function createArray(tableRow, name, code, qty, price){
-/*
 		var vName = "name" + tableRow;
 		var vCode = "code" + tableRow;
 		var vQty = "qty" + tableRow;
@@ -88,7 +87,7 @@
 		myArray.push(vCalcCost);
 		newItem = "";
 		var iOut = ""; 
-
+/*
 		for (i = 0; i < myArray.length; i++) {
 				iOut += '"';
 				iOut += myArray[i];
