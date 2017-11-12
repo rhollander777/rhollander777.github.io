@@ -186,7 +186,6 @@
 		}
 	}
 	function removeFromCart(tableRow) {
-		alert("code: " + code + "   qty: 1   " + price);
 		if (!document.getElementById(tableRow).checked) {
 			return false;
 		} else{
@@ -241,10 +240,7 @@
 	}
 	function clearStorage() {
 		if (localStorage) {
-			localStorage.removeItem('sItem');
-		}
-		if (localStorage) {
-			localStorage.removeItem('sCart');
+			localStorage.clear();
 		}
 	}
 	function displayError() {
