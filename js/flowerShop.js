@@ -26,7 +26,7 @@
 	function loadFile(arr, divId, isJson) {
 	  var x, i, vTable;
 //  Debugging
-//  	  var myJSON =  JSON.stringify(arr);
+//    var myJSON =  JSON.stringify(arr);
 //	  alert(myJSON);
 //	  alert(myJSON.length);
 //	  alert("Product index 1 = " + arr.flower[1].Product);
@@ -60,7 +60,7 @@
 //		alert(vOut);
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
-/*	
+
 	var myArray;
 	function createArray(tableRow, name, code, qty, price){
 		var vName = "name" + tableRow;
