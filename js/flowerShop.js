@@ -95,7 +95,7 @@
 			if (i < myArray.length - 1) {
 				iOut += ", ";
 			}
-		console.log("array iOut = " + iOut);
+//		console.log("array iOut = " + iOut);
 		newItem = iOut;
 		}
 
