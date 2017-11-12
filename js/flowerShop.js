@@ -57,7 +57,7 @@
 			'<input type="button" id="delBtn' + rCnt + '" class="delBtn' + rCnt + '" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', ' + "'" + arr.flower[i].Name + "'" + ', ' + "'" + arr.flower[i].Code + "'" + ', 1, ' + arr.flower[i].Price + ')" />' + 
 			'</td></tr>'; rCnt++;
 	 }
-		console.log(vOut);
+//		console.log(vOut);
 //		alert(vOut);
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
@@ -83,10 +83,10 @@
 		//clear out previous text if needed
 //		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
 		myArray.push(tableRow);
-		myArray.push(document.getElementById(vName).value);
-		myArray.push(document.getElementById(vCode).value);
+		myArray.push(name);
+		myArray.push(code);
 		myArray.push(qty);
-		myArray.push(document.getElementById(vPrice).value);	
+		myArray.push(price);	
 		myArray.push(vCalcCost);
 		newItem = [];
 		var iOut = ""; 
