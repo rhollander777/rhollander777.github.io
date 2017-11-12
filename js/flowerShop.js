@@ -114,12 +114,13 @@
 	function addToCart(tableRow, name, code, qty, price) {
 //		console.log("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		createArray(tableRow, name, code, qty, price);
+//		var sItemIdx = 'sItem' + tableRow;   /* for future multii item cart in localStorage */
 //		console.log("newItem= " + newItem);
 		if (localStorage !== null) {
 			var oldItems = JSON.parse(localStorage.getItem('sItems')); /* create empty cart */
 			console.log("oldItems = " + oldItems);
 		} else { 
-			localStorage.setItem('sCart', JSON.stringify(sCart));
+//			localStorage.setItem('sCart', JSON.stringify(sCart));
 			localStorage.setItem('sItem', JSON.stringify(sItem));
 		}
 //		sCart.sItems.push(newItem);
