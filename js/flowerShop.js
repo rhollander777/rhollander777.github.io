@@ -212,17 +212,13 @@
 //		alert("Inside clearCart:  under construction");
 		if (localStorage !== null ) {
 			document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
+			window.localStorage.clear();
 			return false;
 		}
-		for (i=0; i < sCart.length; i++) {
-/*   Need to find sCart array and remove all line items */
-     		localStorage.removeItem('code');
-			localStorage.removeItem('qty');
-			localStorage.removeItem('price');
-			localStorage.removeItem('liCost');			
-		}
+/* Replaced by buttons 
 		clearCheckbox('addBtn');
 		clearCheckbox('delBtn');
+*/
 		document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
 		sCartCnt = 0;
 	}
