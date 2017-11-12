@@ -68,7 +68,6 @@
 		var vCode = "code" + tableRow;
 		var vQty = "qty" + tableRow;
 		var vPrice = "price" + tableRow;
-		console.log("vCode = " + vCode);
 		myArray = [];
 // 		Calculate extended cost
 		vCalcCost = 0;
