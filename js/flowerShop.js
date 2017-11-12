@@ -189,7 +189,7 @@
 		}
 	}
 	function removeFromCart(tableRow) {
-		if (!document.getElementById(tableRow).checked) {
+/*		if (!document.getElementById(tableRow).checked) {
 			return false;
 		} else{
      		localStorage.removeItem('code');
@@ -198,8 +198,10 @@
 			localStorage.removeItem('liCost');
 			document.getElementById(tableRow).checked = false;	
 //		clearCheckbox('delBtn');
-			getCart();
-			sCartCnt--;
+*/
+		console.log("Need to add code to remove from cart");
+		getCart();
+		sCartCnt--;
 		}
 	}
 	function clearCart() {
