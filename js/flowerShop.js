@@ -3,9 +3,8 @@
 	var sCart = {};
 	var sItem = {};
 	sCart.sItems = [];
-	localStorage.setItem('sCart', JSON.stringify(sCart));
 	var sCartCnt = 0;
-	var newItem = [];
+	var newItem = "";
 	var vCalcCost = 0;
 	function getFileFromServer(url, divId, isJSON) {
 	  var xmlhttp = new XMLHttpRequest();
@@ -88,7 +87,7 @@
 		myArray.push(qty);
 		myArray.push(price);	
 		myArray.push(vCalcCost);
-		newItem = [];
+		newItem = "";
 		var iOut = ""; 
 
 		for (i = 0; i < myArray.length; i++) {
@@ -99,7 +98,7 @@
 				iOut += ", ";
 			}
 //		console.log("array iOut = " + iOut);
-		newItem.push(iOut);
+		newItem = iOut;
 		}
 
     function pullArray(){
@@ -120,9 +119,12 @@
 		if (localStorage !== null) {
 			var oldItems = JSON.parse(localStorage.getItem('sItems'));
 			console.log("oldItems = " + oldItems);
+		} else { 
+			localStorage.setItem('sCart', JSON.stringify(sCart));
+			localStorage.setItem('sItem', JSON.stringify(sItem));
 		}
 //		sCart.sItems.push(newItem);
-//		localStorage.setItem('sItem', JSON.strigify(newItem));
+		localStorage.setItem('sItem', JSON.strigify(newItem));
 	//	console.log("new stored sItem array = " + localStorage.getItem('sItem'));
 /*		var newItem = '"' + tableRow + ', "' +
 						code + '", "' +
