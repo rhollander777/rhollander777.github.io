@@ -60,8 +60,8 @@
 //		alert(vOut);
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
+	
 	var myArray;
-
 	function createArray(tableRow, name, code, qty, price){
 		var vName = "name" + tableRow;
 		var vCode = "code" + tableRow;
