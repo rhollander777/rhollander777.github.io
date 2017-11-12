@@ -174,7 +174,7 @@
 		} 
 		console.log("new stored sItem array = " + JSON.parse(localStorage.getItem('sItem')));
 		document.getElementById("displayCart").style.color = "red";
-		document.getElementById("displayCart").innerHTML = JSON.parse(localStorage.getItem('sItem)));
+		document.getElementById("displayCart").innerHTML = JSON.parse(localStorage.getItem('sItem));
 /*		var retrieveProd = localStorage.getItem("sItem");
 		var p = JSON.parse(retrieveProd);
 		console.log("localStorage parsed Code = " + p.Code);
