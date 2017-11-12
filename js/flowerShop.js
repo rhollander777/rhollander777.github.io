@@ -95,14 +95,11 @@
 				iOut += '"';
 				iOut += myArray[i];
 				iOut += '"';
-				console.log("iOut= " + iOut);
 			if (i < myArray.length - 1) {
 				iOut += ", ";
 			}
-		}
-/*		console.log("array iOut = " + iOut);
+//		console.log("array iOut = " + iOut);
 		newItem.push(iOut);
-*/
 		}
 
     function pullArray(){
