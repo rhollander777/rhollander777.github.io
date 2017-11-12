@@ -6,7 +6,7 @@
 	<script type="text/javascript" src="js/flowerShop.js"></script>  
     <title>Hollander Flower Shop</title>	
 </head>
-<body onload="getFileFromServer('data/flower.json', 'catalog1', true)">
+<body onload="getFileFromServer('data/flower.json' 'catalog1', true)" onunload="clearStorage()">
 	<h1>Fergie's Fresh Cut Flowers</h1>
 	<div id="displayCart" name="displayCart"></div>
 	
@@ -23,5 +23,5 @@
 		<input type="button" value="Clear Cart" onclick="clearCart()" />
 		<input type="button" value="Check Out" onclick="checkOut()" /><br><br>
 	</div>
-</body>
+</body >
 </html>
