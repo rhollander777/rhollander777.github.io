@@ -33,7 +33,7 @@
 //	  alert("Product index 1 = " + arr.flower[1].Product);
 //	  alert("array flower length = " + arr.flower.length);
 	  var vOut = "";
-//	  var vId = arr['flower'][i]['id'][i];
+	  var vId = arr['flower'][i]['id'][i];
 //	  console.log("id = " + vId);
 /*	  
 	  var vCode = JSON.flower[i].Code[i].value;
