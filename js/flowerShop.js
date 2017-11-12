@@ -95,7 +95,7 @@
 				iOut += '"';
 				iOut += myArray[i];
 				iOut += '"';
-//				console.log("iOut= " + iOut);
+				console.log("iOut= " + iOut);
 			if (i < myArray.length - 1) {
 				iOut += ", ";
 			}
