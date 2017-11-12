@@ -57,7 +57,7 @@
 			'<input type="button" id="delBtn' + rCnt + '" class="delBtn' + rCnt + '" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', ' + "'" + arr.flower[i].Name + "'" + ', ' + "'" + arr.flower[i].Code + "'" + ', 1, ' + arr.flower[i].Price + ')" />' + 
 			'</td></tr>'; rCnt++;
 	 }
-//		console.log(vOut);
+		console.log(vOut);
 //		alert(vOut);
 		document.getElementById("catalog1").innerHTML = vTable += vOut;
 	}
