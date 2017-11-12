@@ -243,7 +243,7 @@
 	}
 	function clearStorage() {
 		if (localStorage) {
-			localStorage.clear();
+			window.localStorage.clear();
 		}
 	}
 	function displayError() {
