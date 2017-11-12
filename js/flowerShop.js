@@ -167,12 +167,15 @@
 	function getCart() {
 //		alert("Inside getCart");
 // Need to load table and post to sCart
-		if (localStorage !== null ) {
+		if (localStorage == null ) {
 			document.getElementById("displayCart").style.color = "red";
 			document.getElementById("displayCart").innerHTML = "No Items in Cart";
 			return false;
-		}
-		var retrieveProd = localStorage.getItem("sItem");
+		} 
+		console.log("new stored sItem array = " + JSON.parse(localStorage.getItem('sItem')));
+		document.getElementById("displayCart").style.color = "red";
+		document.getElementById("displayCart").innerHTML = JSON.parse(localStorage.getItem('sItem)));
+/*		var retrieveProd = localStorage.getItem("sItem");
 		var p = JSON.parse(retrieveProd);
 		console.log("localStorage parsed Code = " + p.Code);
 		var vCart = "Code: " +
@@ -187,7 +190,8 @@
 		} else {
 			document.getElementById("displayCart").innerHTML = vCart;
 		}
-	}
+*/
+		}
 	function removeFromCart(tableRow) {
 /*		if (!document.getElementById(tableRow).checked) {
 			return false;
