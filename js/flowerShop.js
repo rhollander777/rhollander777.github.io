@@ -126,7 +126,7 @@
 		}
 //		sCart.sItems.push(newItem);
 		localStorage.setItem('sItem', JSON.stringify(newItem));
-	//	console.log("new stored sItem array = " + localStorage.getItem('sItem'));
+		console.log("new stored sItem array = " + JSON.parse(localStorage.getItem('sItem')));
 /*		var newItem = '"' + tableRow + ', "' +
 						code + '", "' +
 						qty + '", "' +
