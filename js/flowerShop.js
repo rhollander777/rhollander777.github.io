@@ -109,26 +109,32 @@
       if(arrayValue) {
         document.getElementById('showSavedArrayDiv').innerHTML = arrayValue;
       }
-*/
+
 	}
+*/
 
 	function addToCart(tableRow, name, code, qty, price) {
 //		console.log("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		createArray(tableRow, name, code, qty, price);
-//		var sItemIdx = 'sItem' + tableRow;   /* for future multii item cart in localStorage */
-//		console.log("newItem= " + newItem);
-		if (localStorage !== null) {
-			var oldItems = JSON.parse(localStorage.getItem('sItems')); /* create empty cart */
-			console.log("oldItems = " + oldItems);
-		} else { 
-//			localStorage.setItem('sCart', JSON.stringify(sCart));
-			localStorage.setItem('sItem', JSON.stringify(sItem));
-		}
-//		sCart.sItems.push(newItem);
-		localStorage.setItem('sItem', JSON.stringify(newItem));
+		if = (localStorage && localStorage.getItem('sCart')) {
+			// retrieve shopping cart
+			sCart localStorage.setItem('sCart', JSON.stringify(sCart));
+			
+			// add new item to shopping cart
+			sCart.sItem.push(newItem); 
+			
+			// store shopping cart
+			localStorage.setItem('sCart', JSON.stringify(sCart));
 		sCartCnt++;
 		console.log("new stored sItem array = " + JSON.parse(localStorage.getItem('sItem')));
 		console.log("sCartCnt= " + sCartCnt);
+		} else { 
+			// retrieve shopping cart
+			var oldItems = JSON.parse(localStorage.getItem('sItems'));
+			console.log("oldItems = " + oldItems);
+		}
+	} 
+	
 /*		var newItem = '"' + tableRow + ', "' +
 						code + '", "' +
 						qty + '", "' +
@@ -144,16 +150,14 @@
 		}
 */
 /*
-
 		return false;
 	
 	}
-	
 		localStorage.setItem('array', JSON.stringify(myArray));
 		loadArray();	
 		getCart();
 */
-	} 
+
 	function getCart() {
 //		alert("Inside getCart");
 // Need to load table and post to sCart
@@ -162,9 +166,21 @@
 			document.getElementById("displayCart").innerHTML = "No Items in Cart";
 			return false;
 		} 
-		console.log("getCart sItem array = " + JSON.parse(localStorage.getItem('sItem')));
 		document.getElementById("displayCart").style.color = "red";
-		document.getElementById("displayCart").innerHTML = JSON.parse(localStorage.getItem('sItem'));
+		var vCart = JSON.parse(localStorage.getItem('sCart');
+		console.log("sCart = " + JSON.parse(localStorage.getItem('sCart')));
+		var vItemCnt = 0;
+		var vOut = "<p style="font-size: 18px; font-weight: 2em;">Shopping Cart</p><table><th>Item</th><th>Product Description</th><th>Code</th><th>Qty</th><th>Price</th><th>Cost</th>"
+		for (i = 0; i < vCart.length; i++) {
+			vOut += '<tr><td>' += vCart.sItem[i][i] += '</td>';
+			for (vItemCnt = 0; vCart.sItem.length; vItemCnt++) {
+				vOut += '<td>' += vCart.sItem[i][vItemCnt] += '</td>';				
+			}
+			vOut += '</tr></table>';
+		}
+		document.getElementById("displayCart").innerHTML = vOut;
+	}
+	
 /*		var retrieveProd = localStorage.getItem("sItem");
 		var p = JSON.parse(retrieveProd);
 		console.log("localStorage parsed Code = " + p.Code);
@@ -181,15 +197,16 @@
 			document.getElementById("displayCart").innerHTML = vCart;
 		}
 */
-	}
+
 	function removeFromCart(tableRow) {
-		var vItem = 
+//Insert logic to identify array item in sCart and remove
 		if (localStorage !== null) {
 			localStorage.removeItem('sItem');
 		}
 		console.log("Need to add code to find item in shopping cart and remove.  Currently working with single shopping cart item.");
 		getCart();
 		sCartCnt--;
+	}
 /*		Replaced logic with button and array instead of checkbox
 		if (!document.getElementById(tableRow).checked) {
 			return false;
@@ -201,7 +218,7 @@
 			document.getElementById(tableRow).checked = false;	
 //		clearCheckbox('delBtn');
 */
-		}
+
 	function clearCart() {
 //		alert("Inside clearCart:  under construction");
 		if (localStorage !== null ) {
@@ -210,13 +227,13 @@
 			sCartCnt = 0;
 			return false;
 		}
+		document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
+		sCartCnt = 0;
+	}
 /* Replaced by buttons 
 		clearCheckbox('addBtn');
 		clearCheckbox('delBtn');
 */
-		document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
-		sCartCnt = 0;
-	}
 /* Replaced by use of buttons instead of checkboxes
    	function clearCheckbox(clearClass) {
 //  Logic to clear all checked boxes if a class of checkboxes is passed (e.g. addCB, delCB)
@@ -238,11 +255,13 @@
 			window.location.href='orderForm.html';		
 		}
 	}
+	
 	function clearStorage() {
 		if (localStorage) {
 			window.localStorage.clear();
 		}
 	}
+	
 	function displayError() {
 		alert('Call 888-888-8888 or check back later. Fulfillment page under construction. Thank you for your business.');
 	}
