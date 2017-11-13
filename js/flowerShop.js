@@ -6,6 +6,7 @@
 	var sCartCnt = 0;
 	var newItem = "";
 	var vCalcCost = 0;
+	
 	function getFileFromServer(url, divId, isJSON) {
 	  var xmlhttp = new XMLHttpRequest();
 	  xmlhttp.onreadystatechange = 
@@ -23,6 +24,7 @@
 	  xmlhttp.send();
 //	  document.getElementById( divId ).innerHTML = xmlhttp.responseText;	
 	}
+	
 	function loadFile(arr, divId, isJson) {
 	  var x, i, vTable;
 //  Debugging
