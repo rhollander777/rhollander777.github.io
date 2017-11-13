@@ -219,7 +219,7 @@
 //		clearCheckbox('delBtn');
 */
 
-	function clearCart() {
+	function clearStorage {
 //		alert("Inside clearCart:  under construction");
 		if (localStorage !== null ) {
 			document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
@@ -228,6 +228,17 @@
 			return false;
 		}
 		document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
+		sCartCnt = 0;
+	}
+	function clearCart {
+//		alert("Inside clearCart:  under construction");
+		if (localStorage && localStorage.getItem('sCart')) {
+			localStorage.removeItem('sCart');
+			document.getElementById("displayCart").innerHTML = "Shopping Cleared";
+			sCartCnt = 0;
+			return false;
+		}
+		document.getElementById("displayCart").innerHTML = "No Shopping Cart Found";
 		sCartCnt = 0;
 	}
 /* Replaced by buttons 
@@ -247,13 +258,14 @@
 	}
 */
 	function checkOut() {
-		if (localStorage !== null ) {
-			document.getElementById("displayCart").style.color = "red";
-			document.getElementById("displayCart").innerHTML = "No Items in Cart. Add products to cart and Check Out";
-			return false;
-		} else {
+		if (localStorage && localStorage.getItem('sCart') && sCartCnt > 0 ) {
 			window.location.href='orderForm.html';		
+		} else {
+			document.getElementById("displayCart").style.color = "red";
+			document.getElementById("displayCart").innerHTML = "No Items in Cart. Add products before Check Out";
+			return false;
 		}
+
 	}
 	
 	function clearStorage() {
