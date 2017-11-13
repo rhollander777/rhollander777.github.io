@@ -167,7 +167,7 @@
 			return false;
 		} 
 		document.getElementById("displayCart").style.color = "red";
-		var vCart = JSON.parse(localStorage.getItem('sCart');
+		var vCart = JSON.parse(localStorage.getItem('sCart'));
 		console.log("sCart = " + JSON.parse(localStorage.getItem('sCart')));
 		var vItemCnt = 0;
 		var vOut = "<p style="font-size: 18px; font-weight: 2em;">Shopping Cart</p><table><th>Item</th><th>Product Description</th><th>Code</th><th>Qty</th><th>Price</th><th>Cost</th>"
@@ -176,8 +176,8 @@
 			for (vItemCnt = 0; vCart.sItem.length; vItemCnt++) {
 				vOut += '<td>' += vCart.sItem[i][vItemCnt] += '</td>';				
 			}
-			vOut += '</tr></table>';
 		}
+		vOut += '</tr></table>';
 		document.getElementById("displayCart").innerHTML = vOut;
 	}
 	
