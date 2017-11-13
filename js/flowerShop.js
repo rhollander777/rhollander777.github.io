@@ -118,7 +118,7 @@
 		createArray(tableRow, name, code, qty, price);
 		if (localStorage && localStorage.getItem('sCart')) {
 			// retrieve shopping cart
-			sCart localStorage.setItem('sCart', JSON.stringify(sCart));
+			sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
 			
 			// add new item to shopping cart
 			sCart.sItem.push(newItem); 
