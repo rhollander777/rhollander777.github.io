@@ -53,7 +53,7 @@
 			'<td>' +
 		  	'<input type="button" id="addBtn' + rCnt +  '" name="addBtn' + rCnt + '" class="btn" value="Add" onclick="addToCart(' + arr.flower[i].id + ', ' + "'" + arr.flower[i].Name + "'" + ', ' + "'" + arr.flower[i].Code + "'" + ', 1, ' + arr.flower[i].Price + ')" /> </td>' +
 			'<td>' +
-			'<input type="button" id="delBtn' + rCnt + '" class="delBtn' + rCnt + '" class="btn" value="Remove" onclick="removeFromCart(' + arr.flower[i].id + ', ' + "'" + arr.flower[i].Name + "'" + ', ' + "'" + arr.flower[i].Code + "'" + ', 1, ' + arr.flower[i].Price + ')" />' + 
+			'<input type="button" id="delBtn' + rCnt + '" class="delBtn' + rCnt + '" class="btn" value="Remove" onclick="removeCartItem(' + arr.flower[i].id + ')" />' + 
 			'</td></tr>'; 
 		rCnt++;
 	 }
@@ -198,7 +198,7 @@
 		}
 */
 
-	function removeFromCart(tableRow) {
+	function removeCartItem(tableRow) {
 //Insert logic to identify array item in sCart and remove
 		if (localStorage !== null) {
 			localStorage.removeItem('sItem');
@@ -219,7 +219,7 @@
 //		clearCheckbox('delBtn');
 */
 
-	function clearStorage {
+	function clearStorage() {
 //		alert("Inside clearCart:  under construction");
 		if (localStorage !== null ) {
 			document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
@@ -230,7 +230,7 @@
 		document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
 		sCartCnt = 0;
 	}
-	function clearCart {
+	function clearCart() {
 //		alert("Inside clearCart:  under construction");
 		if (localStorage && localStorage.getItem('sCart')) {
 			localStorage.removeItem('sCart');
