@@ -77,6 +77,15 @@
 		}	
 //	clear out previous text if needed
 //		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
+		var newItem = {
+			"id": 	tableRow,
+			"name":	name,
+			"code": code,
+			"qty": 	qty,
+			"price": price,
+			"cost": vCalcCost
+		};
+/*
 		myArray.push(tableRow);
 		myArray.push(name);
 		myArray.push(code);
@@ -92,9 +101,10 @@
 			if (i < myArray.length - 1) {
 				newItem += ", ";
 			}
-//		console.log("array newItem = " + newItem);
-		}
 
+		}
+*/
+		console.log("createArray newItem = " + newItem);
 	}
 
     function pullArray(){
