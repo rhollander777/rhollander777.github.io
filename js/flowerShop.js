@@ -116,6 +116,7 @@
 		if (localStorage && localStorage.getItem('sCart')) {
 			// Creating an empty shopping cart object in localStorage. */
 			sCart = JSON.parse(localStorage.getItem('sCart'));
+			console.log("addCart sCart before adding item = " + sCart);
 			
 			// add new item to shopping cart
 			sCart.sItem.push(newItem); 
