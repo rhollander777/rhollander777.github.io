@@ -223,7 +223,7 @@
 //Insert logic to identify array item in sCart and remove
 		if (localStorage !== null) {
 			for(let sItem of sCart) {
-				if(sItem.id === tableRow) {
+				if(sItem.id == tableRow) {
 					localStorage.removeItem('sItem');
 					sItemCnt--;
 				};			
@@ -249,7 +249,7 @@
 	function clearCart() {
 //		alert("Inside clearCart:  under construction");
 		if (localStorage && localStorage.getItem('sCart')) {
-			localStorage.removeItem('sCart');
+			localStorage.removeItem('sItem');
 			document.getElementById("displayCart").innerHTML = "Shopping Cart Cleared";
 			sItemCnt = 0;
 			return false;
