@@ -129,7 +129,7 @@
 //			var oldCart = JSON.parse(localStorage.getItem('sCart')) || [];
 //			console.log("addCart oldCart before adding item = " + oldCart);
 			
-			var oldItems = JSON.parse(localStorage.getItem('sCart.sItem')) || [];
+			var oldItems = JSON.parse(localStorage.getItem('sItem')) || [];
 			console.log("addCart oldItems before adding item = " + oldItems);
 			
 			// add new item to shopping cart
