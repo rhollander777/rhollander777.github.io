@@ -221,17 +221,6 @@
 //		clearCheckbox('delBtn');
 */
 
-	function clearStorage() {
-//		alert("Inside clearCart:  under construction");
-		if (localStorage !== null ) {
-			document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
-			window.localStorage.clear();
-			sCartCnt = 0;
-			return false;
-		}
-		document.getElementById("displayCart").innerHTML = "Shopping Cart Empty";
-		sCartCnt = 0;
-	}
 	function clearCart() {
 //		alert("Inside clearCart:  under construction");
 		if (localStorage && localStorage.getItem('sCart')) {
@@ -275,7 +264,18 @@
 			window.localStorage.clear();
 		}
 	}
-	
+
+	function clearStorage() {
+//		alert("Inside clearCart:  under construction");
+		if (localStorage) {
+			document.getElementById("displayCart").innerHTML = "Storage Cleared";
+			window.localStorage.clear();
+			sCartCnt = 0;
+			return false;
+		}
+		document.getElementById("displayCart").innerHTML = "";
+		sCartCnt = 0;
+	}	
 	function displayError() {
 		alert('Call 888-888-8888 or check back later. Fulfillment page under construction. Thank you for your business.');
 	}
