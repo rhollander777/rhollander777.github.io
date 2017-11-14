@@ -101,7 +101,7 @@
 /*  Under construction 
       var vArray = JSON.parse(localStorage.getItem('sCart.sItem'));
 	  for ( i = 0; i < vArray.length; i++) {
-			if (vArray[i]   
+			if (vArray[i])   
 	  }
       if(arrayValue) {
         document.getElementById('showSavedArrayDiv').innerHTML = arrayValue;
@@ -135,7 +135,7 @@
 						qty + '", "' +
 						price + '", "' +
 						vCalcCost + '"';
-
+/*
 /*			var newItem = {
 			"i.id": 	tableRow,
 			"i.code": 	code,
@@ -217,6 +217,7 @@
 			localStorage.removeItem('price');
 			localStorage.removeItem('liCost');
 			document.getElementById(tableRow).checked = false;	
+		}
 //		clearCheckbox('delBtn');
 */
 
