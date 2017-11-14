@@ -179,9 +179,10 @@
 		} else {
 			document.getElementById("displayCart").style.color = "blue";
 			var vCart = JSON.parse(localStorage.getItem('sItem'));
-			console.log("sCart returned = " + vCart);
+			console.log("getCart localStorage sItem returned = " + vCart);
 			var vItemCnt = 0;
 			var vOut = "";
+			console.log("getCart Shopping Cart Length = " + vCart.length);
 			if (vCart.length = 0) {
 				vOut = "No Items in Cart";
 			} else {
@@ -189,7 +190,7 @@
 				for (i = 0; i < vCart.length; i++) {
 					vOut += '<tr>';
 					for (vItemCnt = 0; vCart.sItem.length; vItemCnt++) {
-						vOut += '<td>' + vCart[0].sItem[i][vItemCnt] + '</td>';				
+						vOut += '<td>' + vCart[vItemCnt] + '</td>';				
 					}
 					vOut += '</td>';
 				}
