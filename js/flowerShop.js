@@ -174,9 +174,9 @@
 		var vItemCnt = 0;
 		var vOut = '<p style="font-size:18px;"><b>Shopping Cart</b></p><table><th>Item</th><th>Product Description</th><th>Code</th><th>Qty</th><th>Price</th><th>Cost</th>';
 		for (i = 0; i < vCart.length; i++) {
-			vOut += '<tr><td>' += vCart.sItem[i][i] += '</td>';
+			vOut += '<tr><td>' + vCart.sItem[i][i] + '</td>';
 			for (vItemCnt = 0; vCart.sItem.length; vItemCnt++) {
-				vOut += '<td>' += vCart.sItem[i][vItemCnt] += '</td>';				
+				vOut += '<td>' + vCart.sItem[i][vItemCnt] + '</td>';				
 			}
 		}
 		vOut += '</tr></table>';
