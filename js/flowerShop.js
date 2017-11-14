@@ -5,7 +5,7 @@
 	sCart.sItems = [];
 // Creating an empty shopping cart object in localStorage. */
 	sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
-	var sCartCnt = 0;
+	var sItemCnt = 0;
 	var newItem = "";
 	var vCalcCost = 0;
 	
@@ -125,18 +125,19 @@
 		console.log("addToCart newItem = " + newItem);
 		if (localStorage !== null) {
 			// Creating an empty shopping cart object in localStorage. */
-			sCart.SItem = JSON.parse(localStorage.getItem('sCart'));
-			console.log("addCart sCart before adding item = " + sCart);
+			var oldItems = JSON.parse(localStorage.getItem('sCart')) || [];
+			console.log("addCart oldItems before adding item = " + oldItems);
 			
 			// add new item to shopping cart
-			sCart.sItem.push(newItem); 
+			oldItems.push(newItem); 
 			console.log("addCart sCart.sItem before adding item = " + sCart.sItem);
 			
 			// store shopping cart
-			localStorage.setItem('sCart', JSON.stringify(sCart));
-		sCartCnt++;
-		console.log("new stored sItem array = " + JSON.parse(localStorage.getItem('sItem')));
-		console.log("sCartCnt= " + sCartCnt);
+			localStorage.setItem('sCart', JSON.stringify(oldItems));
+
+			console.log("new stored Items array = " + JSON.parse(localStorage.getItem('sItem')));
+			sItemCnt++;
+			console.log("sItemCnt= " + sItemCnt);
 		} else { 
 			console.log("No shopping cart found in localStorage. Contact developer.");
 		}
@@ -220,7 +221,7 @@
 			for(let sItem of sCart) {
 				if(sItem.id === tableRow) {
 					localStorage.removeItem('sItem');
-					sCartCnt--;
+					sItemCnt--;
 				};			
 			}
 		console.log("Need to verify code removes item from cart.");
@@ -246,11 +247,11 @@
 		if (localStorage && localStorage.getItem('sCart')) {
 			localStorage.removeItem('sCart');
 			document.getElementById("displayCart").innerHTML = "Shopping Cart Cleared";
-			sCartCnt = 0;
+			sItemCnt = 0;
 			return false;
 		}
 		document.getElementById("displayCart").innerHTML = "No Shopping Cart Found";
-		sCartCnt = 0;
+		sItemCnt = 0;
 	}
 /* Replaced by buttons 
 		clearCheckbox('addBtn');
@@ -269,7 +270,7 @@
 	}
 */
 	function checkOut() {
-		if (localStorage && localStorage.getItem('sCart') && sCartCnt > 0 ) {
+		if (localStorage && localStorage.getItem('sCart') && sItemCnt > 0 ) {
 			window.location.href='orderForm.html';		
 		} else {
 			document.getElementById("displayCart").style.color = "red";
@@ -284,11 +285,11 @@
 		if (localStorage) {
 			document.getElementById("displayCart").innerHTML = "Storage Cleared";
 			window.localStorage.clear();
-			sCartCnt = 0;
+			sItemCnt = 0;
 			return false;
 		}
 		document.getElementById("displayCart").innerHTML = "";
-		sCartCnt = 0;
+		sItemCnt = 0;
 	}	
 	function displayError() {
 		alert('Call 888-888-8888 or check back later. Fulfillment page under construction. Thank you for your business.');
