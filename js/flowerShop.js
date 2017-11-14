@@ -1,8 +1,10 @@
 /*  flowerShop.js */
-/* Creating an empty shopping cart object in localStorage. */
+/* Creating global variables and empty shopping cart object in localStorage. */
 	var sCart = {};
 	var sItem = {};
 	sCart.sItems = [];
+// Creating an empty shopping cart object in localStorage. */
+	sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
 	var sCartCnt = 0;
 	var newItem = "";
 	var vCalcCost = 0;
@@ -35,13 +37,6 @@
 //	  alert("array flower length = " + arr.flower.length);
 	  var vOut = "";
 	  var i = 0;
-	  var vId = arr['flower'][i]['id'][i];
-//	  console.log("id = " + vId);
-/*	  
-	  var vCode = JSON.flower[i].Code[i].value;
-	  var vPrice = JSON.flower[i].Price[i].value;
-	  console.log("id = " + vId + "  Code = " + vCode + "  Price = " + vPrice);
-*/
 	  var rCnt = 1;
 	  vTable = "<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th><th>Add</th><th>Remove</th></tr>\n";
 	  for (i = 0; i < arr.flower.length; i++) { 
@@ -119,8 +114,8 @@
 //		console.log("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		createArray(tableRow, name, code, qty, price);
 		if (localStorage && localStorage.getItem('sCart')) {
-			// retrieve shopping cart
-			sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
+			// Creating an empty shopping cart object in localStorage. */
+			sCart = JSON.parse(localStorage.getItem('sCart'));
 			
 			// add new item to shopping cart
 			sCart.sItem.push(newItem); 
@@ -134,6 +129,9 @@
 			// retrieve shopping cart
 			var oldItems = JSON.parse(localStorage.getItem('sItems'));
 			console.log("oldItems = " + oldItems);
+
+						
+			
 		}
 	} 
 	
@@ -163,14 +161,14 @@
 	function getCart() {
 //		alert("Inside getCart");
 // Need to load table and post to sCart
-		if (localStorage == null ) {
+		if (localStorage == null) {
 			document.getElementById("displayCart").style.color = "red";
 			document.getElementById("displayCart").innerHTML = "No Items in Cart";
 			return false;
 		} 
-		document.getElementById("displayCart").style.color = "red";
+		document.getElementById("displayCart").style.color = "blue";
 		var vCart = JSON.parse(localStorage.getItem('sCart'));
-		console.log("sCart = " + JSON.parse(localStorage.getItem('sCart')));
+		console.log("sCart returned = " + vCart);
 		var vItemCnt = 0;
 		var vOut = '<p style="font-size:18px;"><b>Shopping Cart</b></p><table><th>Item</th><th>Product Description</th><th>Code</th><th>Qty</th><th>Price</th><th>Cost</th>';
 		for (i = 0; i < vCart.length; i++) {
@@ -181,6 +179,7 @@
 		}
 		vOut += '</tr></table>';
 		document.getElementById("displayCart").innerHTML = vOut;
+		return false;
 	}
 	
 /*		var retrieveProd = localStorage.getItem("sItem");
@@ -203,9 +202,17 @@
 	function removeCartItem(tableRow) {
 //Insert logic to identify array item in sCart and remove
 		if (localStorage !== null) {
+			for(let item of cartShop) {
+				if(item.name === name) {
+					item.quantity += quantity;
+					saveLocalCart();
+					return;
+				};			
 			localStorage.removeItem('sItem');
 		}
 		console.log("Need to add code to find item in shopping cart and remove.  Currently working with single shopping cart item.");
+
+}		
 		getCart();
 		sCartCnt--;
 	}
