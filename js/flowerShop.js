@@ -77,12 +77,12 @@
 		}	
 //	clear out previous text if needed
 //		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
-		var newItem = '"id": ' + tableRow +
-						', "name": ' + name +
-						', "code": ' + code +
-						', "qty": ' + qty +
-						', "price": ' + price +
-						', "cost": ' + vCalcCost;
+		newItem = '"id": "' + tableRow +
+				  '", "name": "' + name +
+					'", "code": "' + code +
+					'", "qty": "' + qty +
+					'", "price": "' + price +
+					'", "cost": "' + vCalcCost + '"';
 /*
 		myArray.push(tableRow);
 		myArray.push(name);
