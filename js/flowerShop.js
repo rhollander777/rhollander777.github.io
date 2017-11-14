@@ -123,6 +123,7 @@
 	function addToCart(tableRow, name, code, qty, price) {
 //		console.log("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		createArray(tableRow, name, code, qty, price);
+		console.log("addToCart newItem = " + newItem);
 		if (localStorage && localStorage.getItem('sCart')) {
 			// Creating an empty shopping cart object in localStorage. */
 			sCart = JSON.parse(localStorage.getItem('sCart'));
