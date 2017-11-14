@@ -160,28 +160,29 @@
 			document.getElementById("displayCart").style.color = "red";
 			document.getElementById("displayCart").innerHTML = "No Items in Cart";
 			return false;
-		} 
-		document.getElementById("displayCart").style.color = "blue";
-		var vCart = JSON.parse(localStorage.getItem('sCart'));
-		console.log("sCart returned = " + vCart);
-		var vItemCnt = 0;
-		var vOut = "";
-		if (vCart.length = 0) {
-			vOut = "Empty";
 		} else {
-			vOut = '<p style="font-size:18px;"><b>Shopping Cart</b></p><table><th>Item</th><th>Product Description</th><th>Code</th><th>Qty</th><th>Price</th><th>Cost</th>';
-			for (i = 0; i < vCart.length; i++) {
-				vOut += '<tr>';
-				for (vItemCnt = 0; vCart.sItem.length; vItemCnt++) {
-					vOut += '<td>' + vCart[0].sItem[i][vItemCnt] + '</td>';				
+			document.getElementById("displayCart").style.color = "blue";
+			var vCart = JSON.parse(localStorage.getItem('sCart'));
+			console.log("sCart returned = " + vCart);
+			var vItemCnt = 0;
+			var vOut = "";
+			if (vCart.length = 0) {
+				vOut = "No Items in Cart";
+			} else {
+				vOut = '<p style="font-size:18px;"><b>Shopping Cart</b></p><table><th>Item</th><th>Product Description</th><th>Code</th><th>Qty</th><th>Price</th><th>Cost</th>';
+				for (i = 0; i < vCart.length; i++) {
+					vOut += '<tr>';
+					for (vItemCnt = 0; vCart.sItem.length; vItemCnt++) {
+						vOut += '<td>' + vCart[0].sItem[i][vItemCnt] + '</td>';				
+					}
+					vOut += '</td>';
 				}
-				vOut += '</td>';
-			}
-			vOut += '</tr></table>';
-		}	
-		console.log("getCart vOut = " + vOut);
-//		document.getElementById("displayCart").innerHTML = vOut;
-		return false;
+				vOut += '</tr></table>';
+			}	
+			console.log("getCart vOut = " + vOut);
+			document.getElementById("displayCart").innerHTML = vOut;
+			return false;
+		}
 	}
 	
 /*		var retrieveProd = localStorage.getItem("sItem");
@@ -232,7 +233,7 @@
 //		alert("Inside clearCart:  under construction");
 		if (localStorage && localStorage.getItem('sCart')) {
 			localStorage.removeItem('sCart');
-			document.getElementById("displayCart").innerHTML = "Shopping Cleared";
+			document.getElementById("displayCart").innerHTML = "Shopping Cart Cleared";
 			sCartCnt = 0;
 			return false;
 		}
