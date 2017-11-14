@@ -125,11 +125,12 @@
 		console.log("addToCart newItem = " + newItem);
 		if (localStorage !== null) {
 			// Creating an empty shopping cart object in localStorage. */
-			sCart = JSON.parse(localStorage.getItem('sCart'));
+			sCart.SItem = JSON.parse(localStorage.getItem('sCart'));
 			console.log("addCart sCart before adding item = " + sCart);
 			
 			// add new item to shopping cart
-			sItem.push(newItem); 
+			sCart.sItem.push(newItem); 
+			console.log("addCart sCart.sItem before adding item = " + sCart.sItem);
 			
 			// store shopping cart
 			localStorage.setItem('sCart', JSON.stringify(sCart));
