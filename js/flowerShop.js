@@ -126,7 +126,7 @@
 		console.log("new stored sItem array = " + JSON.parse(localStorage.getItem('sItem')));
 		console.log("sCartCnt= " + sCartCnt);
 		} else { 
-			console.log('No shopping cart found in localStorage. Contact developer.");
+			console.log("No shopping cart found in localStorage. Contact developer.");
 		}
 	} 
 	
