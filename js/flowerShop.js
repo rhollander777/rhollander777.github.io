@@ -1,7 +1,7 @@
 /*  flowerShop.js */
 /* Creating global variables and empty shopping cart object in localStorage. */
 	var sCart = {};
-	var sItem = {};
+	var sItem = [];
 // Creating an empty shopping cart object in localStorage. */
 //	sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
 	localStorage.setItem('sCart', JSON.stringify(sCart));3
@@ -134,7 +134,6 @@
 			
 			// add new item to shopping cart
 			oldItems.push(newItem); 
-			console.log("addCart sCart.sItem before adding item = " + sCart.sItem);
 			
 			// store shopping cart item
 			localStorage.setItem('sItem', JSON.stringify(oldItems));
