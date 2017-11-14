@@ -1,10 +1,10 @@
 /*  flowerShop.js */
 /* Creating global variables and empty shopping cart object in localStorage. */
 	var sCart = {};
-	var sItem = [];
+	var sItem = {};
 // Creating an empty shopping cart object in localStorage. */
 //	sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
-	localStorage.setItem('sCart', JSON.stringify(sCart));
+	localStorage.setItem('sCart', JSON.stringify(sCart));3
 	sCart.sItems = [];
 	var sItemCnt = 0;
 	var newItem = "";
@@ -126,8 +126,8 @@
 		console.log("addToCart newItem = " + newItem);
 		if (localStorage !== null) {
 			// Creating an empty shopping cart object in localStorage. */
-			var oldCart = JSON.parse(localStorage.getItem('sCart')) || [];
-			console.log("addCart oldCart before adding item = " + oldCart);
+//			var oldCart = JSON.parse(localStorage.getItem('sCart')) || [];
+//			console.log("addCart oldCart before adding item = " + oldCart);
 			
 			var oldItems = JSON.parse(localStorage.getItem('sCart.sItem')) || [];
 			console.log("addCart oldItems before adding item = " + oldItems);
@@ -136,8 +136,8 @@
 			oldItems.push(newItem); 
 			console.log("addCart sCart.sItem before adding item = " + sCart.sItem);
 			
-			// store shopping cart
-			localStorage.setItem('sCart', JSON.stringify(oldItems));
+			// store shopping cart item
+			localStorage.setItem('sItem', JSON.stringify(oldItems));
 
 			console.log("new stored Items array = " + JSON.parse(localStorage.getItem('sItem')));
 			sItemCnt++;
