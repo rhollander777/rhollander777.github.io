@@ -2,9 +2,10 @@
 /* Creating global variables and empty shopping cart object in localStorage. */
 	var sCart = {};
 	var sItem = [];
-	sCart.sItems = [];
 // Creating an empty shopping cart object in localStorage. */
-	sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
+//	sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
+	localStorage.setItem('sCart', JSON.stringify(sCart));
+	sCart.sItems = [];
 	var sItemCnt = 0;
 	var newItem = "";
 	var vCalcCost = 0;
@@ -125,7 +126,10 @@
 		console.log("addToCart newItem = " + newItem);
 		if (localStorage !== null) {
 			// Creating an empty shopping cart object in localStorage. */
-			var oldItems = JSON.parse(localStorage.getItem('sCart')) || [];
+			var oldCart = JSON.parse(localStorage.getItem('sCart')) || [];
+			console.log("addCart oldCart before adding item = " + oldCart);
+			
+			var oldItems = JSON.parse(localStorage.getItem('sCart.sItem')) || [];
 			console.log("addCart oldItems before adding item = " + oldItems);
 			
 			// add new item to shopping cart
