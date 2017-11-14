@@ -1,7 +1,7 @@
 /*  flowerShop.js */
 /* Creating global variables and empty shopping cart object in localStorage. */
 	var sCart = {};
-	var sItem = {};
+	var sItem = [];
 	sCart.sItems = [];
 // Creating an empty shopping cart object in localStorage. */
 	sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
@@ -103,6 +103,7 @@
 		}
 */
 		console.log("createArray newItem = " + newItem);
+		return newItem;
 	}
 
     function pullArray(){
@@ -122,13 +123,13 @@
 //		console.log("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
 		createArray(tableRow, name, code, qty, price);
 		console.log("addToCart newItem = " + newItem);
-		if (localStorage && localStorage.getItem('sCart')) {
+		if (localStorage !== null) {
 			// Creating an empty shopping cart object in localStorage. */
 			sCart = JSON.parse(localStorage.getItem('sCart'));
 			console.log("addCart sCart before adding item = " + sCart);
 			
 			// add new item to shopping cart
-			sCart.sItem.push(newItem); 
+			sItem.push(newItem); 
 			
 			// store shopping cart
 			localStorage.setItem('sCart', JSON.stringify(sCart));
