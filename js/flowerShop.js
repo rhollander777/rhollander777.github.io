@@ -179,7 +179,7 @@
 			return false;
 		} else {
 			document.getElementById("displayCart").style.color = "blue";
-			var vCart = JSON.parse(localStorage.getItem('sCart'));
+			var vCart = JSON.parse(localStorage.getItem('sItem'));
 			console.log("sCart returned = " + vCart);
 			var vItemCnt = 0;
 			var vOut = "";
