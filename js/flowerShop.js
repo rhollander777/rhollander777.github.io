@@ -19,9 +19,9 @@
 				loadFile(myArr, divId, isJSON);
 			}
 		};
-	//	This is where we make our request to the server. We are passing along the URL for the file we want
-	//	You can see the name of the file we are requesting in the about HTML code.
-	//	Each button has a different file defined
+//	This is where we make our request to the server. 
+//  We are passing along the URL for the file we want.
+//	You can see the name of the file we are requesting in the about HTML code.
 	  xmlhttp.open("GET", url, true);
 	  xmlhttp.send();
 //	  document.getElementById( divId ).innerHTML = xmlhttp.responseText;	
@@ -75,7 +75,7 @@
 		} else { alert("Invalid price.  Reselect item");
 		        return false;
 		}	
-		//clear out previous text if needed
+//	clear out previous text if needed
 //		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
 		myArray.push(tableRow);
 		myArray.push(name);
@@ -106,9 +106,9 @@
       if(arrayValue) {
         document.getElementById('showSavedArrayDiv').innerHTML = arrayValue;
       }
-
-	}
 */
+	}
+
 
 	function addToCart(tableRow, name, code, qty, price) {
 //		console.log("tableRow id: " + tableRow + "  code: " + code + "   qty: 1   " + price);
@@ -126,12 +126,7 @@
 		console.log("new stored sItem array = " + JSON.parse(localStorage.getItem('sItem')));
 		console.log("sCartCnt= " + sCartCnt);
 		} else { 
-			// retrieve shopping cart
-			var oldItems = JSON.parse(localStorage.getItem('sItems'));
-			console.log("oldItems = " + oldItems);
-
-						
-			
+			console.log('No shopping cart found in localStorage. Contact developer.");
 		}
 	} 
 	
@@ -202,20 +197,17 @@
 	function removeCartItem(tableRow) {
 //Insert logic to identify array item in sCart and remove
 		if (localStorage !== null) {
-			for(let item of cartShop) {
-				if(item.name === name) {
-					item.quantity += quantity;
-					saveLocalCart();
-					return;
+			for(let sItem of sCart) {
+				if(sItem.id === tableRow) {
+					localStorage.removeItem('sItem');
+					sCartCnt--;
 				};			
-			localStorage.removeItem('sItem');
-		}
-		console.log("Need to add code to find item in shopping cart and remove.  Currently working with single shopping cart item.");
-
-}		
+			}
+		console.log("Need to verify code removes item from cart.");
+		}		
 		getCart();
-		sCartCnt--;
 	}
+
 /*		Replaced logic with button and array instead of checkbox
 		if (!document.getElementById(tableRow).checked) {
 			return false;
