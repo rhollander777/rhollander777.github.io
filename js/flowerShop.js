@@ -5,7 +5,7 @@
 // Creating an empty shopping cart object in localStorage. */
 //	sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
 	localStorage.setItem('sCart', JSON.stringify(sCart));3
-	sCart.sItems = [];
+//	sCart.sItems = [];
 	var sItemCnt = 0;
 	var newItem = "";
 	var vCalcCost = 0;
@@ -78,13 +78,25 @@
 		}	
 //	clear out previous text if needed
 //		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
-		newItem = '"id": "' + tableRow +
-				  '", "name": "' + name +
+		if (localStorage.getItem('sItem')) {
+			newItem = ',{ "id": ' + tableRow +
+					', "name": "' + name +
 					'", "code": "' + code +
-					'", "qty": "' + qty +
-					'", "price": "' + price +
-					'", "cost": "' + vCalcCost + '"';
-/*
+					'", "qty": ' + qty +
+					', "price": ' + price +
+					', "cost": ' + vCalcCost + ' }';
+		} else {
+			newItem = '{ "id": ' + tableRow +
+					', "name": "' + name +
+					'", "code": "' + code +
+					'", "qty": ' + qty +
+					', "price": ' + price +
+					', "cost": ' + vCalcCost + ' }';			
+		}
+		console.log("createArray newItem = " + newItem);
+		return newItem;
+	}
+/*		Another way to create an array
 		myArray.push(tableRow);
 		myArray.push(name);
 		myArray.push(code);
@@ -103,10 +115,8 @@
 
 		}
 */
-		console.log("createArray newItem = " + newItem);
-		return newItem;
-	}
-
+	
+	
     function pullArray(){
 /*  Under construction 
       var vArray = JSON.parse(localStorage.getItem('sCart.sItem'));
@@ -178,11 +188,12 @@
 			return false;
 		} else {
 			document.getElementById("displayCart").style.color = "blue";
-			var vCart = JSON.parse(localStorage.getItem('sItem'));
+			var vCart = JSON.parse(localStorage.getItem('sItem')) || [];
 			console.log("getCart localStorage sItem returned = " + vCart);
 			var vItemCnt = 0;
 			var vOut = "";
 			console.log("getCart Shopping Cart Length = " + vCart.length);
+			console.log("getCart localStorage value = "+ vCart[i].code);
 			if (vCart.length = 0) {
 				vOut = "No Items in Cart";
 			} else {
