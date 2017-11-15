@@ -192,6 +192,7 @@
 			console.log("getCart localStorage sItem returned = " + vCart);
 			var vItemCnt = 0;
 			var vOut = "";
+			var i = 0;
 			console.log("getCart Shopping Cart Length = " + vCart.length);
 
 			if (vCart.length = 0) {
