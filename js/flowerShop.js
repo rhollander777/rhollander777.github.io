@@ -195,7 +195,7 @@
 			var i = 0;
 			console.log("getCart Shopping Cart Length = " + vCart.length);
 
-			if (vCart.length = 0) {
+			if (vCart.length == 0) {
 				vOut = "No Items in Cart";
 			} else {
 				console.log("getCart localStorage value = "+ vCart.getElementByTagName("id")[i].nodeValue);
