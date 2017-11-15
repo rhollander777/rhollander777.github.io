@@ -79,7 +79,7 @@
 //	clear out previous text if needed
 //		document.getElementById('showArrayDiv').innerHTML = '&nbsp;';
 		if (localStorage.getItem('sItem')) {
-			newItem = ',{ "id": ' + tableRow +
+			newItem = '{ "id": ' + tableRow +
 					', "name": "' + name +
 					'", "code": "' + code +
 					'", "qty": ' + qty +
