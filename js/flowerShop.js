@@ -198,7 +198,7 @@
 			if (vCart.length = 0) {
 				vOut = "No Items in Cart";
 			} else {
-				console.log("getCart localStorage value = "+ vCart.id);
+				console.log("getCart localStorage value = "+ vCart.getElementByTagName("id")[i].childnode[i].nodeValue);
 				vOut = '<p style="font-size:18px;"><b>Shopping Cart</b></p><table><th>Item</th><th>Product Description</th><th>Code</th><th>Qty</th><th>Price</th><th>Cost</th>';
 				vOut += '<tr>';
 				for (i = 0; i < vCart.length; i++) {
