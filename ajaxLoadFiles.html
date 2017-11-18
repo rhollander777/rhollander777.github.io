@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--  ajaxLoadFiles CS213 week 10 Assignment-->
+<html lang="en-US">
+  <head>
+    <title>Ronda Hollander's Week 10</title>
+    <meta charset="UTF-8">
+	<script type="text/javascript" src="js/ajaxLoadFiles.js"></script>  
+	<style type="text/css">
+		div.countryCityContent {position: absolute; left: 5px;}
+		div.sCountry {position: absolute; left: 10px;}
+		div.cityTable {position: relative; left: 220px;}
+		img {position: relative; left: 50px; top: 20px;}
+	</style>
+  </head>
+  <body>
+    <h1>Cities of the World</h1>
+	<h2>Select a Country to view their top 10 cities</h2>
+	<div id="countryCityContent" name="countryCityContent" class="countryCityContent" >
+		<div id="sCountry" name="sCountry">
+			<select id="selectCountry" name="selectCountry" onChange="findSelectedCountry()">
+				<option value="select">select country</option>	
+				<option value="usa">USA</option>
+				<option value="canada">Canada</option>
+				<option value="mexico">Mexico</option>
+				<option value="russia">Russia</option>
+			</select>
+			<div id="cityTable" name="cityTable"></div>
+		</div>
+	</div>
+	<div><img src="world.jpg" alt="world.jpg" height="150px" width="150px" /></div>
+	<hr>
+<!--
+	<input class="country" type="text" name="country" list="countryname" >
+	<datalist id="countryCities">
+		<option value="Canada" id="canada" onChange="getFileFromServer('canada.txt', 'cities', false)">
+		<option value="Mexico" id="mexico" onselect="getFileFromServer('mexico.txt', 'cities', false)">
+		<option value="Russia" id="russia" onBlur="getFileFromServer('russia.txt', 'cities', false)">
+		<option value="USA" id="usa" onselect="getFileFromServer('usa.txt', 'cities', false)">
+	</datalist>	
+--> 
+ </body>
+</html>
