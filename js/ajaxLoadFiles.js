@@ -70,7 +70,7 @@ function findSelectedCountry() {
 				selFile = russiaFile;
 			}
 		//Add logic for other files	
-			ourRequest.open('GET', selCountry + ".txt");
+			ourRequest.open('GET', "data/" + selCountry + ".txt");
 			ourRequest.onload = function() {
 //				var ourData = JSON.parse(ourRequest.responseText);
 				var ourData = ourRequest.responseText;
