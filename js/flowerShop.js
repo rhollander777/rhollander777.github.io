@@ -4,7 +4,7 @@
 	var sItem = [];
 // Creating an empty shopping cart object in localStorage. */
 //	sCart = localStorage.setItem('sCart', JSON.stringify(sCart));
-	localStorage.setItem('sCart', JSON.stringify(sCart));3
+	localStorage.setItem('sCart', JSON.stringify(sCart));
 //	sCart.sItems = [];
 	var sItemCnt = 0;
 	var newItem = "";
