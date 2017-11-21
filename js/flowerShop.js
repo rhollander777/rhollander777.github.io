@@ -182,7 +182,7 @@
 	function getCart() {
 //		alert("Inside getCart");
 // Need to load table and post to sCart
-		if (localStorage == null) {
+		if (localStorage == null || sItemCnt == 0) {
 			document.getElementById("displayCart").style.color = "red";
 			document.getElementById("displayCart").innerHTML = "No Items in Cart";
 			return false;
