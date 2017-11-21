@@ -86,12 +86,12 @@
 					', "price": ' + price +
 					', "cost": ' + vCalcCost + ' }';
 		} else {
-			newItem = '{ "id": ' + tableRow +
+			newItem = ''cart'[{ "id": ' + tableRow +
 					', "name": "' + name +
 					'", "code": "' + code +
 					'", "qty": ' + qty +
 					', "price": ' + price +
-					', "cost": ' + vCalcCost + ' }';			
+					', "cost": ' + vCalcCost + ' }]';			
 		}
 		console.log("createArray newItem = " + newItem);
 		return newItem;
