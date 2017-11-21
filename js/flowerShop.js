@@ -194,7 +194,7 @@
 			var vOut = "";
 			var i = 0;
 			console.log("getCart Shopping Cart Length = " + vCart.length);
-			console.log("getCart Shopping Cart id value = " + vCart.id[i].value);
+			console.log("getCart Shopping Cart id value = " + vCart.id[i].nodeValue);
 			if (vCart.length == 0) {
 				vOut = "No Items in Cart";
 			} else {
