@@ -98,7 +98,7 @@
 					', "price": ' + price +
 					', "cost": ' + vCalcCost + ' }';
 		} else {
-			newItem = '"cart" { "id": ' + tableRow +
+			newItem = '{ "id": ' + tableRow +
 					', "name": "' + name +
 					'", "code": "' + code +
 					'", "qty": ' + qty +
