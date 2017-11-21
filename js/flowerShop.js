@@ -166,8 +166,10 @@
 			console.log("sItemCnt= " + sItemCnt);
 */
 			sCart.sItem.push(newItem);
-			localStorage.setItem('sCart');
+			localStorage.setItem('sCart', JSON.stringify(sCart));
 			console.log("newly stored sCart = " + JSON.parse(localStorage.getItem('sCart')));
+			vCart = JSON.parse(localStorage.getItem('sCart'));
+			console.log("id = " + vCart.sItem[0].id);
 			sItemCnt++;
 			console.log("sItemCnt = " + sItemCnt);
 		} else { 
