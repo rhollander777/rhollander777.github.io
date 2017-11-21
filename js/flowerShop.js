@@ -86,7 +86,7 @@
 					', "price": ' + price +
 					', "cost": ' + vCalcCost + ' }';
 		} else {
-			newItem = ''cart'[{ "id": ' + tableRow +
+			newItem = '"cart" [{ "id": ' + tableRow +
 					', "name": "' + name +
 					'", "code": "' + code +
 					'", "qty": ' + qty +
