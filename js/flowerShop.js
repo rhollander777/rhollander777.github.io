@@ -194,11 +194,11 @@
 			var vOut = "";
 			var i = 0;
 			console.log("getCart Shopping Cart Length = " + vCart.length);
-			console.log("getCart Shopping Cart id value = " + vCart.id[i].nodeValue);
+			console.log("getCart Shopping Cart id value = " + vCart.cart.id.nodeValue);
 			if (vCart.length == 0) {
 				vOut = "No Items in Cart";
 			} else {
-				console.log("getCart localStorage value = "+ vCart.getElementByTagName("id")[i].nodeValue);
+				console.log("getCart localStorage value = "+ vCart.getElementByTagName("id").nodeValue);
 				vOut = '<p style="font-size:18px;"><b>Shopping Cart</b></p><table><th>Item</th><th>Product Description</th><th>Code</th><th>Qty</th><th>Price</th><th>Cost</th>';
 				vOut += '<tr>';
 				for (i = 0; i < vCart.length; i++) {
