@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--This page is for Physiology scroll page assignment-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Ronda Hollander's CSS3 Transform W JS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" rel="stylesheet" href="css/TransformWJavaScript.css" />
+	<script type="text/javascript" src="js/TransformWJavaScript.js"></script> 
+	<script>
+		var shadowprop=getsupportedprop(['boxShadow', 'MozBoxShadow', 'WebkitBoxShadow'])
+		var roundborderprop=getsupportedprop(['borderRadius', 'MozBorderRadius', 'WebkitBorderRadius'])
+		var csstransform=getsupportedprop(['transform', 'MozTransform', 'WebkitTransform', 'msTransform', 'OTransform'])
+
+		function changecssproperty(target, prop, value, action){
+			if (typeof prop!="undefined")
+				target.style[prop]=(action=="remove")? "" : value
+		}
+	</script>
+	<script>
+	  window.console = window.console || function(t) {};
+	</script>
+	<script>
+		if (document.location.search.match(/type=embed/gi)) {
+			window.parent.postMessage("resize", "*");
+		}
+	</script>	
+</head>
+<html lang="en-US">
+<body>
+<h2>Transforming CSS3 using JavaScript</h2>
+	<mydiv id="mydiv" name="mydiv" class="mydiv"></div>
+<!--	<input id="btn2" name="btn2" class="btn2" type="button" value="Submit" onClick="alertboxshadow();" /> -->
+	<br><br><br><br><br>
+	<script>
+		var z=document.getElementById("mydiv")
+	</script>
+	<p style="width: 1500px">
+		<a href="javascript:changecssproperty(z, shadowprop, '6px 6px 8px rgba(0,0,0,.5)')">Add Shadow</a> 
+		<a href="javascript:changecssproperty(z, shadowprop, 'none')">Remove Shadow</a>
+
+		<a href="javascript:changecssproperty(z, roundborderprop, '15px')">Add Round Border</a> 
+		<a href="javascript:changecssproperty(z, roundborderprop, '', 'remove')">Remove Round Border</a>
+
+		<a href="javascript:changecssproperty(z, csstransform, 'rotate(25deg)')">Add Transform Rotate</a> 
+		<a href="javascript:changecssproperty(z, csstransform, '', 'remove')">Remove Transform</a>	
+	</p>
+	<hr style="width: 750px">
+	<script src="https://code.jquery.com/jquery-2.0.0.js"></script>
+
+	<h3>Pure CSS</h3>
+	<div class='heart animated css'></div> 
+
+	<h3 style="width: 500px" >With Javascript</h3>
+	<div class='heart animated'></div>
+
+
+	<hr style="width: 750px">
+	<h3 style="width: 750px">Pure Javascript</h3>
+	<div class="zoomPic" style="width: 720px" ></div>
+	<button class='zoom'>Zoom</button>
+	<button class='pause'>Pause</button>
+	<button class='zoomout'>Zoom Out</button>
+
+	<script>
+/*  ******** START ZOOM IN/OUT ********** */
+	var zoomOne = document.getElementsByClassName('zoomPic')[0],
+		zoomOneBGSize = window.getComputedStyle(zoomOne).getPropertyValue('background-size'),
+		$zoomTwo = $('.zoomPic:eq(1)'),
+		zoomTwoBGSize = $zoomTwo.css('background-size');
+
+	document.getElementsByClassName('zoom')[0].onclick = function() {
+	  if(!zoomOne.classList.contains('zoom'))
+	  {
+		zoomOne.classList.add('zoom');
+	  } 
+	}
+	document.getElementsByClassName('pause')[0].onclick = function() {
+		var computedStyle = window.getComputedStyle(zoomOne),
+			backgroundSize = computedStyle.getPropertyValue('background-size');
+		zoomOne.style.backgroundSize = backgroundSize;
+		zoomOne.classList.remove('zoom');
+	  }
+	document.getElementsByClassName('zoomout')[0].onclick = function() {
+	  zoomOne.classList.remove('zoom');
+	  zoomOne.style.backgroundSize = zoomOneBGSize;
+	}
+
+	$('.zoom:eq(1)').on('click', function() { 
+	  if(!$zoomTwo.hasClass('zoom'))
+	  {
+		$zoomTwo.addClass('zoom');
+	  } 
+	});
+	$('.pause:eq(1)').on('click', function() {
+		var backgroundSize = $zoomTwo.css("background-size");
+		$zoomTwo.css({'background-size': backgroundSize});
+		$zoomTwo.removeClass('zoom');
+	});
+	$('.zoomout:eq(1)').on('click', function() {
+	  $zoomTwo.removeClass('zoom');
+	  $zoomTwo.css('background-size', zoomTwoBGSize);
+	});	
+/*  ******** END ZOOM IN/OUT  *********** */ 	
+	</script>
+	<hr style="width: 750px">
+	</body>
+</html>
