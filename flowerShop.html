@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<!-- flowerShop.html -->
 <html>
+<!-- flowerShop.html -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script type="text/javascript" src="js/flowerShop.js"></script>  
     <title>Hollander Flower Shop</title>	
+	<style>
+		table, td, th { border: 1px solid gray }
+	</style>
 </head>
 <body onload="getFileFromServer('data/flower.json', 'catalog1', true)">
 	<h1>Fergie's Fresh Cut Flowers</h1>
-	<div id="displayCart" name="displayCart"></div>
+	<div id="displayCart"></div>
 	
 	<input type="button" value="Refresh Catalog" onclick="getFileFromServer('data/flower.json','catalog1', true)" /> 
 	<input type="button" value="View Cart" onclick="getCart()" />	
 	<input type="button" value="Clear Cart" onclick="clearCart()" />
 	<input type="button" value="Check Out" onclick="checkOut()" /><br><br>
 
-	<div id="sCatalog" name="sCatalog">
-		<table id="catalog1" name="catalog1" border="1">
+	<div id="sCatalog">
+		<table id="catalog1">
 		<tr><th>Product</th><th>Name</th><th>Item Code</th><th>Price</th><th>Add</th><th>Remove</th></tr>
 		</table>
 		<input type="button" value="View Cart" onclick="getCart()" />	

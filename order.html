@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<!-- order.html -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="js/order.js"></script>  
+    <title>Hollander Order Page</title>	
+	<style>
+		table, td, th { border: 1px solid gray }
+		form,pre {
+			margin-left: 10px; 
+			font-family: Verdana, Geneva, sans-serif; 
+			padding: 1px;
+			color: blue;
+			width: 450 px;
+			font-size: 12px;
+			font-weight: bold;
+			border: 1px solid rgb(0, 90, 136); 
+			border-radius: 5x;
+			margin-right: 10px;
+		}
+		div {
+			color: blue;
+			margin-left: 10px; 			
+		}
+		div.infoMsg {
+			margin-left: 80px;
+			text-align: left;
+			width: 450px;
+			color: blue;
+			font-size: normal;
+			font-style: italic;
+			align: top;
+		}
+		div.errMsg {
+			margin-left: 80px;
+			text-align: left;
+			align: top;
+			color: red;
+			font-size: em1;
+			font-style: italic;
+		}
+		#t1 {
+			-moz-tab-size: 5;
+			-o-tab-size: 5;
+			tab-size: 5;
+		}
+		#t2 {
+			-moz-tab-size: 10;
+			-o-tab-size: 10;
+			tab-size: 10;
+		}
+		h2 {
+			border-bottom-style: solid;
+		}
+		#shoppingCart {
+			padding: 0px;
+			margin:  10px;
+			height: auto;
+			width: auto;
+			background-color: lemonChiffon;
+		}
+		#orderForm {
+			padding: 0px;
+			margin:  0px;
+			height: auto;
+			width: auto;
+			background-color: lemonChiffon;
+		}
+		#formTitle {
+			font-style: bold;
+			font-size: 18px;
+			text-align: left;
+			color: black;
+			height:30px;
+			width: auto;
+			text-decoration: underline;
+			align-content: ;left;
+			padding-left: 10px;	 
+		}
+		#formInput {
+			height: auto;
+			width: 450px;
+			color: blue;
+			font-size: 14px;
+			text-align: left;
+			align-content: ;left;
+			padding-right: 5px;
+		}
+	</style>
+</head>
+<body onload="loadOrdDetail(); loadCC(); loadCart(); calcCart();" >
+	<div id="formInput" class="formInput">	
+		<div id="orderForm" class="orderForm">
+			<h1>Fergie's Order Review</h1>
+			<div class="ordInfo">
+				<pre><div id="formTitle" name="formTitle">ORDER DETAILS</div>
+					<div id="ordDetail"></div>
+				</pre><br>
+				<pre><div id="formTitle" name="formTitle">CREDIT CARD                  TOTAL</div>
+					<div id="ccDetail"></div>
+					<div id="ordTotal" style="font-size: 24px; text-style: bold; margin-left: 270px;" ></div>
+				</pre><br>
+			</div>
+		</div>
+		<div id="shoppingCart" name="shoppingCart" class="shoppingCart">
+			<pre><div id="formTitle" name="formTitle">SHOPPING CART DETAILS</div>
+				<div id="displayCart"></div>
+			</pre><br>
+		</div>
+	<div style="margin-left: 10px; font-size: 12px; ">
+		<input type="button" value="Submit Order" onclick="" /> 
+		<input type="button" value="Cancel Order" onclick="cancelCart()" />	
+		<input type="button" value="Continue Shopping" onclick="shop()" />
+	</div><br><br>
+
+</body >
+</html>
