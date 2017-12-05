@@ -1,88 +1,86 @@
 /*  orderFormVal.js */
+//	Set Global Defaults
 	var nbrVisits = 0;
-	
-function valForm() {
+	var i = 0;
+	var vCart;
+	vCartCnt = 0;
+function initForm() {
 //	alert("Inside valForm. First Name: " + document.form1.fName.value );
-//	console.log("valForm nbrVisits: " + nbrVisits);
-	nbrVisits++;
-//	console.log("valForm nbrVisits: " + nbrVisits);
-    var vfName = document.form1.fName.value;
-    var vlName = document.form1.lName.value;
-    var vaddress = document.form1.address.value;
-    var vcity = document.form1.city.value;
-    var vstate = document.form1.state.value;
-	var vzipCode = document.form1.zipCode.value;
-    var vccNbr = document.form1.ccNbr.value;
-	var vccSec = document.form1.ccSec.value;
-	if (vccSec == "") {
-        document.getElementById('msg9').innerHTML = "Input Required";
-		document.form1.ccSec.focus();
-    }	
-	if (vccNbr == "") {
-        document.getElementById('msg8').innerHTML = "Input Required";
-		document.form1.ccNbr.focus();
-    } 
-	if (vzipCode == "") {
-        document.getElementById('msg6').innerHTML = "Input Required";
-		document.form1.zipCode.focus();
-    }
-	if (vstate == "") {
-        document.getElementById('msg5').innerHTML = "Input Required";
-		document.form1.state.focus();
-    } 
-	if (vcity == "") {
-        document.getElementById('msg4').innerHTML = "Input Required";
-		document.form1.city.focus();
-    } 
-	if (vaddress == "") {
-        document.getElementById('msg3').innerHTML = "Input Required";
-		document.form1.address.focus();
-	}  
-	if (vlName == "") {
-        document.getElementById('msg2').innerHTML = "Input Required";
-		document.form1.lName.focus();
-	} 
- 	if (vfName == "") {
-        document.getElementById("msg1").innerHTML = "Input Required";
-		document.form1.fName.focus();
-    } 
-	if (vfName == ""||vlName == ""||vAddress == ""||vCity == ""||vState == ""||vZipCode == ""||vccNbr == ""||vccSec == "") {
-		loadForm();
+//	console.log("initForm form field-- vfName: " + vfName + " vlName: " + vlName);
+//	console.log("initForm loadForm nbrVisits: " + nbrVisits);
+	getStorage();
+	getSCart();
+	if (nbrVisits > 0) {
 		return false;
-	} else { 
-		alert("Your order will be processed");
-		return false; 
+	} 
+	nbrVisits++;
+	/*
+	if (localStorage != null) {
+		localStorage.removeItem("frm1.fName");
+		localStorage.removeItem("frm1.lName");
+		localStorage.removeItem("frm1.address");
+		localStorage.removeItem("frm1.city");
+		localStorage.removeItem("frm1.state");
+		localStorage.removeItem("frm1.zipCode");		
 	}
+	*/
+	// Set focus
+	if (document.form1.fName.value.trim() == "" ) {
+		document.getElementById("fName").focus();
+	} else if (document.form1.lName.value.trim() == "") {
+		document.getElementById("lName").focus();
+	} else if (document.form1.address.value.trim() == "") {
+		document.getElementById("address").focus();
+	} else if (document.form1.city.value.trim() == "") {
+		document.getElementById("city").focus();
+	} else if (document.form1.state.value.trim() == "") {
+		document.getElementById("state").focus();
+	} else if (document.form1.zipCode.value.trim() == "") {
+		document.getElementById("zipCode").focus();
+	} else if (document.form1.ccNbr.value.trim() == "") {
+		document.getElementById("ccNbr").focus();
+	} else if (document.form1.ccSec.value.trim() == "") {
+		document.getElementById("ccSec").focus();
+	} 
 }
 
 function loadForm() {
-//	alert("Inside valForm. First Name: " + document.form1.fName.value );
-//	console.log("form field-- vfName: " + vfName + " vlName: " + vlName);
-//	console.log("loadForm nbrVisits: " + nbrVisits);
-	getStorage();
-	if (nbrVisits == 0) {
-		nbrVisits++;
-		document.getElementById("ccVisaRadio").defaultChecked = "true";
-	} else { return false; }
-	
-	if (document.getElementById("fName").innerHTML == "") {
-		document.form1.fName.focus();
-	} else if (document.getElementById("lName").innerHTML == "") {
-		document.form1.lName.focus();
-	} else if (document.getElementById("address").innerHTML == "") {
-		document.form1.address.focus();
-	} else if (document.getElementById("city").innerHTML == "") {
-		document.form1.city.focus();
-	} else if (document.getElementById("state").innerHTML == "") {
-		document.form1.state.focus();
-	} else if (document.getElementById("zipCode").innerHTML == "") {
-		document.form1.zipCode.focus();
-	} else if (document.getElementById("ccNbr").innerHTML == "") {
-		document.form1.ccNbr.focus();
-	} else if (document.getElementById("ccSec").innerHTML == "") {
-		document.form1.ccSec.focus();
+	//	Load localStorage values
+	if (localStorage !== null && localStorage.getItem("fName")) {
+		document.form1.fName.value = JSON.parse(localStorage.getItem("fName"));
+		console.log("loadForm fName = " + localStorage.getItm("fName"));
+	}
+/*	if (localStorage !== null && localStorage.getItem("frm1.lName")) {
+		document.form1.lName.value = localStorage.getItem("frm1.lName");
 	} 
+	if (localStorage !== null && localStorage.getItem("frm1.address")) {
+		document.form1.address.value = localStorage.getItem("frm1.address");
+	}
+	if (localStorage !== null && localStorage.getItem("frm1.city")) {
+		document.form1.city.value = localStorage.getItem("frm1.city");
+	}
+	if (localStorage !== null && localStorage.getItem("frm1.state")) {
+		document.form1.state.value = localStorage.getItem("frm1.state");
+	}
+	if (localStorage !== null && localStorage.getItem("frm1.zipCode")) {
+		document.form1.zipCode.value = localStorage.getItem("frm1.zipCode");
+	} 
+	if (localStorage !== null && localStorage.getItem("frm1.ccType")) {
+//		var vccType = localStorage.getItem("frm1.ccType");
+//		console.log("loadForm vccType = " + vccType);
+		if (vccType == "VISA") {
+			document.getElementById("ccRadio").defaultChecked = "true";
+			document.getElementById("ccMCRadio").defaultChecked = "false";
+		} else if (vccType == "MC") {
+			document.getElementById("ccMCRadio").defaultChecked = "true";
+			document.getElementById("ccVisaRadio").defaultChecked = "false";
+		} else {
+			document.getElementById("ccVisaRadio").defaultChecked = "true";	
+		}
+	} 
+*/
 }
+
 function setStorage() {
 	if (localStorage !== null ) {
 		localStorage.setItem('frm1.fName', JSON.stringify(document.form1.fName.value));
@@ -91,232 +89,349 @@ function setStorage() {
 		localStorage.setItem('frm1.city', JSON.stringify(document.form1.city.value));
 		localStorage.setItem('frm1.state', JSON.stringify(document.form1.state.value));
 		localStorage.setItem('frm1.zipCode', JSON.stringify(document.form1.zipCode.value));
-//		localStorage.setItem('frm1.ccType', JSON.stringify(document.form1.ccType.value));
+		checkRadio();
+/*  not stored for security reasons
 		localStorage.setItem('frm1.ccNbr', JSON.stringify(document.form1.ccNbr.value));
 		localStorage.setItem('frm1.ccSec', JSON.stringify(document.form1.ccSec.value));
+*/
 	} 
 }
 
 function getStorage() {
 	if (localStorage !== null ) {
-		document.getElementById("fName").innerHTML = localStorage.getItem('frm1.fName');
-		document.getElementById("lName").innerHTML = localStorage.getItem('frm1.lName');
-		document.getElementById("address").innerHTML = localStorage.getItem('frm1.address');
-		document.getElementById("city").innerHTML = localStorage.getItem('frm1.city');
-		document.getElementById("state").innerHTML = localStorage.getItem('frm1.state');
-		document.getElementById("zipCode").innerHTML = localStorage.getItem('frm1.zipCode');
-		document.getElementById("ccNbr").innerHTML = localStorage.getItem('frm1.ccNbr');
-		document.getElementById("ccSec").innerHTML = localStorage.getItem('frm1.ccSec');
-		if (localStorage.getItem('frm1.ccType') == "Visa") {
-			document.getElementById("ccVisaRadio").checked;
-		} else if (localStorage.getItem('frm1.ccType') == "Mastercard") {
-			document.getElementById("ccMCRadio").checked;			
-		}
+		document.form1.fName.value = JSON.parse(localStorage.getItem('frm1.fName'));
+		document.form1.lName.value = JSON.parse(localStorage.getItem('frm1.lName'));
+		document.form1.address.value = JSON.parse(localStorage.getItem('frm1.address'));
+		document.form1.city.value = JSON.parse(localStorage.getItem('frm1.city'));
+		document.form1.state.value = JSON.parse(localStorage.getItem('frm1.state'));
+		document.form1.zipCode.value = JSON.parse(localStorage.getItem('frm1.zipCode'));
+/*  not stored for security reasons
+		document.form1.ccNbr.value = JSON.parse(localStorage.getItem('frm1.ccNbr'));
+		document.form1.ccNbr.value = JSON.parse(localStorage.getItem('frm1.ccNbr'));
+*/
+		if (localStorage.getItem('frm1.ccType') == "VISA") {
+			document.form1.ccRadio[0].checked = checked;
+		} else if (localStorage.getItem('frm1.ccType') == "MC") {
+			document.form1.ccRadio[1].checked = checked;			
+		} 
+	}
+}
+
+function getSCart() {
+	if (localStorage !== null && localStorage.getItem('sCart')) {
+		vCart = JSON.parse(localStorage.getItem('sCart'));
+		vCartCnt = vCart.length;
+	} else { 
+		alert("No Shopping Cart found.  Click Continue Shopping to add items to your cart."); 
 	}
 }
 	
 function valCol(fld, msg) {
-//	console.log("fld = " + vFld + " msg = " + vMsg);
 	var vFld = fld;
 	var vMsg = msg;
-//	console.log("fld passed = " + vFld + "  msg = " + vMsg);
+//	console.log("valCol fld passed = " + vFld + " msg = " + vMsg);
 //	console.log("valCol nbrVisits: " + nbrVisits);
 	setStorage();
-	loadForm();
+//	loadForm();	
 	switch(vFld) {
 		case "fName":
-			if (document.getElementById(vFld).innerHTML == null || document.getElementById(vFld).innerHTML == " ") {
-				document.getElementById(vFld).innerHTML = "Enter First Name";
-				document.form1.fName.focus();
-			} else { 
-				document.getElementById(msg).innerHTML = " ";
-				document.form1.lName.focus();
-			}
+			if (document.form1.fName.value == "" || document.form1.fName.value == null) {
+				document.getElementById('msg1').innerHTML = "Field Required";
+				document.getElementById("fName").focus();
+			} else { document.getElementById('msg1').innerHTML = ""; }
 			break;
 		case "lName":
-			if (document.getElementById(vFld).innerHTML == null || document.getElementById(vFld).innerHTML == " ") {
-				document.getElementById("msg2").innerHTML = "Enter Last Name";
-				document.form1.lName.focus();
-			} else { 
-				document.getElementById(msg).innerHTML = " ";
-				document.form1.address.focus();
-			}
+			if (document.form1.lName.value == "" || document.form1.lName.value == null) {
+				document.getElementById('msg2').innerHTML = "Field Required";
+				document.getElementById("lName").focus();
+			} else { document.getElementById('msg2').innerHTML = ""; }
 			break;
 		case "address":
-			if (document.getElementById(vFld).innerHTML == null || document.getElementById(vFld).innerHTML == " ") {
-				document.getElementById("msg3").innerHTML = "Enter Address";
-				document.form1.address.focus();
-			} else { 
-				document.getElementById(msg).innerHTML = " ";
-				document.form1.city.focus();
-			}
-			break;
+			if (document.form1.address.value == "" || document.form1.address.value == null) {
+				document.getElementById('msg3').innerHTML = "Field Required";
+				document.getElementById("address").focus();
+			} else { document.getElementById('msg3').innerHTML = ""; }
+ 			break;
 		case "city":
-			if (document.getElementById(vFld).innerHTML == null || document.getElementById(vFld).innerHTML == " ") {
-				document.getElementById("msg4").innerHTML = "Enter City";
-				document.form1.city.focus();
-			} else {
+			if (document.form1.city.value == "" || document.form1.city.value == null) {
+				document.getElementById('msg4').innerHTML = "Field Required";
+				document.getElementById("city").focus();
+			} else { 
 				valCity();
 			}
 			break;
 		case "state":
-			if (document.getElementById(vFld).innerHTML == null || document.getElementById(vFld).innerHTML == " ") {
-				document.getElementById("msg5").innerHTML = "Enter State";
-				document.form1.state.focus();
+			if (document.form1.state.value == "" || document.form1.state.value == null) {
+				document.getElementById('msg5').innerHTML = "Field Required";
+				document.getElementById("state").focus();
 			} else {
 				valState(); 
 			}
 			break;
 		case "zipCode":
-			if (document.getElementById(vFld).innerHTML == null || document.getElementById(vFld).innerHTML == " ") {
-				document.getElementById("msg6").innerHTML = "Enter Zip Code";
-				document.form1.zipCode.focus();
-			} else { 
-				document.getElementById(msg).innerHTML = " ";
-				document.form1.ccNbr.focus();
+			if (document.form1.zipCode.value == "" || document.form1.zipCode.value == null) {
+				document.getElementById('msg6').innerHTML = "Field Required";
+				document.getElementById("zipCode").focus();
+			} else {
+				valZip();
 			}
 			break;
 		case "ccType":
-			findSelected();
+			checkRadio();
 			break;
 		case "ccNbr":
-			if (document.getElementById(vFld).innerHTML == null || document.getElementById(vFld).innerHTML == " ") {
-				document.getElementById("msg8").innerHTML = "Enter Credit Card Number";
-				document.form1.ccNbr.focus();
+			if (document.form1.ccNbr.value == "" || document.form1.ccNbr.value == null) {
+				document.getElementById('msg6').innerHTML = "Field Required";
+				document.getElementById("ccNbr").focus();
 			} else {
-				valCCNbr();
+				valccNbr();
 			}
 			break;
 		case "ccSec":
-			if (document.getElementById(vFld).innerHTML == null || document.getElementById(vFld).innerHTML == " " ) {
-				document.getElementById("msg9").innerHTML = "Enter Security Code";
-				document.form1.ccSec.focus();
-			} else { 
-				document.getElementById(msg).innerHTML = " ";
-				document.form1.submit.focus();
+			if (document.form1.ccSec.value == "" || document.form1.ccSec.value == null) {
+				document.getElementById('msg9').innerHTML = "Field Required";
+				document.getElementById("ccSec").focus();
+			} else {
+				valccSec();
 			}
 			break;
 		default:
-//			console.log('Invalid fld passed: ' + fld);
+	//			console.log('valCol Invalid fld passed: ' + vFld);
 			alert("Invalid fld passed. Contact application support.");
-	}	
-	
+	}
 }
 
 function valCity() {
-//	var x = document.form1.city.value.trim();
-	var x = document.getElementById("city").innerHTML;
-	var testPattern = /^([a-zA-Z])$/;
-	var xCity = testPattern.test(x);
-	alert("city = " + x + " Pattern test =  " + xCity);
-	if (xCity == true) {
+	var x = document.form1.city.value.trim();
+	var testPattern = /^[a-zA-Z]+(?:[\s-]+[a-zA-Z]+)*$/;
+	var xTest = testPattern.test(x);
+	//	console.log("city = " + x + " Pattern test =  " + xTest);
+	if (xTest == true) {
 		document.getElementById('msg4').innerHTML = " ";
 	} else {
 		document.getElementById('msg4').innerHTML = "Invalid City";
-		document.form1.city.focus();
+		document.getElementById("city").focus();
 	}
-	loadForm();
+//	loadForm();
 	nbrVisits++;
 	return false;
 }
 
 function valState() {
 	var x = document.form1.state.value.trim();
-//	alert("fstate = " + x);
 	var stAbbrevUp = x.toUpperCase();
 	var sAbbrev = stAbbrevUp.trim();
-	var abbrevPattern = /^([a-zA-Z]{2})$/;
-//	alert("state = " + x + " Formatted = " + sAbbrev);
-	var xState = abbrevPattern.test(sAbbrev);
-//	alert("Pattern match = " + xState);
-	if (xState == true) {
+	var testPattern = /^([a-zA-Z]{2})$/;
+	//	alert("state = " + x + " Formatted = " + sAbbrev);
+	var xTest = testPattern.test(sAbbrev);
+	//	console.log("state = " + x + " Pattern test =  " + xTest);
+	if (xTest == true) {
+		document.form1.state.value = sAbbrev;
 		document.getElementById('msg5').innerHTML = " ";
 	} else {
-		document,getElementById('msg5').innerHTML = "Invalid State Abbreviation";
+		document.getElementById('msg5').innerHTML = "Invalid State Abbreviation";
 		document.form1.state.value = sAbbrev;
-		document.form1.state.focus();
+		document.getElementById("state").focus();
 	}
-	loadForm();
+//	loadForm();
 	nbrVisits++;
 	return false;
 }
 
-function findSelected(){
-	var ccRB = document.getElementsByClassName("ccRadio");
-	var cc = "";
-	for (i=0; i < ccRB.length; i++) {
-		if (ccRB[i].checked.checked) {
-			if (i == 0) {
-				localStorage.setItem("frm1.ccType", "Visa");
-			} else if (i == 1) {
-				localStorage.setItem("frm1.ccType", "Mastercard");
-			} else {
-//				console.log=("No Credit Card Type checked");
-				document.getElementById("msg7").innerHTML = "Select Valid Credit Card Type"
-				document.form1.ccVisaRadio.focus();
-			}
-		//			return cc[i].value
-		}
-	}
-}
-
-function valCCNbr() {
-	var x = document.form1.ccNbr.value.trim();
-//	alert("form cc nbr = " + x);
-//	var cardnoPattern = /^([0-9]{4}\s?[0=9]{4}\s?[0-9]{4}\s?[0-9]{4)$/; 
-	findSelected();
-	if (localStorage !== null ) {
-		var cc = localStorage.getItem('ccType');
+function valZip() {
+	var x = document.form1.zipCode.value.trim();
+	var testPattern = /^\d{5}\$/;
+	var testPattern2 = /^([0-9]{5})$/;
+	var testPattern3 = /^([0-9]{5})+(?:[\-]+([0-9]{4}))$/;
+	var testPattern4 = /^([0-9]{9})$/;
+	var xTest = testPattern.test(x);
+	var xTest2 = testPattern2.test(x);
+	var xTest3 = testPattern3.test(x);
+	var xTest4 = testPattern4.test(x);
+	//	console.log("valZip = " + x + " Pattern test =  " + xTest);
+	if (xTest == true || xTest2 == true || xTest3 == true || xTest4 == true) {
+		document.form1.zipCode.value = x;
+		document.getElementById('msg6').innerHTML = " ";
 	} else {
-		console.log("No Credit Card Type Found in storage.  Defaulted to Visa.");
-		var cc = "Visa";
+		document.getElementById('msg6').innerHTML = "Invalid Zip Code 99999 or 99999-9999";
+		document.form1.zipCode.value = x;
+		document.getElementById("zipCode").focus();
 	}
-	if (cc == "Visa") {
-		var cardnoPattern = /^\d{4}\ \d{4}\ \d{4}\ \d{4}$/;
-		var cardnoPattern2 = /^([0-9]{16})$/; 
-		var cardnoPattern3 = /^\d{4}\-\d{4}\-\d{4}\-\d{4}$/;
-//	alert.log('cardnoPattern = ' + cardnoPattern + "  #2 = " + cardnoPattern2 + "  #3 = " + cardnoPattern3);
-		var xNbr = cardnoPattern.test(x);
-		var xNbr2 = cardnoPattern2.test(x);
-		var xNbr3 = cardnoPattern3.test(x);
-//	alert("xNbr = " + xNbr + "  xNbr2 = " + xNbr2 + " xNbr3 = " + xNbr3);
-		if(xNbr == true || xNbr2 == true || xNbr3 == true)  {  
-			document.getElementById('msg8').innerHTML = " ";
-			document.form1.ccNbr.value = x;		
-			document.form1.ccNbr.focus();
-		} else {  
-			document.getElementById('msg8').innerHTML = "Invalid credit card number";
-			document.form1.ccNbr.value = x;		
-			document.form1.ccNbr.focus();
-		}
-	} else if (cc == "Mastercard") {
-		var cardnoPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/;
-		var cardnoPattern2 = /^5[1-5][0-9]{14}$/; 
-		var xNbr = cardnoPattern.test(x);
-		var xNbr2 = cardnoPattern2.test(x);	
-		if(xNbr == true || xNbr2 == true)  {  
-			document.getElementById('msg8').innerHTML = " ";
-			document.form1.ccNbr.value = x;		
-			document.form1.ccNbr.focus();
-		} else {  
-			document.getElementById('msg8').innerHTML = "Invalid credit card number";
-			document.form1.ccNbr.value = x;		
-			document.form1.ccNbr.focus();
-		}
-	}
-	loadForm();
+//	loadForm();
 	nbrVisits++;
 	return false;
 }
 
-function loadDefault() {
-		document.getElementById("city").innerHTML = "Phoenix";
-		document.getElementById("state").innerHTML = "AZ";
-		for (i=i; i < 10; i++) {
-		document.getElementById ("msg[i]").innerHTML = " ";
+function checkRadio(){
+	var payment = "";
+	var ccRB = document.getElementsByClassName("ccRadio");
+//	console.log("findSelected ccRB.length = " + ccRB.length);
+	for (i=0; i < ccRB.length; i++) {
+		if (document.form1.ccRadio[i].checked) {
+			payment = document.form1.ccRadio[i].value;
+//			console.log("findSelect ccType selected = " + payment);
+			localStorage.setItem("frm1.ccType", JSON.stringify(payment));
+			return payment;
+		} else {
+			localStorage.setItem("frm1.ccType", JSON.stringify(""));
 		}
+	}
+	if (payment == "") {
+		document.getElementById('msg7').innerHTML = "No payment option selected"
+		document.form1.ccRadio[1].focus();
+	} else {
+		document.getElementById('msg7').innerHTML = ""
+	}
 }
-/*
+
+function valccNbr() {
+	var x = Number(document.form1.ccNbr.value.trim());
+//	alert(" valccNbr form cc nbr = " + x);
+//	var testPattern = /^([0-9]{4}\s?[0=9]{4}\s?[0-9]{4}\s?[0-9]{4)$/; 
+	var payment = checkRadio();
+	console.log("valccNbr payment type selected = " + payment);
+	if (payment == "VISA" || payment == "MC") {
+	} else {
+		console.log("No Credit Card Type selected.  Defaulted to Visa.");
+		payment = "VISA";
+	}
+	if (payment == "VISA") {
+		var testPattern = /^\d{4}\ \d{4}\ \d{4}\ \d{4}$/;
+		var testPattern2 = /^([0-9]{16})$/; 
+		var testPattern3 = /^\d{4}\-\d{4}\-\d{4}\-\d{4}$/;
+//	alert.log('valccNbr testPattern = ' + testPattern + "  #2 = " + testPattern2 + "  #3 = " + testPattern3);
+		var xTest = testPattern.test(x);
+		var xTest2 = testPattern2.test(x);
+		var xTest3 = testPattern3.test(x);
+//	alert("valccNbr xTest = " + xTest + "  xTest2 = " + xTest2 + " xTest3 = " + xTest3);
+		if(xTest == true || xTest2 == true || xTest3 == true)  {  
+			document.getElementById('msg8').innerHTML = " ";
+			document.form1.ccNbr.value = x;		
+			document.getElementById("ccNbr").focus();
+		} else {  
+			document.getElementById('msg8').innerHTML = "Invalid credit card number";
+			document.form1.ccNbr.value = x;		
+			document.getElementById("ccNbr").focus();
+		}
+	} else if (payment == "MC") {
+		var testPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/;
+		var testPattern2 = /^5[1-5][0-9]{14}$/; 
+		var xTest = testPattern.test(x);
+		var xTest2 = testPattern2.test(x);	
+		if(xTest == true || xTest2 == true)  {  
+			document.getElementById('msg8').innerHTML = " ";
+			document.form1.ccNbr.value = x;		
+			document.getElementById("ccNbr").focus();
+		} else {  
+			document.getElementById('msg8').innerHTML = "Invalid credit card number";
+			document.form1.ccNbr.value = x;		
+			document.getElementById("ccNbr").focus();
+		}
+	} else { console.log("valCCNbr unable to validate credit card"); }
+//	loadForm();
+	$var = '1234123412341234';
+/*  For PHP masking
+	var xMask = substr_replace(x, str_repeat("X", 12), 0, 12);
+	document.form1.ccNbr.value = xMask;
+*/
+	nbrVisits++;
+	return false;
+}
+
+function ccMasking($number, $maskingCharacter = 'X') {
+    return substr($number, 0, 4) . str_repeat($maskingCharacter, strlen($number) - 8) . substr($number, -4);
+}
+
+function valccSec() {
+	var x = Number(document.form1.ccSec.value);
+	var testPattern = /^([0-9]{3})$/;
+	var xTest = testPattern.test(x);
+//	console.log("valccSec = " + x + " Pattern test =  " + xTest);
+	if (xTest == true) {
+		document.form1.ccSec.value = x;
+		document.getElementById('msg9').innerHTML = " ";
+	} else {
+		document.getElementById('msg9').innerHTML = "Invalid 3-digit Code";
+		document.form1.ccSec.value = x;
+		document.getElementById("ccSec").focus();
+	}
+//	loadForm();
+	nbrVisits++;
+/*  For PHP masking
+	var xMask = substr_replace(x, str_repeat("X", 3), 0, 3);
+	document.form1.ccSec.value = xMask;	
+*/
+	return false;
+}
+
+function valForm() {
+//	alert("Inside valForm. First Name: " + document.form1.fName.value );
+//	console.log("valForm nbrVisits: " + nbrVisits);
+	nbrVisits++;
+//	console.log("valForm nbrVisits: " + nbrVisits);
+    var vfName = document.form1.fName.value;
+    var vlName = document.form1.lName.value;
+    var vAddress = document.form1.address.value;
+    var vCity = document.form1.city.value;
+    var vState = document.form1.state.value;
+	var vZipCode = document.form1.zipCode.value;
+    var vccNbr = document.form1.ccNbr.value;
+	var vccSec = document.form1.ccSec.value;
+	if (vccSec == "") {
+        document.getElementById('msg9').innerHTML = "Input Required";
+		document.getElementById("ccSec").focus();
+    }	
+	if (vccNbr == "") {
+        document.getElementById('msg8').innerHTML = "Input Required";
+		document.getElementById("ccNbr").focus();
+    } 
+	if (vZipCode == "") {
+        document.getElementById('msg6').innerHTML = "Input Required";
+		document.getElementById("zipCode").focus();
+    }
+	if (vState == "") {
+        document.getElementById('msg5').innerHTML = "Input Required";
+		document.getElementById("state").focus();
+    } 
+	if (vCity == "") {
+        document.getElementById('msg4').innerHTML = "Input Required";
+		document.getElementById("city").focus();
+    } 
+	if (vAddress == "") {
+        document.getElementById('msg3').innerHTML = "Input Required";
+		document.getElementById("address").focus();
+	}  
+	if (vlName == "") {
+        document.getElementById('msg2').innerHTML = "Input Required";
+		document.getElementById("lName").focus();
+	} 
+ 	if (vfName == "") {
+        document.getElementById("msg1").innerHTML = "Input Required";
+		document.getElementById("fName").focus();
+    } 
+	if (vfName == ""||vlName == ""||vAddress == ""||vCity == ""||vState == ""||vZipCode == ""||vccNbr == ""||vccSec == "") {
+//		loadForm();
+		return false;
+	} else if (localStorage && localStorage.getItem("sCart") && vCartCnt > 0 ) {
+			window.location.href="order.html";		
+	} else {
+			document.getElementById("displayCart").style.color = "red";
+			document.getElementById("displayCart").innerHTML = "No Items in Cart. Add products before Check Out";
+			return false;
+	}
+}
+
+function shop() {
+	if (localStorage && localStorage.getItem("sCart")) {
+		window.location.href="flowerShop.html";		
+	} else {
+		document.getElementById("displayCart").style.color = "red";
+		document.getElementById("displayCart").innerHTML = "No Items in Cart. Add products before Check Out";
+		return false;
+	}
+}
+
+/*  VALIDATE AGE
 //	alert("HTML ageMsg before: " + document.getElementById('ageMsg').innerHTML);
 //Validate age is between 1 and 118
 function valAge() {
@@ -352,9 +467,7 @@ function valAge() {
 			return false;
 	} */
 
-
-//Validate Social Security Number entered in proper format
-/*
+/*  VALIDATE SOCIAL SECURITY NUMBER entered in proper format
 function valSSN() {
 	var x = document.form2.fssn.value.trim();
 	console.log('ssn = ' + x);
