@@ -1,0 +1,47 @@
+{ "physiology" :
+[{ 
+	"id":1, 
+	"BannerPic":"Insert address of banner background picture here", 
+	"Picture":"../images/AnnBaldwin.png", 
+	"Title":"Mind-Body-Science", 
+	"Headline":"Understanding your own biological processes for well-being.", 
+	"ReadMore":"aBaldwin.html"
+},{
+	"id":2, 
+	"BannerPic":"https://physiological-sciences.arizona.edu/sites/default/files/physiosci-alternate-reverse.png", 
+	"Picture":"../images/DrNicholasDelamere.jpg", 
+	"Title":"Insert appropriat title here",  
+	"Headline":"Insert Headline text here",
+	"ReadMore":"page2.html" 
+/* https://profiles.arizona.edu/person/delamere */
+},{
+	"id":3, 
+	"BannerPic":"https://physiological-sciences.arizona.edu/sites/default/files/physiosci-alternate-reverse.png", 
+	"Picture":"../images/ZeoCohen.jpg", 
+	"Title":"Insert appropriat title here", 
+	"Headline":"Insert Headline text here", 
+	"ReadMore":"page3.html"
+/* https://profiles.arizona.edu/person/zcohen  */
+},{
+	"id":4, 
+	"BannerPic":"https://physiological-sciences.arizona.edu/sites/default/files/physiosci-alternate-reverse.png", 
+	"Picture":"../images/ZeoCohen.jpg", 
+	"Title":"Insert appropriat title here", 
+	"Headline":"Insert Headline text here", 
+	"ReadMore":"page3.html"
+	
+/* https://profiles.arizona.edu/person/ericprice */
+},{
+	"id":5, 
+	"BannerPic":"https://physiological-sciences.arizona.edu/sites/default/files/physiosci-alternate-reverse.png", 
+	"Picture":"../images/EricPrice.jpg", 
+	"Title":"Insert appropriat title here", 
+	"Headline":"Insert Headline text here", 
+	"ReadMore":"page5.html" 
+/* https://profiles.arizona.edu/person/crankin */
+}]
+}
+Zoe Cohen
+Price
+Keen
+Lucinda Rankin
